@@ -1,0 +1,38 @@
+services:
+  wordpress:
+    image: wordpress:latest
+    platform: linux/amd64
+    ports:
+      - "8000:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: rootpass
+      WORDPRESS_DB_NAME: cms-kudhai-v2
+    volumes:
+      - ./:/var/www/html
+
+  db:
+    image: mysql:5.7
+    platform: linux/amd64
+    ports:
+      - "3309:3306"   # 👈 เพิ่มอันนี้
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: cms-kudhai-v2
+    volumes:
+      - cms-kudhai-v2:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    platform: linux/amd64
+    ports:
+      - "8080:80"
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: rootpass
+
+volumes:
+  cms-kudhai-v2:
+  
+  ##l4d%!SfQn^tNgStL3
