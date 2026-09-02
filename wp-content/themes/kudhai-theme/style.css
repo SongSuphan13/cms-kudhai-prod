@@ -48,6 +48,18 @@ Text Domain: kudhai-theme
     top:0; left:0; right:0;
     z-index:100;
   }
+  .site-header::before{
+    content:"";
+    display:block;
+    height:3px;
+    background:linear-gradient(90deg, var(--color-secondary), var(--color-primary-light), var(--color-secondary));
+    background-size:200% 100%;
+    animation:kudhai-header-shimmer 7s linear infinite;
+  }
+  @keyframes kudhai-header-shimmer{
+    0%{ background-position:0% 0; }
+    100%{ background-position:200% 0; }
+  }
 
   .top-bar{
     background:var(--color-ink);
@@ -59,10 +71,18 @@ Text Domain: kudhai-theme
     display:flex;
     flex-wrap:wrap;
     align-items:center;
-    justify-content:flex-end;
+    justify-content:space-between;
     gap:10px 24px;
     padding:8px 24px;
   }
+  .top-bar-contact{ display:flex; align-items:center; gap:10px 24px; flex-wrap:wrap; margin-left:auto; }
+  .top-bar .rating{
+    display:flex; align-items:center; gap:6px;
+    font-family:'Prompt', sans-serif; font-size:12.8px; font-weight:500;
+    color:rgba(255,255,255,0.78); white-space:nowrap;
+  }
+  .top-bar .rating svg{ width:14px;height:14px; color:var(--color-secondary); flex-shrink:0; }
+  .top-bar .rating b{ color:#fff; font-weight:600; }
   .top-bar a{
     display:flex;
     align-items:center;
@@ -84,6 +104,7 @@ Text Domain: kudhai-theme
   .navbar{ padding:20px 24px 0; }
   @media (max-width:640px){
     .top-bar-inner{ padding:8px 14px; gap:8px 14px; justify-content:center; }
+    .top-bar-contact{ margin-left:0; justify-content:center; }
     .top-bar a{ font-size:12px; }
   }
   .nav-inner{
@@ -118,6 +139,7 @@ Text Domain: kudhai-theme
   }
   .nav-logo span:last-child{ overflow:hidden; text-overflow:ellipsis; white-space:nowrap; min-width:0; }
   .nav-logo .mark{
+    position:relative;
     width:38px;height:38px;
     border-radius:50%;
     background:linear-gradient(150deg, var(--color-secondary), #ffcf6e);
@@ -125,22 +147,56 @@ Text Domain: kudhai-theme
     flex-shrink:0;
     box-shadow:0 4px 10px -2px rgba(240,169,58,0.55);
   }
-  .nav-logo .mark svg{ width:19px;height:19px; color:var(--color-primary-dark); }
+  .nav-logo .mark::before{
+    content:"";
+    position:absolute;
+    inset:-5px;
+    border-radius:50%;
+    border:1.5px solid rgba(240,169,58,0.55);
+    animation:kudhai-logo-pulse 2.6s ease-out infinite;
+  }
+  @keyframes kudhai-logo-pulse{
+    0%{ transform:scale(0.82); opacity:0.9; }
+    75%,100%{ transform:scale(1.4); opacity:0; }
+  }
+  .nav-logo .mark svg{ width:19px;height:19px; color:var(--color-primary-dark); position:relative; }
   .nav-links{
     display:flex;
     align-items:center;
-    gap:36px;
+    gap:24px;
   }
   .nav-links a{
     font-family:'Prompt', sans-serif;
-    font-size:14.5px;
+    font-size:14px;
     font-weight:500;
     color:rgba(255,255,255,0.82);
     transition:color .2s ease;
     position:relative;
+    white-space:nowrap;
+    padding-bottom:4px;
+  }
+  .nav-links a::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-2px;
+    height:2px;
+    border-radius:2px;
+    background:var(--color-secondary);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .25s ease;
   }
   .nav-links a:hover{ color:var(--color-secondary); }
+  .nav-links a:hover::after,
+  .nav-links a.active::after{ transform:scaleX(1); }
+  .nav-links a.active{ color:#fff; }
   .nav-cta{
+    position:relative;
+    overflow:hidden;
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    white-space:nowrap;
     font-family:'Prompt', sans-serif;
     font-weight:600;
     font-size:14px;
@@ -150,6 +206,20 @@ Text Domain: kudhai-theme
     border-radius:999px;
     transition:transform .2s ease, background .2s ease, box-shadow .2s ease;
     box-shadow:0 8px 18px -8px rgba(240,169,58,0.55);
+  }
+  .nav-cta svg{ width:15px;height:15px; flex-shrink:0; }
+  .nav-cta::before{
+    content:"";
+    position:absolute;
+    top:0; left:-60%;
+    width:35%; height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,0.65), transparent);
+    transform:skewX(-20deg);
+    animation:kudhai-cta-shine 3.4s ease-in-out infinite;
+  }
+  @keyframes kudhai-cta-shine{
+    0%{ left:-60%; }
+    45%,100%{ left:130%; }
   }
   .nav-cta:hover{ transform:translateY(-2px); background:#ffbf5c; }
   .nav-toggle{
@@ -185,8 +255,15 @@ Text Domain: kudhai-theme
     padding:12px 4px;
     border-bottom:1px solid rgba(255,255,255,0.08);
     font-size:15px;
+    border-left:2px solid transparent;
+    transition:color .2s ease, border-color .2s ease, padding-left .2s ease;
   }
-  .nav-mobile-panel .nav-cta{ margin-top:12px; text-align:center; }
+  .nav-mobile-panel a.active{
+    color:var(--color-secondary);
+    border-left-color:var(--color-secondary);
+    padding-left:10px;
+  }
+  .nav-mobile-panel .nav-cta{ margin-top:12px; justify-content:center; border-left:none; }
 
   @media (max-width:900px){
     .nav-links{ display:none; }
@@ -364,80 +441,56 @@ Text Domain: kudhai-theme
   }
   .btn-ghost:hover{ background:rgba(255,255,255,0.1); transform:translateY(-3px); }
 
-  /* hero quick quote card */
-  .hero-quote{
+  /* hero car-insurance promo card */
+  .hero-card{
     background:rgba(255,255,255,0.08);
     border:1px solid rgba(255,255,255,0.22);
     backdrop-filter:blur(8px);
     border-radius:20px;
-    padding:26px 26px 24px;
-    margin-top:8px;
+    padding:30px 28px 28px;
   }
-  .hero-quote-head{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    margin-bottom:16px;
-  }
-  .hero-quote-head .icon{
-    width:38px;height:38px;
-    border-radius:10px;
+  .hero-card-badge{
+    width:48px;height:48px;
+    border-radius:14px;
     background:var(--color-secondary);
     display:flex;align-items:center;justify-content:center;
-    flex-shrink:0;
+    margin-bottom:18px;
   }
-  .hero-quote-head .icon svg{ width:19px;height:19px; color:var(--color-primary-dark); }
-  .hero-quote-head h3{
+  .hero-card-badge svg{ width:24px;height:24px; color:var(--color-primary-dark); }
+  .hero-card h3{
     color:#fff;
-    font-size:16px;
-    font-weight:600;
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:8px;
   }
-  .hero-quote-head span{
-    display:block;
-    font-size:12.5px;
-    color:rgba(255,255,255,0.65);
-  }
-  .hero-quote-row{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:10px;
-    margin-bottom:10px;
-  }
-  .hero-quote-row .full{ grid-column:1 / -1; }
-  .hero-quote input{
-    width:100%;
-    font-family:'IBM Plex Sans Thai', sans-serif;
+  .hero-card p{
     font-size:14px;
-    padding:12px 13px;
-    border-radius:10px;
-    border:1.5px solid rgba(255,255,255,0.28);
-    background:rgba(255,255,255,0.96);
-    color:var(--color-ink);
+    color:rgba(255,255,255,0.75);
+    line-height:1.7;
+    margin-bottom:20px;
   }
-  .hero-quote input::placeholder{ color:var(--color-muted); }
-  .hero-quote input:focus{
-    outline:none;
-    border-color:var(--color-secondary);
-    box-shadow:0 0 0 4px rgba(240,169,58,0.22);
+  .hero-card-list{
+    display:flex;
+    flex-direction:column;
+    gap:11px;
+    margin-bottom:24px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,0.16);
   }
-  .hero-quote-submit{
+  .hero-card-list li{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    font-size:13.8px;
+    color:rgba(255,255,255,0.9);
+  }
+  .hero-card-list li svg{ width:17px;height:17px; color:var(--color-secondary); flex-shrink:0; }
+  .hero-card-btn{
     width:100%;
     justify-content:center;
+    gap:8px;
     border:none;
-    font-size:15px;
-    padding:14px;
-    margin-top:4px;
   }
-  .hero-quote-success{
-    display:none;
-    align-items:center;
-    gap:10px;
-    font-size:13.5px;
-    color:#c9f7d3;
-    margin-top:12px;
-  }
-  .hero-quote-success.show{ display:flex; }
-  .hero-quote-success svg{ width:17px;height:17px; flex-shrink:0; }
 
   /* ================= PROBLEMS ================= */
   .problems{ padding:96px 0; }
@@ -706,105 +759,41 @@ Text Domain: kudhai-theme
     .vs-divider{ margin:0 auto; }
   }
 
-  .coverage-card.cta{
+  .coverage-card.cta-poster{
     grid-column:span 2;
     position:relative;
-    overflow:hidden;
-    background:linear-gradient(125deg, #ffcf6e 0%, var(--color-secondary) 55%, #d1861f 130%);
+    padding:0;
     border:none;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    padding:30px 32px;
-    text-decoration:none;
-    box-shadow:0 16px 36px -18px rgba(209,134,31,0.6);
-    transition:transform .25s ease, box-shadow .25s ease;
+    box-shadow:none;
+    background:none;
   }
-  .coverage-card.cta::before{
-    content:"";
+  .coverage-card.cta-poster img{
     position:absolute;
-    top:-60px; right:-60px;
-    width:180px; height:180px;
-    border-radius:50%;
-    background:rgba(255,255,255,0.22);
-    pointer-events:none;
+    inset:0;
+    margin:0 auto;
+    width:auto;
+    height:100%;
+    max-width:100%;
+    object-fit:contain;
+    border-radius:var(--radius);
+    transition:transform .3s ease;
   }
-  .coverage-card.cta::after{
-    content:"";
-    position:absolute;
-    bottom:-70px; right:60px;
-    width:140px; height:140px;
-    border-radius:50%;
-    background:rgba(10,28,56,0.08);
-    pointer-events:none;
-  }
-  .coverage-card.cta:hover{
-    transform:translateY(-5px);
-    box-shadow:0 22px 44px -16px rgba(209,134,31,0.65);
-  }
-  .cta-eyebrow{
-    position:relative;
-    z-index:1;
-    display:inline-flex;
-    align-self:flex-start;
-    font-family:'Prompt', sans-serif;
-    font-weight:600;
-    font-size:11.5px;
-    letter-spacing:.04em;
-    color:var(--color-primary-dark);
-    background:rgba(255,255,255,0.55);
-    padding:5px 12px;
-    border-radius:999px;
-    margin-bottom:16px;
-  }
-  .cta-body{
-    position:relative;
-    z-index:1;
-    display:flex;
-    align-items:center;
-    gap:18px;
-  }
-  .coverage-card.cta .cta-icon{
-    width:56px; height:56px;
-    border-radius:16px;
-    background:rgba(255,255,255,0.9);
-    display:flex; align-items:center; justify-content:center;
-    flex-shrink:0;
-    box-shadow:0 8px 16px -6px rgba(10,28,56,0.35);
-  }
-  .coverage-card.cta .cta-icon svg{ width:27px;height:27px; color:var(--color-primary-dark); }
-  .coverage-card.cta .cta-text{ flex:1; }
-  .coverage-card.cta h3{
-    font-size:19px;
-    color:var(--color-primary-dark);
-    margin-bottom:4px;
-  }
-  .coverage-card.cta p{
-    font-size:13.5px;
-    color:rgba(10,28,56,0.78);
-    line-height:1.5;
-  }
-  .coverage-card.cta .cta-arrow{
-    width:40px;height:40px;
-    border-radius:50%;
-    background:var(--color-primary-dark);
-    display:flex; align-items:center; justify-content:center;
-    flex-shrink:0;
-    transition:transform .25s ease, background .25s ease;
-  }
-  .coverage-card.cta .cta-arrow svg{ width:18px;height:18px; color:#fff; transition:transform .25s ease; }
-  .coverage-card.cta:hover .cta-arrow{ background:var(--color-primary); }
-  .coverage-card.cta:hover .cta-arrow svg{ transform:translateX(3px); }
+  .coverage-card.cta-poster:hover img{ transform:scale(1.02); }
 
   @media (max-width:900px){
     .coverage-grid{ grid-template-columns:1fr 1fr; }
-    .coverage-card.cta{ grid-column:span 2; }
+    .coverage-card.cta-poster{ grid-column:span 2; }
     #save-premium .coverage-grid{ grid-template-columns:1fr 1fr; }
   }
   @media (max-width:560px){
     .coverage-grid{ grid-template-columns:1fr; }
-    .coverage-card.cta{ grid-column:span 1; padding:26px 24px; }
-    .cta-body{ align-items:flex-start; }
+    .coverage-card.cta-poster{ grid-column:span 1; position:static; }
+    .coverage-card.cta-poster img{
+      position:static;
+      width:100%;
+      height:auto;
+      max-width:none;
+    }
     #save-premium .coverage-grid{ grid-template-columns:1fr; }
   }
 

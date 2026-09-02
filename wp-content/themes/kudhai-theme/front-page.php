@@ -23,35 +23,30 @@
     </div>
 
     <div>
-      <div class="hero-quote">
-        <div class="hero-quote-head">
-          <div>
-            <h3>ขอใบเสนอราคาประกันฟรี</h3>
-            <span>กรอกแค่ชื่อกับเบอร์ ทีมงานติดต่อกลับให้</span>
-          </div>
+      <div class="hero-card">
+        <div class="hero-card-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17v-4.5a1 1 0 0 1 .3-.7l1.9-1.9A2 2 0 0 1 7.6 9h8.8a2 2 0 0 1 1.4.6l1.9 1.9a1 1 0 0 1 .3.7V17M4 17h16M4 17a1.5 1.5 0 0 0 3 0M17 17a1.5 1.5 0 0 0 3 0M4 13h16"/></svg>
         </div>
-        <form id="heroQuoteForm" novalidate>
-          <div class="hero-quote-row">
-            <input type="text" id="heroQName" placeholder="ชื่อ-นามสกุล" required>
-            <input type="tel" id="heroQPhone" placeholder="เบอร์โทรศัพท์" required>
-          </div>
-          <div class="hero-quote-row">
-            <input type="text" id="heroQMake" placeholder="ยี่ห้อรถ">
-            <input type="text" id="heroQModel" placeholder="รุ่นรถ">
-          </div>
-          <div class="hero-quote-row">
-            <input type="text" id="heroQSubmodel" placeholder="รุ่นย่อย">
-            <input type="text" id="heroQYear" placeholder="ปีรถ">
-          </div>
-          <div class="hero-quote-row">
-            <input type="text" id="heroQProvince" class="full" placeholder="จังหวัดที่จดทะเบียน">
-          </div>
-          <button type="submit" class="btn btn-primary hero-quote-submit">ขอใบเสนอราคา</button>
-        </form>
-        <div class="hero-quote-success" id="heroQuoteSuccess">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg>
-          รับข้อมูลแล้ว ทีมงานจะติดต่อกลับเร็ว ๆ นี้
-        </div>
+        <h3>ซื้อประกันรถยนต์ออนไลน์</h3>
+        <p>เปรียบเทียบแผนจากหลายบริษัท เลือกความคุ้มครองที่ใช่ ซื้อได้ทันทีไม่ต้องรอ</p>
+        <ul class="hero-card-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg>
+            เปรียบเทียบฟรี ไม่มีค่าใช้จ่าย
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg>
+            อนุมัติไว รับกรมธรรม์ทันที
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg>
+            ให้บริการหลักโดย รู้ใจ ประกันภัย
+          </li>
+        </ul>
+        <a href="<?php echo esc_url( home_url( '/insurance-types/' ) ); ?>" class="btn btn-primary hero-card-btn">
+          ดูแผนประกันรถยนต์
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
       </div>
     </div>
   </div>
@@ -289,20 +284,8 @@
         </div>
       </div>
 
-      <a href="<?php echo esc_url( kudhai_get_line_url() ); ?>" target="_blank" rel="noopener" class="coverage-card cta">
-        <span class="cta-eyebrow">ฟรี · ไม่มีค่าใช้จ่าย</span>
-        <div class="cta-body">
-          <div class="cta-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-          </div>
-          <div class="cta-text">
-            <h3>เช็คเบี้ยรู้ใจประกันภัย</h3>
-            <p>เปรียบเทียบเบี้ยประกันแบบออนไลน์ได้ทันที ก่อนตัดสินใจซื้อ</p>
-          </div>
-          <span class="cta-arrow">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
-        </div>
+      <a href="<?php echo esc_url( home_url( '/insurance-companies/roojai/' ) ); ?>" class="coverage-card cta-poster">
+        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/QRCodeTH20260902.png" alt="สแกน QR โค้ด รู้ใจ ประกันภัย เพื่อขอใบเสนอราคาประกันรถยนต์ มอเตอร์ไซค์ และอุบัติเหตุ" loading="lazy">
       </a>
 
     </div>

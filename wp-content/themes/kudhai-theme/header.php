@@ -11,15 +11,21 @@
 <header class="site-header" id="siteHeader">
   <div class="top-bar">
     <div class="top-bar-inner">
-      <a href="tel:<?php echo esc_attr( str_replace( '-', '', kudhai_get_phone() ) ); ?>">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.36 1.78.7 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.27a2 2 0 0 1 2.11-.45c.82.34 1.7.58 2.6.7A2 2 0 0 1 22 16.92z"/></svg>
-        <span><?php echo esc_html( kudhai_get_phone() ); ?></span>
-      </a>
-      <span class="divider"></span>
-      <a href="<?php echo esc_url( kudhai_get_line_url() ); ?>" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 2.66 1.4 5.02 3.6 6.6-.12 1.14-.5 2.6-1.4 3.8 0 0 2.24-.1 4.4-1.6 1.06.32 2.2.5 3.4.5 5.52 0 10-3.94 10-8.8S17.52 2 12 2z"/></svg>
-        <span>LINE ID: <?php echo esc_html( kudhai_get_line_id() ); ?></span>
-      </a>
+      <span class="rating">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/></svg>
+        <b>4.9/5</b> จาก 157,729 รีวิว
+      </span>
+      <div class="top-bar-contact">
+        <a href="tel:<?php echo esc_attr( str_replace( '-', '', kudhai_get_phone() ) ); ?>">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.36 1.78.7 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.27a2 2 0 0 1 2.11-.45c.82.34 1.7.58 2.6.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span><?php echo esc_html( kudhai_get_phone() ); ?></span>
+        </a>
+        <span class="divider"></span>
+        <a href="<?php echo esc_url( kudhai_get_line_url() ); ?>" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 2.66 1.4 5.02 3.6 6.6-.12 1.14-.5 2.6-1.4 3.8 0 0 2.24-.1 4.4-1.6 1.06.32 2.2.5 3.4.5 5.52 0 10-3.94 10-8.8S17.52 2 12 2z"/></svg>
+          <span>LINE ID: <?php echo esc_html( kudhai_get_line_id() ); ?></span>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -40,7 +46,10 @@
         <a href="<?php echo esc_url( home_url( '/articles/' ) ); ?>" <?php echo ( is_page( 'articles' ) || is_singular( 'post' ) ) ? 'class="active"' : ''; ?>>บทความ</a>
         <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" <?php echo is_page( 'about' ) ? 'class="active"' : ''; ?>>เกี่ยวกับเรา</a>
         <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>">ติดต่อเรา</a>
-        <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" class="nav-cta">ปรึกษาฟรี</a>
+        <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" class="nav-cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.9-.95L3 20l1.05-3.6A8.5 8.5 0 1 1 21 11.5z"/></svg>
+        ปรึกษาฟรี
+      </a>
       </div>
       <button type="button" class="nav-toggle" id="navToggle" aria-label="เปิดเมนู" aria-expanded="false" aria-controls="navMobilePanel">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -54,7 +63,10 @@
       <a href="<?php echo esc_url( home_url( '/articles/' ) ); ?>" <?php echo ( is_page( 'articles' ) || is_singular( 'post' ) ) ? 'class="active"' : ''; ?>>บทความ</a>
       <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" <?php echo is_page( 'about' ) ? 'class="active"' : ''; ?>>เกี่ยวกับเรา</a>
       <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>">ติดต่อเรา</a>
-      <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" class="nav-cta">ปรึกษาฟรี</a>
+      <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" class="nav-cta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.9-.95L3 20l1.05-3.6A8.5 8.5 0 1 1 21 11.5z"/></svg>
+        ปรึกษาฟรี
+      </a>
     </div>
   </nav>
 </header>

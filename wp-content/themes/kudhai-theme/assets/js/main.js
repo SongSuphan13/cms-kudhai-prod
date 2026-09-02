@@ -58,28 +58,6 @@
   });
   }
 
-  // hero quick quote form — captures info, hands off to the full quote form below
-  const heroQuoteForm = document.getElementById('heroQuoteForm');
-  const heroQuoteSuccess = document.getElementById('heroQuoteSuccess');
-  if (heroQuoteForm) {
-  heroQuoteForm.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    if(!heroQuoteForm.checkValidity()){
-      heroQuoteForm.reportValidity();
-      return;
-    }
-    document.getElementById('qName').value = document.getElementById('heroQName').value;
-    document.getElementById('qPhone').value = document.getElementById('heroQPhone').value;
-    document.getElementById('qMake').value = document.getElementById('heroQMake').value;
-    document.getElementById('qModel').value = document.getElementById('heroQModel').value;
-    document.getElementById('qSubmodel').value = document.getElementById('heroQSubmodel').value;
-    document.getElementById('qYear').value = document.getElementById('heroQYear').value;
-    document.getElementById('qProvince').value = document.getElementById('heroQProvince').value;
-    heroQuoteSuccess.classList.add('show');
-    heroQuoteForm.reset();
-  });
-  }
-
   // case assessment chatbot — branching decision tree for a more thorough assessment
   const chatBody = document.getElementById('chatBody');
   const chatOptions = document.getElementById('chatOptions');
