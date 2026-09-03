@@ -23,7 +23,7 @@
   </span>
 </a>
 
-<button type="button" class="assess-float" id="assessFloatBtn" aria-label="ประเมินเคสเบื้องต้น">
+<!-- <button type="button" class="assess-float" id="assessFloatBtn" aria-label="ประเมินเคสเบื้องต้น">
   <span class="icon-wrap">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
   </span>
@@ -47,6 +47,25 @@
       <div class="chat-progress"><div class="chat-progress-bar" id="chatProgressBar"></div></div>
       <div class="chat-body" id="chatBody"></div>
       <div class="chat-options" id="chatOptions"></div>
+    </div>
+  </div>
+</div> -->
+
+<div class="call-modal-overlay" id="callModalOverlay">
+  <div class="call-modal">
+    <button type="button" class="call-modal-close" id="callModalClose" aria-label="ปิด">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="call-modal-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+    </div>
+    <h2>ขณะนี้อยู่นอกเวลาทำการ</h2>
+    <p>เราให้บริการทุกวัน 08:00 – 22:00 น. ฝากข้อมูลไว้ทาง LINE ได้เลยตอนนี้ ทีมงานจะติดต่อกลับทันทีที่เปิดทำการ</p>
+    <div class="call-modal-actions">
+      <a href="<?php echo esc_url( kudhai_get_line_url() ); ?>" target="_blank" rel="noopener" class="btn btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 2.66 1.4 5.02 3.6 6.6-.12 1.14-.5 2.6-1.4 3.8 0 0 2.24-.1 4.4-1.6 1.06.32 2.2.5 3.4.5 5.52 0 10-3.94 10-8.8S17.52 2 12 2z"/></svg>
+        ฝากข้อมูลทาง LINE
+      </a>
     </div>
   </div>
 </div>

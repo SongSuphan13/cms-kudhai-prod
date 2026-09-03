@@ -34,11 +34,13 @@
   navToggle.addEventListener('click', () => {
     const isOpen = navMobilePanel.classList.toggle('open');
     navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    document.body.classList.toggle('nav-menu-open', isOpen);
   });
   navMobilePanel.querySelectorAll('a').forEach(a=>{
     a.addEventListener('click', ()=> {
       navMobilePanel.classList.remove('open');
       navToggle.setAttribute('aria-expanded','false');
+      document.body.classList.remove('nav-menu-open');
     });
   });
 
@@ -56,6 +58,35 @@
     quoteForm.reset();
     formSuccess.scrollIntoView({ behavior:'smooth', block:'center' });
   });
+  }
+
+  // outside business hours (08:00–22:00 daily), send call buttons to the LINE modal instead of dialing
+  const BUSINESS_HOURS_START = 8;
+  const BUSINESS_HOURS_END = 22;
+  const callModalOverlay = document.getElementById('callModalOverlay');
+  const callModalClose = document.getElementById('callModalClose');
+  if (callModalOverlay && callModalClose) {
+    const isBusinessHours = () => {
+      const hour = new Date().getHours();
+      return hour >= BUSINESS_HOURS_START && hour < BUSINESS_HOURS_END;
+    };
+    const openCallModal = () => callModalOverlay.classList.add('open');
+    const closeCallModal = () => callModalOverlay.classList.remove('open');
+    document.querySelectorAll('a[href^="tel:"]').forEach((a) => {
+      a.addEventListener('click', (e) => {
+        if (!isBusinessHours()) {
+          e.preventDefault();
+          openCallModal();
+        }
+      });
+    });
+    callModalClose.addEventListener('click', closeCallModal);
+    callModalOverlay.addEventListener('click', (e) => {
+      if (e.target === callModalOverlay) { closeCallModal(); }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && callModalOverlay.classList.contains('open')) { closeCallModal(); }
+    });
   }
 
   // case assessment chatbot — branching decision tree for a more thorough assessment

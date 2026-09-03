@@ -1563,6 +1563,8 @@ Text Domain: kudhai-theme
   @media (max-width:560px){
     .assess-float{ right:14px; bottom:76px; width:50px; height:50px; }
   }
+  body.nav-menu-open .line-float,
+  body.nav-menu-open .assess-float{ display:none; }
 
   /* ================= ASSESS MODAL ================= */
   .assess-modal-overlay{
@@ -1695,6 +1697,60 @@ Text Domain: kudhai-theme
     .intro-modal{ padding:28px 22px 24px; }
     .intro-modal-actions{ flex-direction:column-reverse; }
     .intro-modal-actions .btn{ width:100%; justify-content:center; }
+  }
+
+  /* ================= CALL OFFLINE MODAL ================= */
+  .call-modal-overlay{
+    position:fixed;
+    inset:0;
+    z-index:300;
+    background:rgba(8,14,26,0.6);
+    backdrop-filter:blur(4px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+  }
+  .call-modal-overlay.open{ display:flex; }
+  .call-modal{
+    position:relative;
+    width:100%;
+    max-width:420px;
+    background:#fff;
+    border-radius:24px;
+    padding:36px 34px 30px;
+    text-align:center;
+    box-shadow:0 30px 60px -20px rgba(8,14,26,0.5);
+    animation:intro-modal-in .3s ease both;
+  }
+  .call-modal-close{
+    position:absolute;
+    top:18px;
+    right:18px;
+    width:34px;height:34px;
+    border-radius:50%;
+    background:var(--color-paper-alt);
+    border:1px solid var(--color-line);
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;
+    transition:background .2s ease;
+  }
+  .call-modal-close:hover{ background:var(--color-line); }
+  .call-modal-close svg{ width:16px;height:16px; color:var(--color-ink); }
+  .call-modal-icon{
+    width:52px;height:52px; margin:0 auto 18px;
+    border-radius:50%;
+    background:var(--color-paper-alt);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .call-modal-icon svg{ width:26px;height:26px; color:var(--color-primary); }
+  .call-modal h2{ font-size:20px; font-weight:700; margin-bottom:10px; }
+  .call-modal p{ font-size:14.3px; line-height:1.75; color:var(--color-muted); margin-bottom:26px; }
+  .call-modal-actions .btn{ width:100%; justify-content:center; padding:13px 22px; font-size:14.5px; border:none; cursor:pointer; }
+  .call-modal-actions .btn-primary{ background:#06C755; color:#fff; }
+  .call-modal-actions .btn-primary:hover{ background:#05a847; }
+  @media (max-width:560px){
+    .call-modal{ padding:28px 22px 24px; }
   }
 
   /* ================= COMPANY DETAIL MODAL CONTENT ================= */
