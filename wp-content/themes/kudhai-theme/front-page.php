@@ -269,7 +269,7 @@
           <h3>รถไฟฟ้า (EV)</h3>
           <span class="coverage-card-badge alt">สำหรับ EV</span>
         </div>
-        <p class="coverage-card-tag">ออกแบบเฉพาะรถยนต์ไฟฟ้า ครอบคลุมระบบแบตเตอรี่</p>
+        <p class="coverage-card-tag">ออกแบบเฉพาะรถยนต์ไฟฟ้า ครอบคลุมรุ่นรถ EV มากที่สุดในตลาด</p>
         <ul class="coverage-list">
           <li class="cov-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg>คุ้มครองแบตเตอรี่และมอเตอร์ไฟฟ้า</li>
           <li class="cov-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg>ซ่อมรถตัวเอง ทั้งมีและไม่มีคู่กรณี</li>
@@ -277,6 +277,7 @@
           <li class="cov-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg>ไฟไหม้ / ระเบิดจากแบตเตอรี่</li>
           <li class="cov-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg>อุปกรณ์ชาร์จและสายชาร์จ</li>
           <li class="cov-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg>รถยกฉุกเฉิน ส่งศูนย์บริการรถ EV เฉพาะทาง</li>
+          <li class="cov-yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg>เลือกซื้อความคุ้มครองแบตเตอรี่เพิ่มเติมได้</li>
         </ul>
         <div class="coverage-premium">
           <div class="label">ระดับเบี้ยประกัน</div>
@@ -284,8 +285,8 @@
         </div>
       </div>
 
-      <a href="<?php echo esc_url( home_url( '/insurance-companies/roojai/' ) ); ?>" class="coverage-card cta-poster">
-        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/QRCodeTH20260902.png" alt="สแกน QR โค้ด รู้ใจ ประกันภัย เพื่อขอใบเสนอราคาประกันรถยนต์ มอเตอร์ไซค์ และอุบัติเหตุ" loading="lazy">
+      <a href="<?php echo esc_url( kudhai_get_qrcode_link_url() ); ?>" target="_blank" rel="noopener" class="coverage-card cta-poster">
+        <img src="<?php echo esc_url( kudhai_get_qrcode_url() ); ?>" alt="สแกน QR โค้ด รู้ใจ ประกันภัย เพื่อขอใบเสนอราคาประกันรถยนต์ มอเตอร์ไซค์ และอุบัติเหตุ" loading="lazy">
       </a>
 
     </div>
@@ -725,6 +726,11 @@
           อ่านเพิ่มเติมเรื่องมูลละเมิด
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
+      </div>
+      <div class="intro-modal-block">
+        <h3>ทำไมควรซื้อกับเรา</h3>
+        <p>ซื้อกับเรา ไม่ใช่เพราะเราให้ <strong>ส่วนลด</strong> หรือ <strong>ของแถม</strong> มากที่สุด แต่เพราะเราให้ <strong>คำปรึกษาที่ตรงกับคุณที่สุด</strong> พร้อม <strong>แบ่งชำระได้สูงสุด 10 เดือน</strong></p>
+        <p>และแม้ครั้งนี้คุณจะยังไม่ได้ซื้อประกันกับเรา เราก็ยินดีให้คำปรึกษาเรื่อง<strong>การเรียกร้องค่าสินไหม ฟรี ไม่มีค่าใช้จ่าย</strong> ขอเพียงแค่ครั้งนี้คุณ<strong>เรียกร้องได้ตามที่ตั้งใจไว้</strong> แล้วค่อยกลับมาซื้อกับเรา</p>
       </div>
     </div>
     <div class="intro-modal-actions">

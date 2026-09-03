@@ -76,7 +76,7 @@
           </div>
           <div>
             <h3>ประกันรถยนต์ไฟฟ้า (EV)</h3>
-            <p>แผนเฉพาะสำหรับรถยนต์ไฟฟ้า ครอบคลุมระบบแบตเตอรี่ มอเตอร์ไฟฟ้า และอุปกรณ์ชาร์จ</p>
+            <p>แผนเฉพาะสำหรับรถยนต์ไฟฟ้า ครอบคลุมรุ่นรถ EV มากที่สุดในตลาด ทั้งระบบแบตเตอรี่ มอเตอร์ไฟฟ้า และอุปกรณ์ชาร์จ พร้อมเลือกซื้อความคุ้มครองแบตเตอรี่เพิ่มเติมได้</p>
           </div>
         </div>
         <div class="company-provider">
@@ -84,11 +84,13 @@
           <span>ให้บริการโดย <b>รู้ใจ ประกันภัย</b></span>
         </div>
         <div class="company-tags">
+          <span class="company-tag">ครอบคลุมรุ่นรถมากสุดในตลาด</span>
           <span class="company-tag">แบตเตอรี่</span>
           <span class="company-tag">มอเตอร์ไฟฟ้า</span>
           <span class="company-tag">สายชาร์จ</span>
+          <span class="company-tag">ซื้อคุ้มครองแบตเพิ่มได้</span>
         </div>
-        <div class="company-coverage"><b>เหมาะกับ:</b> เจ้าของรถยนต์ไฟฟ้า (EV) ทุกรุ่น</div>
+        <div class="company-coverage"><b>เหมาะกับ:</b> เจ้าของรถยนต์ไฟฟ้า (EV) ทุกรุ่น ครอบคลุมรุ่นรถมากที่สุดในตลาด</div>
         <div class="btn-row">
           <a href="<?php echo esc_url( home_url( '/insurance-companies/roojai/' ) ); ?>" class="btn-sm">
             ดูรายละเอียดรู้ใจ

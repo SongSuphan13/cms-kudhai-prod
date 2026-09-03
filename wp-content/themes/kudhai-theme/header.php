@@ -11,10 +11,10 @@
 <header class="site-header" id="siteHeader">
   <div class="top-bar">
     <div class="top-bar-inner">
-      <span class="rating">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.6 7-6.2-3.7-6.2 3.7 1.6-7-5.4-4.7 7.1-.6z"/></svg>
-        <b>4.9/5</b> จาก 157,729 รีวิว
-      </span>
+      <a href="<?php echo esc_url( home_url( '/mun-lamert/' ) ); ?>" class="rating">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"/></svg>
+        <b>มูลละเมิด</b> คืออะไร? สิทธิ์ที่คุณอาจไม่รู้
+      </a>
       <div class="top-bar-contact">
         <a href="tel:<?php echo esc_attr( str_replace( '-', '', kudhai_get_phone() ) ); ?>">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.36 1.78.7 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.27a2 2 0 0 1 2.11-.45c.82.34 1.7.58 2.6.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -43,7 +43,7 @@
 
         <a href="<?php echo esc_url( home_url( '/insurance-types/' ) ); ?>" <?php echo is_page( 'insurance-types' ) ? 'class="active"' : ''; ?>>ประกันภัยทั้งหมด</a>
         <a href="<?php echo esc_url( home_url( '/insurance-companies/' ) ); ?>" <?php echo is_page( 'insurance-companies' ) ? 'class="active"' : ''; ?>>บริษัทประกัน</a>
-        <a href="<?php echo esc_url( home_url( '/articles/' ) ); ?>" <?php echo ( is_page( 'articles' ) || is_singular( 'post' ) ) ? 'class="active"' : ''; ?>>บทความ</a>
+        <!-- <a href="<?php echo esc_url( home_url( '/articles/' ) ); ?>" <?php echo ( is_page( 'articles' ) || is_singular( 'post' ) ) ? 'class="active"' : ''; ?>>บทความ</a> -->
         <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" <?php echo is_page( 'about' ) ? 'class="active"' : ''; ?>>เกี่ยวกับเรา</a>
         <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>">ติดต่อเรา</a>
         <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" class="nav-cta">
@@ -60,7 +60,7 @@
       <a href="<?php echo esc_url( home_url( '/insurance-types/' ) ); ?>" <?php echo is_page( 'insurance-types' ) ? 'class="active"' : ''; ?>>ประกันภัยทั้งหมด</a>
       <a href="<?php echo esc_url( home_url( '/mun-lamert/' ) ); ?>" <?php echo is_page( 'mun-lamert' ) ? 'class="active"' : ''; ?>>มูลละเมิด</a>
       <a href="<?php echo esc_url( home_url( '/insurance-companies/' ) ); ?>" <?php echo is_page( 'insurance-companies' ) ? 'class="active"' : ''; ?>>บริษัทประกัน</a>
-      <a href="<?php echo esc_url( home_url( '/articles/' ) ); ?>" <?php echo ( is_page( 'articles' ) || is_singular( 'post' ) ) ? 'class="active"' : ''; ?>>บทความ</a>
+      <!-- <a href="<?php echo esc_url( home_url( '/articles/' ) ); ?>" <?php echo ( is_page( 'articles' ) || is_singular( 'post' ) ) ? 'class="active"' : ''; ?>>บทความ</a> -->
       <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" <?php echo is_page( 'about' ) ? 'class="active"' : ''; ?>>เกี่ยวกับเรา</a>
       <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>">ติดต่อเรา</a>
       <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" class="nav-cta">

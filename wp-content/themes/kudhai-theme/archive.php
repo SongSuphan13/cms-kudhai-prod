@@ -11,7 +11,9 @@
 <!-- ============ QR BANNER ============ -->
 <section class="qr-banner">
   <div class="container qr-banner-inner">
-    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/QRCodeTH20260902.png" alt="สแกน QR โค้ด รู้ใจ ประกันภัย เพื่อขอใบเสนอราคาประกันรถยนต์ มอเตอร์ไซค์ และอุบัติเหตุ" class="qr-banner-img" loading="lazy">
+    <a href="<?php echo esc_url( kudhai_get_qrcode_link_url() ); ?>" target="_blank" rel="noopener">
+      <img src="<?php echo esc_url( kudhai_get_qrcode_url() ); ?>" alt="สแกน QR โค้ด รู้ใจ ประกันภัย เพื่อขอใบเสนอราคาประกันรถยนต์ มอเตอร์ไซค์ และอุบัติเหตุ" class="qr-banner-img" loading="lazy">
+    </a>
     <div class="qr-banner-text">
       <span class="tab">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>

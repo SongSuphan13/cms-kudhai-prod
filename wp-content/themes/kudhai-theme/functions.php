@@ -251,7 +251,15 @@ function kudhai_get_line_id() {
 }
 
 function kudhai_get_line_url() {
-	return '#';
+	return 'https://lin.ee/Yszw5MY';
+}
+
+function kudhai_get_qrcode_url() {
+	return get_template_directory_uri() . '/assets/QRCodeTH20260902.png';
+}
+
+function kudhai_get_qrcode_link_url() {
+	return 'https://portal.roojaipartners.com/#/066cf412e701ee26';
 }
 
 /**

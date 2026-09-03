@@ -1674,6 +1674,8 @@ Text Domain: kudhai-theme
     background:var(--color-secondary-dark); flex-shrink:0;
   }
   .intro-modal-block p{ font-size:14.3px; line-height:1.75; color:var(--color-muted); }
+  .intro-modal-block p strong{ color:var(--color-primary-dark); font-weight:700; }
+  .intro-modal-block p + p{ margin-top:10px; }
   .intro-modal-link{
     display:inline-flex; align-items:center; gap:6px; margin-top:10px;
     font-family:'Prompt', sans-serif; font-weight:600; font-size:13.5px;
@@ -1777,7 +1779,7 @@ Text Domain: kudhai-theme
   .disclaimer-box{
     display:flex; gap:14px; align-items:flex-start;
     background:var(--color-paper-alt); border:1px dashed var(--color-line);
-    border-radius:16px; padding:20px 22px; margin-top:8px; max-width:820px;
+    border-radius:16px; padding:20px 22px; margin-top:8px;
   }
   .disclaimer-box svg{ width:22px;height:22px; color:var(--color-primary); flex-shrink:0; margin-top:2px; }
   .disclaimer-box img{ width:30px;height:30px; border-radius:7px; border:1px solid var(--color-line); background:#fff; object-fit:contain; flex-shrink:0; }
@@ -2038,12 +2040,15 @@ Text Domain: kudhai-theme
   .prose h3{ font-size:17.5px; font-weight:600; margin:26px 0 12px; }
   .prose p{ font-size:15.5px; line-height:1.85; color:var(--color-ink); margin-bottom:14px; }
   .prose a{ color:var(--color-primary); text-decoration:underline; text-underline-offset:2px; }
+  .prose .btn{ text-decoration:none; }
+  .prose .btn-primary{ color:var(--color-primary-dark); }
+  .prose .btn-ghost{ color:#fff; }
   .prose img{ border-radius:var(--radius); margin:20px 0; }
   .prose ul{ margin:0 0 14px; display:flex; flex-direction:column; gap:10px; }
   .prose ol{ margin:0 0 14px; padding-left:1.2em; display:flex; flex-direction:column; gap:10px; list-style:decimal; }
-  .prose ul li{ display:flex; gap:10px; align-items:flex-start; font-size:15px; line-height:1.75; color:var(--color-ink); }
-  .prose ul li::before{ content:""; width:6px; height:6px; flex-shrink:0; margin-top:9px; border-radius:50%; background:var(--color-secondary-dark); }
-  .prose ul li svg{ width:18px;height:18px; color:var(--color-secondary-dark); flex-shrink:0; margin-top:4px; }
+  .prose ul li{ position:relative; padding-left:20px; font-size:15px; line-height:1.75; color:var(--color-ink); }
+  .prose ul li::before{ content:""; position:absolute; left:0; top:10px; width:6px; height:6px; border-radius:50%; background:var(--color-secondary-dark); }
+  .prose ul li svg{ width:18px;height:18px; color:var(--color-secondary-dark); vertical-align:-4px; margin-right:6px; }
   .prose ol li{ font-size:15px; line-height:1.75; color:var(--color-ink); padding-left:4px; }
   .prose .outro{ font-size:15.5px; line-height:1.85; color:var(--color-ink); margin-top:8px; padding-top:24px; border-top:1px solid var(--color-line); }
 
@@ -2252,7 +2257,7 @@ Text Domain: kudhai-theme
     .why-grid{ grid-template-columns:1fr 1fr; }
   }
   @media (max-width:400px){
-    .container{ padding:0 20px; }
+    .container{ padding-left:20px; padding-right:20px; }
     .line-float{ width:50px;height:50px; right:14px; bottom:14px; }
     .line-float svg{ width:21px;height:21px; }
   }

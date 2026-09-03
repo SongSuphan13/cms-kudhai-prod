@@ -42,8 +42,8 @@
       </a>
     </div>
     <aside class="ml-ad-slot" aria-label="พื้นที่โฆษณา">
-      <a href="<?php echo esc_url( home_url( '/insurance-companies/roojai/' ) ); ?>">
-        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/QRCodeTH20260902.png" alt="สแกน QR โค้ด รู้ใจ ประกันภัย เพื่อขอใบเสนอราคาประกันรถยนต์ มอเตอร์ไซค์ และอุบัติเหตุ" loading="lazy">
+      <a href="<?php echo esc_url( kudhai_get_qrcode_link_url() ); ?>" target="_blank" rel="noopener">
+        <img src="<?php echo esc_url( kudhai_get_qrcode_url() ); ?>" alt="สแกน QR โค้ด รู้ใจ ประกันภัย เพื่อขอใบเสนอราคาประกันรถยนต์ มอเตอร์ไซค์ และอุบัติเหตุ" loading="lazy">
       </a>
     </aside>
   </div>
