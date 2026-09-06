@@ -16,8 +16,8 @@
 <section class="co-intro">
   <div class="container">
     <div class="disclaimer-box">
-      <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/logo_insure/roojai100x100.png" alt="รู้ใจ ประกันภัย">
-      <p><strong>ประกันภัยทุกประเภทในหน้านี้ ให้บริการหลักโดย รู้ใจ ประกันภัย</strong> ซื้อกรมธรรม์และแจ้งเคลมผ่านออนไลน์ได้ทันที สะดวก รวดเร็ว หากคุณต้องการเปรียบเทียบกับบริษัทอื่นนอกเหนือจากรู้ใจ ฝากข้อมูลไว้ในฟอร์มขอใบเสนอราคาหรือทักไลน์ เราจะติดต่อกลับให้</p>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+      <p><strong>เราให้คำปรึกษาแบบเปรียบเทียบหลายบริษัท ไม่ผูกติดกับบริษัทใดบริษัทหนึ่ง</strong> แต่ละประเภทด้านล่างสรุปภาพรวมความคุ้มครองที่ควรรู้ก่อนตัดสินใจ พร้อมช่วยเปรียบเทียบแผนจากหลายบริษัทให้ตรงกับการใช้งานและงบประมาณของคุณ ฝากข้อมูลไว้ในฟอร์มขอใบเสนอราคาหรือทักไลน์ เราจะติดต่อกลับให้</p>
     </div>
   </div>
 </section>
@@ -36,7 +36,7 @@
 
     <div class="company-grid">
 
-      <div class="company-card">
+      <div class="company-card" id="car">
         <div class="company-card-head">
           <div class="company-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 17v-4.5a1 1 0 0 1 .3-.7l1.9-1.9A2 2 0 0 1 7.6 9h8.8a2 2 0 0 1 1.4.6l1.9 1.9a1 1 0 0 1 .3.7V17M4 17h16M4 17a1.5 1.5 0 0 0 3 0M17 17a1.5 1.5 0 0 0 3 0M4 13h16"/></svg>
@@ -46,10 +46,6 @@
             <p>เปรียบเทียบแผนชั้น 1, 2+, 3+ และ พ.ร.บ. จากหลายบริษัท เลือกความคุ้มครองให้ตรงกับการใช้รถจริง</p>
           </div>
         </div>
-        <div class="company-provider">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/logo_insure/roojai100x100.png" alt="รู้ใจ ประกันภัย">
-          <span>ให้บริการโดย <b>รู้ใจ ประกันภัย</b></span>
-        </div>
         <div class="company-tags">
           <span class="company-tag">ชั้น 1</span>
           <span class="company-tag">ชั้น 2+</span>
@@ -58,9 +54,9 @@
         </div>
         <div class="company-coverage"><b>เหมาะกับ:</b> รถยนต์ส่วนบุคคลทุกประเภท</div>
         <div class="btn-row">
-          <a href="<?php echo esc_url( home_url( '/insurance-companies/roojai/' ) ); ?>" class="btn-sm">
-            ดูรายละเอียดรู้ใจ
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          <a href="<?php echo esc_url( home_url( '/car-insurance/' ) ); ?>" class="btn-sm">
+            ดูรายละเอียดเต็ม
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a href="<?php echo esc_url( home_url( '/#quote' ) ); ?>" class="btn-sm">
             ขอใบเสนอราคา
@@ -79,10 +75,6 @@
             <p>แผนเฉพาะสำหรับรถยนต์ไฟฟ้า ครอบคลุมรุ่นรถ EV มากที่สุดในตลาด ทั้งระบบแบตเตอรี่ มอเตอร์ไฟฟ้า และอุปกรณ์ชาร์จ พร้อมเลือกซื้อความคุ้มครองแบตเตอรี่เพิ่มเติมได้</p>
           </div>
         </div>
-        <div class="company-provider">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/logo_insure/roojai100x100.png" alt="รู้ใจ ประกันภัย">
-          <span>ให้บริการโดย <b>รู้ใจ ประกันภัย</b></span>
-        </div>
         <div class="company-tags">
           <span class="company-tag">ครอบคลุมรุ่นรถมากสุดในตลาด</span>
           <span class="company-tag">แบตเตอรี่</span>
@@ -92,9 +84,9 @@
         </div>
         <div class="company-coverage"><b>เหมาะกับ:</b> เจ้าของรถยนต์ไฟฟ้า (EV) ทุกรุ่น ครอบคลุมรุ่นรถมากที่สุดในตลาด</div>
         <div class="btn-row">
-          <a href="<?php echo esc_url( home_url( '/insurance-companies/roojai/' ) ); ?>" class="btn-sm">
-            ดูรายละเอียดรู้ใจ
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          <a href="<?php echo esc_url( home_url( '/car-insurance/electric-vehicle/' ) ); ?>" class="btn-sm">
+            ดูรายละเอียดเต็ม
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
           <a href="<?php echo esc_url( home_url( '/#quote' ) ); ?>" class="btn-sm">
             ขอใบเสนอราคา
@@ -103,7 +95,7 @@
         </div>
       </div>
 
-      <div class="company-card">
+      <div class="company-card" id="motorcycle">
         <div class="company-card-head">
           <div class="company-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 17a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM19 17a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM8 14h8l-2-5H9L7 11M13 9h4l2 2"/></svg>
@@ -113,16 +105,16 @@
             <p>คุ้มครองอุบัติเหตุจากการขับขี่รถจักรยานยนต์ ทั้งภาคสมัครใจและภาคบังคับ (พ.ร.บ.)</p>
           </div>
         </div>
-        <div class="company-provider">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/logo_insure/roojai100x100.png" alt="รู้ใจ ประกันภัย">
-          <span>ให้บริการโดย <b>รู้ใจ ประกันภัย</b></span>
-        </div>
         <div class="company-tags">
           <span class="company-tag">ภาคสมัครใจ</span>
           <span class="company-tag">พ.ร.บ.</span>
         </div>
         <div class="company-coverage"><b>เหมาะกับ:</b> ผู้ขับขี่รถจักรยานยนต์ทุกประเภท</div>
         <div class="btn-row">
+          <a href="<?php echo esc_url( home_url( '/motorbike-insurance/' ) ); ?>" class="btn-sm">
+            ดูรายละเอียดเต็ม
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
           <a href="<?php echo esc_url( home_url( '/#quote' ) ); ?>" class="btn-sm">
             ขอใบเสนอราคา
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -130,7 +122,7 @@
         </div>
       </div>
 
-      <div class="company-card">
+      <div class="company-card" id="cancer">
         <div class="company-card-head">
           <div class="company-badge">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4zM12 8v8M8 12h8"/></svg>
@@ -140,16 +132,44 @@
             <p>คุ้มครองค่ารักษาพยาบาลและเงินก้อนเมื่อตรวจพบโรคมะเร็ง ช่วยลดภาระค่าใช้จ่ายก้อนใหญ่ของครอบครัว</p>
           </div>
         </div>
-        <div class="company-provider">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/logo_insure/roojai100x100.png" alt="รู้ใจ ประกันภัย">
-          <span>ให้บริการโดย <b>รู้ใจ ประกันภัย</b></span>
-        </div>
         <div class="company-tags">
           <span class="company-tag">ตรวจพบระยะแรก</span>
           <span class="company-tag">ค่ารักษาต่อเนื่อง</span>
         </div>
         <div class="company-coverage"><b>เหมาะกับ:</b> ผู้ที่ต้องการวางแผนรับมือค่ารักษาโรคมะเร็ง</div>
         <div class="btn-row">
+          <a href="<?php echo esc_url( home_url( '/cancer-insurance/' ) ); ?>" class="btn-sm">
+            ดูรายละเอียดเต็ม
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="<?php echo esc_url( home_url( '/#quote' ) ); ?>" class="btn-sm">
+            ขอใบเสนอราคา
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="company-card" id="accident">
+        <div class="company-card-head">
+          <div class="company-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4zM7 12h2l1.5-3 2 6 1.5-3H17"/></svg>
+          </div>
+          <div>
+            <h3>ประกันอุบัติเหตุ (PA)</h3>
+            <p>คุ้มครองค่ารักษาพยาบาล ทุพพลภาพ และเสียชีวิตจากอุบัติเหตุ ทั้งในและนอกเวลางาน</p>
+          </div>
+        </div>
+        <div class="company-tags">
+          <span class="company-tag">ค่ารักษาพยาบาล</span>
+          <span class="company-tag">ทุพพลภาพ</span>
+          <span class="company-tag">เสียชีวิต</span>
+        </div>
+        <div class="company-coverage"><b>เหมาะกับ:</b> ทุกเพศทุกวัยที่ต้องการความคุ้มครองพื้นฐาน</div>
+        <div class="btn-row">
+          <a href="<?php echo esc_url( home_url( '/personal-accident-insurance/' ) ); ?>" class="btn-sm">
+            ดูรายละเอียดเต็ม
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
           <a href="<?php echo esc_url( home_url( '/#quote' ) ); ?>" class="btn-sm">
             ขอใบเสนอราคา
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -160,24 +180,52 @@
       <div class="company-card">
         <div class="company-card-head">
           <div class="company-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4zM7 12h2l1.5-3 2 6 1.5-3H17"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 17V8a1 1 0 0 1 1-1h9v10M2 17h10M2 17a1.5 1.5 0 0 0 3 0M9 17a1.5 1.5 0 0 0 3 0M12 11h6l3 4v2h-2M12 17h1"/></svg>
           </div>
           <div>
-            <h3>ประกันอุบัติเหตุ (PA)</h3>
-            <p>คุ้มครองค่ารักษาพยาบาล ทุพพลภาพ และเสียชีวิตจากอุบัติเหตุ ทั้งในและนอกเวลางาน</p>
+            <h3>ประกันรถบรรทุก</h3>
+            <p>เปรียบเทียบแผนความคุ้มครองสำหรับรถบรรทุก 6 ล้อและ 10 ล้อ ให้เหมาะกับลักษณะงานขนส่งของคุณ</p>
           </div>
         </div>
-        <div class="company-provider">
-          <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/logo_insure/roojai100x100.png" alt="รู้ใจ ประกันภัย">
-          <span>ให้บริการโดย <b>รู้ใจ ประกันภัย</b></span>
+        <div class="company-tags">
+          <span class="company-tag">6 ล้อ</span>
+          <span class="company-tag">10 ล้อ</span>
+          <span class="company-tag">พ.ร.บ.</span>
+        </div>
+        <div class="company-coverage"><b>เหมาะกับ:</b> เจ้าของรถบรรทุกที่ใช้งานขนส่งสินค้า</div>
+        <div class="btn-row">
+          <a href="<?php echo esc_url( home_url( '/truck-insurance/' ) ); ?>" class="btn-sm">
+            ดูรายละเอียดเต็ม
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="<?php echo esc_url( home_url( '/#quote' ) ); ?>" class="btn-sm">
+            ขอใบเสนอราคา
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="company-card">
+        <div class="company-card-head">
+          <div class="company-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 17V8a1 1 0 0 1 1-1h12a2 2 0 0 1 2 2v8M4 17h15M4 17a1.5 1.5 0 0 0 3 0M16 17a1.5 1.5 0 0 0 3 0M7 12h10"/></svg>
+          </div>
+          <div>
+            <h3>ประกันรถตู้</h3>
+            <p>คุ้มครองทั้งรถตู้ส่วนบุคคลและรถตู้รับส่งผู้โดยสาร เปรียบเทียบแผนให้ตรงกับลักษณะการใช้งาน</p>
+          </div>
         </div>
         <div class="company-tags">
-          <span class="company-tag">ค่ารักษาพยาบาล</span>
-          <span class="company-tag">ทุพพลภาพ</span>
-          <span class="company-tag">เสียชีวิต</span>
+          <span class="company-tag">ส่วนบุคคล</span>
+          <span class="company-tag">รับส่งผู้โดยสาร</span>
+          <span class="company-tag">พ.ร.บ.</span>
         </div>
-        <div class="company-coverage"><b>เหมาะกับ:</b> ทุกเพศทุกวัยที่ต้องการความคุ้มครองพื้นฐาน</div>
+        <div class="company-coverage"><b>เหมาะกับ:</b> เจ้าของรถตู้ทั้งใช้งานส่วนตัวและเชิงพาณิชย์</div>
         <div class="btn-row">
+          <a href="<?php echo esc_url( home_url( '/van-insurance/' ) ); ?>" class="btn-sm">
+            ดูรายละเอียดเต็ม
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
           <a href="<?php echo esc_url( home_url( '/#quote' ) ); ?>" class="btn-sm">
             ขอใบเสนอราคา
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -191,8 +239,8 @@
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 2.66 1.4 5.02 3.6 6.6-.12 1.14-.5 2.6-1.4 3.8 0 0 2.24-.1 4.4-1.6 1.06.32 2.2.5 3.4.5 5.52 0 10-3.94 10-8.8S17.52 2 12 2z"/></svg>
           </div>
           <div>
-            <h3>ต้องการบริษัทอื่นนอกจากรู้ใจ?</h3>
-            <p>หน้านี้แนะนำแผนจาก รู้ใจ ประกันภัย เป็นหลัก หากสนใจเทียบกับบริษัทอื่น ฝากข้อมูลไว้ เราจะติดต่อกลับให้</p>
+            <h3>อยากได้คำแนะนำเฉพาะสำหรับคุณ?</h3>
+            <p>ทุกประเภทด้านบนเราเปรียบเทียบให้จากหลายบริษัท ไม่ผูกติดกับเจ้าใดเจ้าหนึ่ง ฝากข้อมูลไว้ เราจะช่วยแนะนำแผนที่เหมาะกับคุณที่สุด</p>
           </div>
         </div>
         <div class="btn-row">

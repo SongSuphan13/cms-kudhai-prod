@@ -44,6 +44,32 @@
     });
   });
 
+  // "ประกันภัยทั้งหมด" dropdown/accordion — click anywhere on the row to open (desktop nav-item, mobile nav-mobile-group)
+  const navDropdownWraps = document.querySelectorAll('.nav-item.has-dropdown, .nav-mobile-group');
+  const closeNavDropdown = (wrap) => {
+    wrap.classList.remove('open');
+    const btn = wrap.querySelector('.nav-dropdown-toggle, .nav-mobile-toggle');
+    if (btn) { btn.setAttribute('aria-expanded', 'false'); }
+  };
+  navDropdownWraps.forEach((wrap) => {
+    const btn = wrap.querySelector('.nav-dropdown-toggle, .nav-mobile-toggle');
+    if (!btn) { return; }
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = wrap.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      navDropdownWraps.forEach((other) => { if (other !== wrap) { closeNavDropdown(other); } });
+    });
+  });
+  document.addEventListener('click', (e) => {
+    navDropdownWraps.forEach((wrap) => {
+      if (wrap.classList.contains('open') && !wrap.contains(e.target)) { closeNavDropdown(wrap); }
+    });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { navDropdownWraps.forEach(closeNavDropdown); }
+  });
+
   // quote form submit (no backend wired up — shows confirmation only)
   const quoteForm = document.getElementById('quoteForm');
   const formSuccess = document.getElementById('formSuccess');

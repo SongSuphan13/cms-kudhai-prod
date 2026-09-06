@@ -41,7 +41,21 @@
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" <?php echo is_front_page() ? 'class="active"' : ''; ?>>หน้าแรก</a>
         <a href="<?php echo esc_url( home_url( '/mun-lamert/' ) ); ?>" <?php echo is_page( 'mun-lamert' ) ? 'class="active"' : ''; ?>>มูลละเมิด</a>
 
-        <a href="<?php echo esc_url( home_url( '/insurance-types/' ) ); ?>" <?php echo is_page( 'insurance-types' ) ? 'class="active"' : ''; ?>>ประกันภัยทั้งหมด</a>
+        <div class="nav-item has-dropdown">
+          <button type="button" class="nav-dropdown-toggle<?php echo is_page( 'insurance-types' ) ? ' active' : ''; ?>" aria-expanded="false" aria-controls="navDropdownInsurance">
+            ประกันภัยทั้งหมด
+            <svg class="nav-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div class="nav-dropdown" id="navDropdownInsurance">
+            <a class="nav-dropdown-all" href="<?php echo esc_url( home_url( '/insurance-types/' ) ); ?>">ดูประกันภัยทั้งหมด</a>
+            <a href="<?php echo esc_url( home_url( '/car-insurance/' ) ); ?>">ประกันรถยนต์</a>
+            <a href="<?php echo esc_url( home_url( '/motorbike-insurance/' ) ); ?>">ประกันรถมอเตอร์ไซค์</a>
+            <a href="<?php echo esc_url( home_url( '/truck-insurance/' ) ); ?>">ประกันรถบรรทุก</a>
+            <a href="<?php echo esc_url( home_url( '/van-insurance/' ) ); ?>">ประกันรถตู้</a>
+            <a href="<?php echo esc_url( home_url( '/cancer-insurance/' ) ); ?>">ประกันมะเร็ง</a>
+            <a href="<?php echo esc_url( home_url( '/personal-accident-insurance/' ) ); ?>">ประกันอุบัติเหตุ</a>
+          </div>
+        </div>
         <a href="<?php echo esc_url( home_url( '/insurance-companies/' ) ); ?>" <?php echo is_page( 'insurance-companies' ) ? 'class="active"' : ''; ?>>บริษัทประกัน</a>
         <!-- <a href="<?php echo esc_url( home_url( '/articles/' ) ); ?>" <?php echo ( is_page( 'articles' ) || is_singular( 'post' ) ) ? 'class="active"' : ''; ?>>บทความ</a> -->
         <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" <?php echo is_page( 'about' ) ? 'class="active"' : ''; ?>>เกี่ยวกับเรา</a>
@@ -57,7 +71,21 @@
     </div>
     <div class="nav-mobile-panel" id="navMobilePanel">
       <a href="<?php echo esc_url( home_url( '/' ) ); ?>" <?php echo is_front_page() ? 'class="active"' : ''; ?>>หน้าแรก</a>
-      <a href="<?php echo esc_url( home_url( '/insurance-types/' ) ); ?>" <?php echo is_page( 'insurance-types' ) ? 'class="active"' : ''; ?>>ประกันภัยทั้งหมด</a>
+      <div class="nav-mobile-group">
+        <button type="button" class="nav-mobile-toggle<?php echo is_page( 'insurance-types' ) ? ' active' : ''; ?>" aria-expanded="false" aria-controls="navMobileSubInsurance">
+          ประกันภัยทั้งหมด
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="nav-mobile-sub" id="navMobileSubInsurance">
+          <a class="nav-dropdown-all" href="<?php echo esc_url( home_url( '/insurance-types/' ) ); ?>">ดูประกันภัยทั้งหมด</a>
+          <a href="<?php echo esc_url( home_url( '/car-insurance/' ) ); ?>">ประกันรถยนต์</a>
+          <a href="<?php echo esc_url( home_url( '/motorbike-insurance/' ) ); ?>">ประกันรถมอเตอร์ไซค์</a>
+          <a href="<?php echo esc_url( home_url( '/truck-insurance/' ) ); ?>">ประกันรถบรรทุก</a>
+          <a href="<?php echo esc_url( home_url( '/van-insurance/' ) ); ?>">ประกันรถตู้</a>
+          <a href="<?php echo esc_url( home_url( '/cancer-insurance/' ) ); ?>">ประกันมะเร็ง</a>
+          <a href="<?php echo esc_url( home_url( '/personal-accident-insurance/' ) ); ?>">ประกันอุบัติเหตุ</a>
+        </div>
+      </div>
       <a href="<?php echo esc_url( home_url( '/mun-lamert/' ) ); ?>" <?php echo is_page( 'mun-lamert' ) ? 'class="active"' : ''; ?>>มูลละเมิด</a>
       <a href="<?php echo esc_url( home_url( '/insurance-companies/' ) ); ?>" <?php echo is_page( 'insurance-companies' ) ? 'class="active"' : ''; ?>>บริษัทประกัน</a>
       <!-- <a href="<?php echo esc_url( home_url( '/articles/' ) ); ?>" <?php echo ( is_page( 'articles' ) || is_singular( 'post' ) ) ? 'class="active"' : ''; ?>>บทความ</a> -->

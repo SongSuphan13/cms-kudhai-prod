@@ -61,6 +61,62 @@ function kudhai_get_seo_description() {
 		}
 	}
 
+	if ( is_page_template( 'template-insurance-type.php' ) ) {
+		$types = kudhai_get_insurance_types();
+		$slug  = get_post_field( 'post_name' );
+		if ( isset( $types[ $slug ] ) ) {
+			return $types[ $slug ]['meta_description'];
+		}
+	}
+
+	if ( is_page( 'car-insurance' ) ) {
+		return 'เช็กเบี้ยและเปรียบเทียบประกันรถยนต์ชั้น 1, 2+, 2, 3+, 3 และ พ.ร.บ. จากที่ปรึกษาประกันภัยรถยนต์ ช่วยเลือกความคุ้มครองให้ตรงกับการใช้งานและงบประมาณ ปรึกษาฟรี';
+	}
+
+	if ( is_page( 'motorbike-insurance' ) ) {
+		return 'เปรียบเทียบประกันรถมอเตอร์ไซค์ทั้งภาคสมัครใจและ พ.ร.บ. จากที่ปรึกษาประกันภัย ช่วยเลือกแผนที่เหมาะกับรุ่นรถและการใช้งานจริง ปรึกษาฟรี';
+	}
+
+	if ( is_page( 'electric-vehicle' ) ) {
+		return 'เปรียบเทียบประกันรถยนต์ไฟฟ้า (EV) ครอบคลุมแบตเตอรี่ มอเตอร์ไฟฟ้า และอุปกรณ์ชาร์จ จากที่ปรึกษาประกันภัยรถยนต์ ปรึกษาฟรี';
+	}
+
+	if ( is_page( 'compulsory-car-insurance' ) ) {
+		return 'พ.ร.บ. รถยนต์ ประกันภาคบังคับตามกฎหมายที่รถทุกคันต้องมี คุ้มครองค่ารักษาพยาบาลเบื้องต้นของผู้ประสบภัย เช็กความคุ้มครองและวิธีต่อ พ.ร.บ. กับที่ปรึกษาประกันภัยรถยนต์ ปรึกษาฟรี';
+	}
+
+	if ( is_page( 'viriyah-insurance' ) ) {
+		return 'เปรียบเทียบแผนประกันรถยนต์วิริยะประกันภัย ชั้น 1, 2+, 2, 3+, 3, 4 และ พ.ร.บ. พร้อมจุดเด่นเครือข่ายอู่ซ่อมในเครือ จากที่ปรึกษาประกันภัยรถยนต์ ปรึกษาฟรี';
+	}
+
+	if ( is_page( 'roojai-insurance' ) ) {
+		return 'เปรียบเทียบแผนประกันรถยนต์รู้ใจ ประกันภัย ชั้น 1, 2+, 3+, พ.ร.บ. และแผนเฉพาะรถยนต์ไฟฟ้า ซื้อและเคลมผ่านออนไลน์ได้ทั้งหมด จากที่ปรึกษาประกันภัยรถยนต์ ปรึกษาฟรี';
+	}
+
+	if ( is_page( 'muang-thai-insurance' ) ) {
+		return 'เปรียบเทียบแผนประกันรถยนต์เมืองไทยประกันภัย ชั้น 1, 2+, 3+ และ พ.ร.บ. เบี้ยคุ้มค่า มีศูนย์บริการและตัวแทนทั่วประเทศ จากที่ปรึกษาประกันภัยรถยนต์ ปรึกษาฟรี';
+	}
+
+	if ( is_page( 'bangkok-insurance' ) ) {
+		return 'เปรียบเทียบแผนประกันรถยนต์กรุงเทพประกันภัย ชั้น 1, 2+ และ พ.ร.บ. เชี่ยวชาญกรมธรรม์ที่ปรับแต่งได้สำหรับลูกค้าองค์กร จากที่ปรึกษาประกันภัยรถยนต์ ปรึกษาฟรี';
+	}
+
+	if ( is_page( 'truck-insurance' ) ) {
+		return 'ปรึกษาประกันรถบรรทุกทุกขนาด ทั้ง 6 ล้อและ 10 ล้อ เปรียบเทียบแผนความคุ้มครองจากหลายบริษัทให้เหมาะกับลักษณะการใช้งานขนส่ง ปรึกษาฟรี';
+	}
+
+	if ( is_page( 'van-insurance' ) ) {
+		return 'ปรึกษาประกันรถตู้ทั้งใช้งานส่วนบุคคลและรับส่งผู้โดยสาร เปรียบเทียบแผนความคุ้มครองจากหลายบริษัทให้เหมาะกับการใช้งานจริง ปรึกษาฟรี';
+	}
+
+	if ( is_page( 'cancer-insurance' ) ) {
+		return 'ประกันมะเร็ง คุ้มครองค่ารักษาและเงินก้อนเมื่อตรวจพบโรค เปรียบเทียบแผนจากที่ปรึกษาประกันภัย ช่วยเลือกความคุ้มครองที่เหมาะกับคุณ ปรึกษาฟรี';
+	}
+
+	if ( is_page( 'personal-accident-insurance' ) ) {
+		return 'ประกันอุบัติเหตุ (PA) คุ้มครองค่ารักษา ทุพพลภาพ และเสียชีวิตจากอุบัติเหตุ ทั้งในและนอกเวลางาน เปรียบเทียบแผนจากที่ปรึกษาประกันภัย ปรึกษาฟรี';
+	}
+
 	if ( is_front_page() ) {
 		return 'ที่ปรึกษาประกันภัยรถยนต์ ให้คำปรึกษาเรื่องมูลละเมิดประกันภัยรถยนต์และการเรียกร้องค่าสินไหมทดแทน เปรียบเทียบแผนประกันรถยนต์ รถไฟฟ้า มอเตอร์ไซค์ที่เหมาะกับคุณ ปรึกษาฟรี ไม่มีค่าใช้จ่ายเบื้องต้น';
 	}
@@ -96,6 +152,49 @@ function kudhai_get_seo_title() {
 			return $co['name'] . ' ประกันรถยนต์ | เปรียบเทียบแผนและเบี้ยประกัน';
 		}
 	}
+	if ( is_page_template( 'template-insurance-type.php' ) ) {
+		$types = kudhai_get_insurance_types();
+		$slug  = get_post_field( 'post_name' );
+		if ( isset( $types[ $slug ] ) ) {
+			return $types[ $slug ]['seo_title'];
+		}
+	}
+	if ( is_page( 'car-insurance' ) ) {
+		return 'ประกันรถยนต์ เช็กเบี้ย เปรียบเทียบแผนกับที่ปรึกษาประกันภัยรถยนต์';
+	}
+	if ( is_page( 'motorbike-insurance' ) ) {
+		return 'ประกันรถมอเตอร์ไซค์ เปรียบเทียบแผนภาคสมัครใจและ พ.ร.บ.';
+	}
+	if ( is_page( 'electric-vehicle' ) ) {
+		return 'ประกันรถยนต์ไฟฟ้า (EV) เปรียบเทียบแผนความคุ้มครองแบตเตอรี่และมอเตอร์ไฟฟ้า';
+	}
+	if ( is_page( 'compulsory-car-insurance' ) ) {
+		return 'พ.ร.บ. รถยนต์ ประกันภาคบังคับ เช็กความคุ้มครองและวิธีต่อ พ.ร.บ.';
+	}
+	if ( is_page( 'viriyah-insurance' ) ) {
+		return 'ประกันรถยนต์ วิริยะประกันภัย เปรียบเทียบแผนทุกชั้นกับที่ปรึกษาประกันภัย';
+	}
+	if ( is_page( 'roojai-insurance' ) ) {
+		return 'ประกันรถยนต์ รู้ใจ ประกันภัย เปรียบเทียบแผนทุกชั้นกับที่ปรึกษาประกันภัย';
+	}
+	if ( is_page( 'muang-thai-insurance' ) ) {
+		return 'ประกันรถยนต์ เมืองไทยประกันภัย เปรียบเทียบแผนทุกชั้นกับที่ปรึกษาประกันภัย';
+	}
+	if ( is_page( 'bangkok-insurance' ) ) {
+		return 'ประกันรถยนต์ กรุงเทพประกันภัย เปรียบเทียบแผนทุกชั้นกับที่ปรึกษาประกันภัย';
+	}
+	if ( is_page( 'truck-insurance' ) ) {
+		return 'ประกันรถบรรทุก 6 ล้อ 10 ล้อ เปรียบเทียบแผนให้เหมาะกับงานขนส่ง';
+	}
+	if ( is_page( 'van-insurance' ) ) {
+		return 'ประกันรถตู้ ส่วนบุคคลและรับส่งผู้โดยสาร เปรียบเทียบแผนความคุ้มครอง';
+	}
+	if ( is_page( 'cancer-insurance' ) ) {
+		return 'ประกันมะเร็ง คุ้มครองอะไรบ้าง เปรียบเทียบแผนกับที่ปรึกษาประกันภัย';
+	}
+	if ( is_page( 'personal-accident-insurance' ) ) {
+		return 'ประกันอุบัติเหตุ (PA) คุ้มครองทุกที่ทุกเวลา เปรียบเทียบแผนก่อนซื้อ';
+	}
 	return wp_get_document_title();
 }
 
@@ -106,6 +205,49 @@ add_filter( 'document_title_parts', function ( $parts ) {
 		if ( isset( $companies[ $slug ] ) ) {
 			$parts['title'] = $companies[ $slug ]['name'] . ' ประกันรถยนต์ | เปรียบเทียบแผนและเบี้ยประกัน';
 		}
+	}
+	if ( is_page_template( 'template-insurance-type.php' ) ) {
+		$types = kudhai_get_insurance_types();
+		$slug  = get_post_field( 'post_name' );
+		if ( isset( $types[ $slug ] ) ) {
+			$parts['title'] = $types[ $slug ]['seo_title'];
+		}
+	}
+	if ( is_page( 'car-insurance' ) ) {
+		$parts['title'] = 'ประกันรถยนต์ เช็กเบี้ย เปรียบเทียบแผนกับที่ปรึกษาประกันภัยรถยนต์';
+	}
+	if ( is_page( 'motorbike-insurance' ) ) {
+		$parts['title'] = 'ประกันรถมอเตอร์ไซค์ เปรียบเทียบแผนภาคสมัครใจและ พ.ร.บ.';
+	}
+	if ( is_page( 'electric-vehicle' ) ) {
+		$parts['title'] = 'ประกันรถยนต์ไฟฟ้า (EV) เปรียบเทียบแผนความคุ้มครองแบตเตอรี่และมอเตอร์ไฟฟ้า';
+	}
+	if ( is_page( 'compulsory-car-insurance' ) ) {
+		$parts['title'] = 'พ.ร.บ. รถยนต์ ประกันภาคบังคับ เช็กความคุ้มครองและวิธีต่อ พ.ร.บ.';
+	}
+	if ( is_page( 'viriyah-insurance' ) ) {
+		$parts['title'] = 'ประกันรถยนต์ วิริยะประกันภัย เปรียบเทียบแผนทุกชั้นกับที่ปรึกษาประกันภัย';
+	}
+	if ( is_page( 'roojai-insurance' ) ) {
+		$parts['title'] = 'ประกันรถยนต์ รู้ใจ ประกันภัย เปรียบเทียบแผนทุกชั้นกับที่ปรึกษาประกันภัย';
+	}
+	if ( is_page( 'muang-thai-insurance' ) ) {
+		$parts['title'] = 'ประกันรถยนต์ เมืองไทยประกันภัย เปรียบเทียบแผนทุกชั้นกับที่ปรึกษาประกันภัย';
+	}
+	if ( is_page( 'bangkok-insurance' ) ) {
+		$parts['title'] = 'ประกันรถยนต์ กรุงเทพประกันภัย เปรียบเทียบแผนทุกชั้นกับที่ปรึกษาประกันภัย';
+	}
+	if ( is_page( 'truck-insurance' ) ) {
+		$parts['title'] = 'ประกันรถบรรทุก 6 ล้อ 10 ล้อ เปรียบเทียบแผนให้เหมาะกับงานขนส่ง';
+	}
+	if ( is_page( 'van-insurance' ) ) {
+		$parts['title'] = 'ประกันรถตู้ ส่วนบุคคลและรับส่งผู้โดยสาร เปรียบเทียบแผนความคุ้มครอง';
+	}
+	if ( is_page( 'cancer-insurance' ) ) {
+		$parts['title'] = 'ประกันมะเร็ง คุ้มครองอะไรบ้าง เปรียบเทียบแผนกับที่ปรึกษาประกันภัย';
+	}
+	if ( is_page( 'personal-accident-insurance' ) ) {
+		$parts['title'] = 'ประกันอุบัติเหตุ (PA) คุ้มครองทุกที่ทุกเวลา เปรียบเทียบแผนก่อนซื้อ';
 	}
 	return $parts;
 } );
@@ -152,6 +294,7 @@ function kudhai_seo_head() {
 	printf( '<meta name="twitter:description" content="%s">' . "\n", esc_attr( $description ) );
 
 	kudhai_output_company_schema();
+	kudhai_output_insurance_type_schema();
 
 	echo "<!-- /SEO meta -->\n";
 }
@@ -220,6 +363,87 @@ function kudhai_output_company_schema() {
 	if ( ! empty( $co['faq'] ) ) {
 		$faq_entities = array();
 		foreach ( $co['faq'] as $item ) {
+			$faq_entities[] = array(
+				'@type'          => 'Question',
+				'name'           => $item['q'],
+				'acceptedAnswer' => array(
+					'@type' => 'Answer',
+					'text'  => $item['a'],
+				),
+			);
+		}
+		$faq_schema = array(
+			'@context'   => 'https://schema.org',
+			'@type'      => 'FAQPage',
+			'mainEntity' => $faq_entities,
+		);
+		echo '<script type="application/ld+json">' . wp_json_encode( $faq_schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . "</script>\n";
+	}
+}
+
+/**
+ * JSON-LD structured data for insurance-type pages (car-insurance,
+ * motorbike-insurance, etc.): Service, BreadcrumbList, and FAQPage.
+ */
+function kudhai_output_insurance_type_schema() {
+	if ( ! is_page_template( 'template-insurance-type.php' ) ) {
+		return;
+	}
+
+	$types = kudhai_get_insurance_types();
+	$slug  = get_post_field( 'post_name' );
+	if ( ! isset( $types[ $slug ] ) ) {
+		return;
+	}
+	$type = $types[ $slug ];
+	$url  = get_permalink();
+
+	$service = array(
+		'@context'        => 'https://schema.org',
+		'@type'           => 'Service',
+		'serviceType'     => $type['name'],
+		'name'            => $type['name'],
+		'description'     => $type['meta_description'],
+		'url'             => $url,
+		'areaServed'      => 'TH',
+		'provider'        => array(
+			'@type' => 'Organization',
+			'name'  => get_bloginfo( 'name' ),
+			'url'   => home_url( '/' ),
+		),
+	);
+
+	$breadcrumb = array(
+		'@context'        => 'https://schema.org',
+		'@type'           => 'BreadcrumbList',
+		'itemListElement' => array(
+			array(
+				'@type'    => 'ListItem',
+				'position' => 1,
+				'name'     => 'หน้าแรก',
+				'item'     => home_url( '/' ),
+			),
+			array(
+				'@type'    => 'ListItem',
+				'position' => 2,
+				'name'     => 'ประกันภัยทั้งหมด',
+				'item'     => home_url( '/insurance-types/' ),
+			),
+			array(
+				'@type'    => 'ListItem',
+				'position' => 3,
+				'name'     => $type['name'],
+				'item'     => $url,
+			),
+		),
+	);
+
+	echo '<script type="application/ld+json">' . wp_json_encode( $service, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . "</script>\n";
+	echo '<script type="application/ld+json">' . wp_json_encode( $breadcrumb, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . "</script>\n";
+
+	if ( ! empty( $type['faq'] ) ) {
+		$faq_entities = array();
+		foreach ( $type['faq'] as $item ) {
 			$faq_entities[] = array(
 				'@type'          => 'Question',
 				'name'           => $item['q'],
@@ -441,4 +665,16 @@ function kudhai_get_companies() {
 			),
 		),
 	);
+}
+
+/**
+ * Insurance-type detail pages that still use the shared
+ * template-insurance-type.php + data-array pattern, keyed by slug.
+ * All six insurance-type pages (car, motorbike, truck, van, cancer,
+ * personal-accident) now have their own standalone page-{slug}.php
+ * template instead, so this is currently empty — kept for any future
+ * insurance-type page that should use the shared template again.
+ */
+function kudhai_get_insurance_types() {
+	return array();
 }

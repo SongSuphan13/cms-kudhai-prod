@@ -78,6 +78,25 @@ $kudhai_co         = isset( $kudhai_companies[ $kudhai_slug ] ) ? $kudhai_compan
       <p><strong>เราเป็นนายหน้าประกันภัย ไม่ใช่บริษัทประกัน</strong> ข้อมูลด้านบนเป็นข้อมูลเบื้องต้นที่เรารวบรวมไว้เพื่อการเปรียบเทียบ เบี้ยประกันและเงื่อนไขจริงอาจแตกต่างกันตามรถแต่ละคัน ให้เราช่วยเสนอราคาที่แน่นอนให้คุณโดยตรง</p>
     </div>
 
+    <?php
+    $kudhai_co_car_pages = array(
+      'viriyah'          => array( 'slug' => 'viriyah-insurance', 'label' => 'แผนประกันรถยนต์วิริยะทุกชั้น (ชั้น 1 ถึงชั้น 4)' ),
+      'roojai'           => array( 'slug' => 'roojai-insurance', 'label' => 'แผนประกันรถยนต์รู้ใจทุกชั้น' ),
+      'muangthai'        => array( 'slug' => 'muang-thai-insurance', 'label' => 'แผนประกันรถยนต์เมืองไทยทุกชั้น' ),
+      'bangkokinsurance' => array( 'slug' => 'bangkok-insurance', 'label' => 'แผนประกันรถยนต์กรุงเทพประกันภัยทุกชั้น' ),
+    );
+    if ( isset( $kudhai_co_car_pages[ $kudhai_slug ] ) ) :
+      $kudhai_co_car_page = $kudhai_co_car_pages[ $kudhai_slug ];
+    ?>
+      <div class="companies-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13.5 6.5l4 4L7 21H3v-4L13.5 6.5z"/><path d="M12 8l4 4"/></svg>
+        <span>
+          อ่านเพิ่มเติม:
+          <a href="<?php echo esc_url( home_url( '/car-insurance/' . $kudhai_co_car_page['slug'] . '/' ) ); ?>"><?php echo esc_html( $kudhai_co_car_page['label'] ); ?></a>
+        </span>
+      </div>
+    <?php endif; ?>
+
     <?php if ( ! empty( $kudhai_co['faq'] ) ) : ?>
       <h2>คำถามที่พบบ่อยเกี่ยวกับ <?php echo esc_html( $kudhai_co['name'] ); ?></h2>
       <div class="faq-list">

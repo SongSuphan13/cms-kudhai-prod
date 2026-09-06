@@ -22,7 +22,15 @@
   </div>
 </section>
 
-<?php $kudhai_co_list = kudhai_get_companies(); ?>
+<?php
+$kudhai_co_list = kudhai_get_companies();
+$kudhai_co_car_pages = array(
+  'viriyah'          => 'viriyah-insurance',
+  'roojai'           => 'roojai-insurance',
+  'muangthai'        => 'muang-thai-insurance',
+  'bangkokinsurance' => 'bangkok-insurance',
+);
+?>
 
 <!-- ============ COMPANIES ============ -->
 <section class="co-companies" id="companies">
@@ -59,6 +67,12 @@
             ดูรายละเอียด
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
           </a>
+          <?php if ( isset( $kudhai_co_car_pages[ $kudhai_co_id ] ) ) : ?>
+          <a href="<?php echo esc_url( home_url( '/car-insurance/' . $kudhai_co_car_pages[ $kudhai_co_id ] . '/' ) ); ?>" class="btn-sm">
+            ดูแผนรถยนต์ทุกชั้น
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 12l2 2 4-4M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          </a>
+          <?php endif; ?>
           <a href="<?php echo esc_url( home_url( '/#quote' ) ); ?>" class="btn-sm">
             ขอใบเสนอราคา
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
