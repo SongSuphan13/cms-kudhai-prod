@@ -1,0 +1,7 @@
+# Hero panorama
+
+Mode: built-in imagegen. Final asset: assets/hero-v2.png (1920 × 540). Original backed up to assets/hero-v2-before-panorama.png. The generated aspect ratio differs from the requested 4.5:1; insurance.html uses the actual ratio to show the entire image without stretching or cropping.
+
+## Final prompt
+
+Generate a NEW ultra-wide panoramic website banner. Output canvas aspect ratio MUST be 4.5:1 (e.g. 2700×600), extremely long and shallow landscape. Not 16:9, not 2:1. Premium photorealistic illustrated Thai car insurance advertisement. Composition: continuous pale blue sky with subtle fluffy clouds across full width, left 52% mostly pale airy sky and soft distant mountains suitable for navy HTML text. Curving asphalt mountain road flows across bottom right toward distant Bangkok skyline with a golden Thai temple and skyscrapers around x=60%. Lush bright green tropical trees. Entire white modern SUV front three-quarter facing right centered x=73%, spanning x=64% to x=81% and y=35% to y=89%, all wheels and roof clearly visible with generous space. Entire white stone sign at x=86% to x=94%, y=12% to y=73%, navy handwritten Thai EXACTLY: 'คัดให้' / 'เปรียบเทียบง่าย' / 'ดูแลคุณ' / 'ตลอดเส้นทาง' / '— KUDHai'. Trees and road continue to far right edge. Fill every pixel naturally, no blank bars, no seams, no split panels, no gradients fading to transparency, no overlay UI text outside sign. Scene is naturally composed for this extremely ultrawide shallow canvas. Keep the entire car and entire sign visible. 4.5 to 1 aspect ratio.

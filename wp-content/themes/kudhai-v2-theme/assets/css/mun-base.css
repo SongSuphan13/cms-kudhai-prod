@@ -1,0 +1,127 @@
+/* Legacy guide base styles, isolated from the shared V2 header and other pages. */
+:where(.mun-detail-page) #mun-guide{line-height:1.7}
+:where(.mun-detail-page) #mun-guide ul,:where(.mun-detail-page) #mun-guide ol{padding:0;margin:0}
+:where(.mun-detail-page){
+    --color-primary:#122c56;
+    --color-primary-dark:#0a1c38;
+    --color-primary-light:#2d4d7f;
+    --color-secondary:#f0a93a;
+    --color-secondary-dark:#d1861f;
+    --color-ink:#0d1626;
+    --color-paper:#f8f9fb;
+    --color-paper-alt:#eaf0f6;
+    --color-muted:#5b6672;
+    --color-line:#dde3ea;
+    --shadow-card: 0 12px 30px -14px rgba(10,28,56,0.35);
+    --radius: 18px;
+  }
+:where(.mun-detail-page) .container{
+    max-width:1160px;
+    margin:0 auto;
+    padding:0 40px;
+  }
+:where(.mun-detail-page) .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Noto Sans Thai',Tahoma,sans-serif;
+    font-weight:600;
+    font-size:13.5px;
+    letter-spacing:.05em;
+    color:var(--color-secondary);
+    background:rgba(240,169,58,0.12);
+    border:1px solid rgba(240,169,58,0.4);
+    padding:8px 16px;
+    border-radius:999px;
+    margin-bottom:26px;
+  }
+:where(.mun-detail-page) .cta-row{
+    display:flex;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-bottom:44px;
+  }
+:where(.mun-detail-page) .article-cta .cta-row{
+    justify-content:center;
+  }
+:where(.mun-detail-page) .btn{
+    font-family:'Noto Sans Thai',Tahoma,sans-serif;
+    font-weight:600;
+    font-size:15.5px;
+    padding:15px 30px;
+    border-radius:12px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+    border:2px solid transparent;
+    cursor:pointer;
+  }
+:where(.mun-detail-page) .btn-primary{
+    background:var(--color-secondary);
+    color:var(--color-primary-dark);
+    box-shadow:0 10px 24px -8px rgba(240,169,58,0.55);
+  }
+:where(.mun-detail-page) .btn-primary:hover{ transform:translateY(-3px); background:#ffbf5c; }
+:where(.mun-detail-page) .btn-ghost{
+    background:transparent;
+    border-color:rgba(255,255,255,0.45);
+    color:#fff;
+  }
+:where(.mun-detail-page) .btn-ghost:hover{ background:rgba(255,255,255,0.1); transform:translateY(-3px); }
+@media (max-width: 560px){:where(.mun-detail-page) .cta-row{ flex-direction:column; }
+:where(.mun-detail-page) .btn{ justify-content:center; }
+}
+:where(.mun-detail-page) .ml-hero{
+    position:relative; padding:calc(var(--header-h) + 44px) 0 80px;
+    background:linear-gradient(160deg, var(--color-primary-dark) 0%, var(--color-primary) 62%);
+    color:#fff; overflow:hidden;
+  }
+:where(.mun-detail-page) .ml-hero::before{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(ellipse at 82% 12%, rgba(240,169,58,0.16), transparent 55%);
+    pointer-events:none;
+  }
+:where(.mun-detail-page) .ml-hero-inner{ position:relative; z-index:1; }
+:where(.mun-detail-page) .ml-crumb{
+    font-size:13px; color:rgba(255,255,255,0.6);
+    display:flex; flex-wrap:wrap; align-items:center; margin-bottom:20px;
+  }
+:where(.mun-detail-page) .ml-crumb a{ color:rgba(255,255,255,0.6); }
+:where(.mun-detail-page) .ml-crumb a:hover{ color:var(--color-secondary); }
+:where(.mun-detail-page) .ml-crumb span{ margin:0 6px; }
+:where(.mun-detail-page) .ml-crumb .current{ color:#fff; font-weight:500; }
+:where(.mun-detail-page) .ml-hero h1{ color:#fff; font-size:clamp(28px,4vw,42px); font-weight:800; margin-bottom:18px; }
+:where(.mun-detail-page) .ml-hero p{ font-size:16.5px; color:rgba(255,255,255,0.85); max-width:600px; margin-bottom:24px; }
+:where(.mun-detail-page) .prose{ max-width:760px; }
+:where(.mun-detail-page) #type-detail-content .prose{ max-width:none; }
+:where(.mun-detail-page) .prose h2{ font-size:20.5px; font-weight:700; margin:34px 0 14px; }
+:where(.mun-detail-page) .prose h3{ font-size:17.5px; font-weight:600; margin:26px 0 12px; }
+:where(.mun-detail-page) .prose p{ font-size:15.5px; line-height:1.85; color:var(--color-ink); margin-bottom:14px; }
+:where(.mun-detail-page) .prose a{ color:var(--color-primary); text-decoration:underline; text-underline-offset:2px; }
+:where(.mun-detail-page) .prose .btn{ text-decoration:none; }
+:where(.mun-detail-page) .prose .btn-primary{ color:var(--color-primary-dark); }
+:where(.mun-detail-page) .prose .btn-ghost{ color:#fff; }
+:where(.mun-detail-page) .prose img{ border-radius:var(--radius); margin:20px 0; }
+:where(.mun-detail-page) .prose ul{ margin:0 0 14px; display:flex; flex-direction:column; gap:10px; }
+:where(.mun-detail-page) .prose ol{ margin:0 0 14px; padding-left:1.2em; display:flex; flex-direction:column; gap:10px; list-style:decimal; }
+:where(.mun-detail-page) .prose ul li{ position:relative; padding-left:20px; font-size:15px; line-height:1.75; color:var(--color-ink); }
+:where(.mun-detail-page) .prose ul li::before{ content:""; position:absolute; left:0; top:10px; width:6px; height:6px; border-radius:50%; background:var(--color-secondary-dark); }
+:where(.mun-detail-page) .prose ul li svg{ width:18px;height:18px; color:var(--color-secondary-dark); vertical-align:-4px; margin-right:6px; }
+:where(.mun-detail-page) .prose ol li{ font-size:15px; line-height:1.75; color:var(--color-ink); padding-left:4px; }
+:where(.mun-detail-page) .article-cta{
+    padding:76px 0;
+    background:linear-gradient(155deg, var(--color-primary-dark), var(--color-primary) 65%);
+    color:#fff; text-align:center;
+  }
+:where(.mun-detail-page) .article-cta h2{ color:#fff; font-size:clamp(24px,3.2vw,32px); margin-bottom:14px; }
+:where(.mun-detail-page) .article-cta p{ color:rgba(255,255,255,0.82); font-size:15.5px; max-width:520px; margin:0 auto 30px; }
+@media (max-width:400px){:where(.mun-detail-page) .container{ padding-left:20px; padding-right:20px; }
+}
+
+:where(.mun-detail-page){--header-h:var(--insurance-header-height,85px);color:var(--color-ink);background:var(--color-paper)}
+:where(.mun-detail-page) .ml-hero{padding-top:44px}
+:where(.mun-detail-page) .mun-toc nav{display:block}
+:where(.mun-detail-page) .ml-crumb{gap:0}
+
+:where(.mun-detail-page) .mun-hero{padding-top:44px}

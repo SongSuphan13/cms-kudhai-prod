@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'KUDHAI_THEME_VERSION', '1.0.0' );
+define( 'KUDHAI_THEME_VERSION', '1.0.1' );
 
 function kudhai_theme_setup() {
 	add_theme_support( 'title-tag' );
@@ -37,13 +37,235 @@ add_action( 'init', 'kudhai_article_post_rewrite_rule' );
 function kudhai_theme_assets() {
 	wp_enqueue_style( 'kudhai-fonts', 'https://fonts.googleapis.com/css2?family=Prompt:wght@500;600;700;800&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&display=swap', array(), null );
 	wp_enqueue_style( 'kudhai-style', get_stylesheet_uri(), array(), KUDHAI_THEME_VERSION );
+	if ( kudhai_is_mun_lamert_template() ) {
+		wp_enqueue_style( 'kudhai-mun-guide', get_template_directory_uri() . '/assets/css/mun-lamert.css', array( 'kudhai-style' ), filemtime( get_template_directory() . '/assets/css/mun-lamert.css' ) );
+	}
 	wp_enqueue_script( 'kudhai-main', get_template_directory_uri() . '/assets/js/main.js', array(), KUDHAI_THEME_VERSION, true );
 }
 add_action( 'wp_enqueue_scripts', 'kudhai_theme_assets' );
 
+function kudhai_is_mun_lamert_template() {
+	if ( is_page( array(
+		'mun-lamert',
+		'what-is',
+		'car-accident',
+		'how-to-claim',
+		'compensation',
+		'loss-of-use',
+		'repair-cost',
+		'medical-expenses',
+		'lost-income',
+		'depreciation',
+		'injury',
+		'death',
+		'documents',
+		'claim-rejected',
+	) ) ) {
+		return true;
+	}
+
+	return is_page_template( array(
+		'page-mun-lamert.php',
+		'page-mun-lamert-what-is.php',
+		'page-mun-lamert-car-accident.php',
+		'page-mun-lamert-how-to-claim.php',
+		'page-mun-lamert-compensation.php',
+		'page-mun-lamert-loss-of-use.php',
+		'page-mun-lamert-repair-cost.php',
+		'page-mun-lamert-medical-expenses.php',
+		'page-mun-lamert-lost-income.php',
+		'page-mun-lamert-depreciation.php',
+		'page-mun-lamert-injury.php',
+		'page-mun-lamert-death.php',
+		'page-mun-lamert-documents.php',
+		'page-mun-lamert-claim-rejected.php',
+	) );
+}
+
 // Disable the front-end admin bar (the fixed header relies on the page
 // starting at the very top, and the admin bar pushes/overlaps it).
 add_filter( 'show_admin_bar', '__return_false' );
+
+function kudhai_register_contact_submission_type() {
+	register_post_type( 'kudhai_submission', array(
+		'labels' => array(
+			'name'          => 'Contact Submissions',
+			'singular_name' => 'Contact Submission',
+			'menu_name'     => 'Contact Leads',
+		),
+		'public'       => false,
+		'show_ui'      => true,
+		'show_in_menu' => true,
+		'supports'     => array( 'title', 'editor', 'custom-fields' ),
+		'menu_icon'    => 'dashicons-email-alt2',
+	) );
+}
+add_action( 'init', 'kudhai_register_contact_submission_type' );
+
+function kudhai_handle_contact_submission() {
+	$is_ajax = ! empty( $_POST['kudhai_ajax'] ) || wp_doing_ajax() || (
+		isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && 'XMLHttpRequest' === sanitize_text_field( wp_unslash( $_SERVER['HTTP_X_REQUESTED_WITH'] ) )
+	) || (
+		isset( $_SERVER['HTTP_ACCEPT'] ) && false !== strpos( sanitize_text_field( wp_unslash( $_SERVER['HTTP_ACCEPT'] ) ), 'application/json' )
+	);
+
+	if ( empty( $_POST['kudhai_contact_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['kudhai_contact_nonce'] ) ), 'kudhai_contact_submit' ) ) {
+		if ( $is_ajax ) {
+			wp_send_json_error( array( 'message' => 'ไม่สามารถยืนยันการส่งข้อมูลได้ กรุณาลองใหม่อีกครั้ง' ), 403 );
+		}
+		wp_safe_redirect( add_query_arg( 'contact_status', 'invalid', wp_get_referer() ?: home_url( '/contact-us/' ) ) );
+		exit;
+	}
+
+	$name    = isset( $_POST['name'] ) ? sanitize_text_field( wp_unslash( $_POST['name'] ) ) : '';
+	$phone   = isset( $_POST['phone'] ) ? sanitize_text_field( wp_unslash( $_POST['phone'] ) ) : '';
+	$phone_digits = preg_replace( '/\D+/', '', $phone );
+	$topic   = isset( $_POST['topic'] ) ? sanitize_text_field( wp_unslash( $_POST['topic'] ) ) : '';
+	$message = isset( $_POST['message'] ) ? sanitize_textarea_field( wp_unslash( $_POST['message'] ) ) : '';
+	$source  = isset( $_POST['source'] ) ? sanitize_text_field( wp_unslash( $_POST['source'] ) ) : 'contact-us';
+	$make    = isset( $_POST['make'] ) ? sanitize_text_field( wp_unslash( $_POST['make'] ) ) : '';
+	$model   = isset( $_POST['model'] ) ? sanitize_text_field( wp_unslash( $_POST['model'] ) ) : '';
+	$submodel = isset( $_POST['submodel'] ) ? sanitize_text_field( wp_unslash( $_POST['submodel'] ) ) : '';
+	$year    = isset( $_POST['year'] ) ? sanitize_text_field( wp_unslash( $_POST['year'] ) ) : '';
+	$plate   = isset( $_POST['plate'] ) ? sanitize_text_field( wp_unslash( $_POST['plate'] ) ) : '';
+	$province = isset( $_POST['province'] ) ? sanitize_text_field( wp_unslash( $_POST['province'] ) ) : '';
+	$type    = isset( $_POST['type'] ) ? sanitize_text_field( wp_unslash( $_POST['type'] ) ) : '';
+	$is_quote = 'quote' === $topic || 'front-page-quote' === $source || '' !== $type || '' !== $make || '' !== $model;
+
+	if ( '' === $name || '' === $phone || '' === $topic ) {
+		if ( $is_ajax ) {
+			wp_send_json_error( array( 'message' => 'กรุณากรอกชื่อ เบอร์โทรศัพท์ และเรื่องที่ต้องการปรึกษา' ), 422 );
+		}
+		wp_safe_redirect( add_query_arg( 'contact_status', 'missing', wp_get_referer() ?: home_url( '/contact-us/' ) ) );
+		exit;
+	}
+	if ( $is_quote && ( '' === $make || '' === $model || '' === $submodel || '' === $year || '' === $province || '' === $type ) ) {
+		if ( $is_ajax ) {
+			wp_send_json_error( array( 'message' => 'กรุณากรอกยี่ห้อรถ รุ่นรถ รุ่นย่อย ปีรถ จังหวัดที่จดทะเบียน และประเภทประกันที่สนใจ' ), 422 );
+		}
+		wp_safe_redirect( add_query_arg( 'contact_status', 'missing_quote', wp_get_referer() ?: home_url( '/contact-us/' ) ) );
+		exit;
+	}
+	if ( ! preg_match( '/^0\d{8,9}$/', $phone_digits ) ) {
+		if ( $is_ajax ) {
+			wp_send_json_error( array( 'message' => 'กรุณากรอกเบอร์โทรศัพท์ไทย 9-10 หลัก เช่น 0812345678' ), 422 );
+		}
+		wp_safe_redirect( add_query_arg( 'contact_status', 'invalid_phone', wp_get_referer() ?: home_url( '/contact-us/' ) ) );
+		exit;
+	}
+	$phone = $phone_digits;
+
+	$topic_labels = array(
+		'before-buy' => 'ปรึกษาก่อนซื้อประกัน',
+		'quote'      => 'ขอใบเสนอราคา',
+		'accident'   => 'เพิ่งประสบอุบัติเหตุ / ต้องการเคลม',
+		'compulsory' => 'สอบถามสิทธิ์ พ.ร.บ.',
+		'other'      => 'อื่นๆ',
+	);
+	$type_labels = array(
+		'class1'     => 'ชั้น 1',
+		'class2plus' => 'ชั้น 2+',
+		'class3plus' => 'ชั้น 3+',
+		'class3'     => 'ชั้น 3',
+		'unsure'     => 'ยังไม่แน่ใจ อยากให้แนะนำ',
+	);
+	$topic_label = $topic_labels[ $topic ] ?? $topic;
+	$type_label  = $type_labels[ $type ] ?? $type;
+
+	$details = array_filter( array(
+		'ชื่อ' => $name,
+		'เบอร์โทรศัพท์' => $phone,
+		'เรื่องที่ต้องการปรึกษา' => $topic_label,
+		'ประเภทประกันที่สนใจ' => $type_label,
+		'ยี่ห้อรถ' => $make,
+		'รุ่นรถ' => $model,
+		'รุ่นย่อย' => $submodel,
+		'ปีรถ' => $year,
+		'ทะเบียนรถ' => $plate,
+		'จังหวัดที่จดทะเบียน' => $province,
+		'ข้อความเพิ่มเติม' => $message,
+		'แหล่งที่มา' => $source,
+	) );
+	$content_lines = array(
+		'**เรื่องที่ต้องการปรึกษา ' . ( $topic_label ?: '-' ) . '**',
+		'',
+	);
+	foreach ( $details as $label => $value ) {
+		$content_lines[] = $label . ': ' . $value;
+	}
+
+	$title_prefix = $is_quote ? 'ใบเสนอราคา' : 'ติดต่อ';
+	$title = sprintf( '%s %s - %s', $title_prefix, $name, current_time( 'mysql' ) );
+	$post_id = wp_insert_post( array(
+		'post_type'    => 'kudhai_submission',
+		'post_status'  => 'private',
+		'post_title'   => $title,
+		'post_content' => implode( "\n", $content_lines ),
+		'meta_input'   => array(
+			'_kudhai_contact_name'       => $name,
+			'_kudhai_contact_phone'      => $phone,
+			'_kudhai_contact_topic'      => $topic,
+			'_kudhai_contact_message'    => $message,
+			'_kudhai_contact_source'     => $source,
+			'_kudhai_quote_make'         => $make,
+			'_kudhai_quote_model'        => $model,
+			'_kudhai_quote_submodel'     => $submodel,
+			'_kudhai_quote_year'         => $year,
+			'_kudhai_quote_plate'        => $plate,
+			'_kudhai_quote_province'     => $province,
+			'_kudhai_quote_type'         => $type,
+			'_kudhai_contact_page_url'   => esc_url_raw( wp_get_referer() ?: home_url( '/contact-us/' ) ),
+			'_kudhai_contact_ip'         => isset( $_SERVER['REMOTE_ADDR'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REMOTE_ADDR'] ) ) : '',
+			'_kudhai_contact_user_agent' => isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) : '',
+		),
+	), true );
+
+	if ( is_wp_error( $post_id ) ) {
+		if ( $is_ajax ) {
+			wp_send_json_error( array( 'message' => 'บันทึกข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง' ), 500 );
+		}
+		wp_safe_redirect( add_query_arg( 'contact_status', 'error', wp_get_referer() ?: home_url( '/contact-us/' ) ) );
+		exit;
+	}
+
+	if ( $is_ajax ) {
+		wp_send_json_success( array(
+			'id'      => $post_id,
+			'message' => 'ได้รับข้อมูลแล้ว ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมง',
+		) );
+	}
+
+	wp_safe_redirect( add_query_arg( 'contact_status', 'success', wp_get_referer() ?: home_url( '/contact-us/' ) ) );
+	exit;
+}
+add_action( 'admin_post_kudhai_contact_submit', 'kudhai_handle_contact_submission' );
+add_action( 'admin_post_nopriv_kudhai_contact_submit', 'kudhai_handle_contact_submission' );
+
+add_filter( 'manage_kudhai_submission_posts_columns', function ( $columns ) {
+	return array(
+		'cb'      => $columns['cb'],
+		'title'   => 'Submission',
+		'name'    => 'Name',
+		'phone'   => 'Phone',
+		'topic'   => 'Topic',
+		'type'    => 'Insurance',
+		'source'  => 'Source',
+		'date'    => $columns['date'],
+	);
+} );
+
+add_action( 'manage_kudhai_submission_posts_custom_column', function ( $column, $post_id ) {
+	$meta_key = array(
+		'name'   => '_kudhai_contact_name',
+		'phone'  => '_kudhai_contact_phone',
+		'topic'  => '_kudhai_contact_topic',
+		'type'   => '_kudhai_quote_type',
+		'source' => '_kudhai_contact_source',
+	);
+	if ( isset( $meta_key[ $column ] ) ) {
+		echo esc_html( get_post_meta( $post_id, $meta_key[ $column ], true ) );
+	}
+}, 10, 2 );
 
 /**
  * SEO: meta description, canonical, Open Graph / Twitter card, and
@@ -52,6 +274,10 @@ add_filter( 'show_admin_bar', '__return_false' );
  */
 
 function kudhai_get_seo_description() {
+	if ( ! empty( $GLOBALS['kudhai_mun_lamert_meta']['description'] ) ) {
+		return $GLOBALS['kudhai_mun_lamert_meta']['description'];
+	}
+
 	if ( is_page_template( 'template-company.php' ) ) {
 		$companies = kudhai_get_companies();
 		$slug      = get_post_field( 'post_name' );
@@ -86,11 +312,11 @@ function kudhai_get_seo_description() {
 	}
 
 	if ( is_page( 'viriyah-insurance' ) ) {
-		return 'เปรียบเทียบแผนประกันรถยนต์วิริยะประกันภัย ชั้น 1, 2+, 2, 3+, 3, 4 และ พ.ร.บ. พร้อมจุดเด่นเครือข่ายอู่ซ่อมในเครือ จากที่ปรึกษาประกันภัยรถยนต์ ปรึกษาฟรี';
+		return 'รู้จักวิริยะประกันภัยและที่มาบริษัท พร้อมประกันรถยนต์ชั้น 1, 2, 2+, 3+, 3, พ.ร.บ. และ EV รวมถึงประกันอุบัติเหตุ บ้าน และเดินทาง โดย คัดให้';
 	}
 
 	if ( is_page( 'roojai-insurance' ) ) {
-		return 'เปรียบเทียบแผนประกันรถยนต์รู้ใจ ประกันภัย ชั้น 1, 2+, 3+, พ.ร.บ. และแผนเฉพาะรถยนต์ไฟฟ้า ซื้อและเคลมผ่านออนไลน์ได้ทั้งหมด จากที่ปรึกษาประกันภัยรถยนต์ ปรึกษาฟรี';
+		return 'รู้จักประกันรถยนต์ Roojai ทั้งชั้น 1, 2+, 2, 3+, 3, รถยนต์ไฟฟ้า และ พ.ร.บ. เปรียบเทียบความคุ้มครอง วิธีเช็กราคา และประกันประเภทอื่นที่มี';
 	}
 
 	if ( is_page( 'muang-thai-insurance' ) ) {
@@ -99,6 +325,10 @@ function kudhai_get_seo_description() {
 
 	if ( is_page( 'bangkok-insurance' ) ) {
 		return 'เปรียบเทียบแผนประกันรถยนต์กรุงเทพประกันภัย ชั้น 1, 2+ และ พ.ร.บ. เชี่ยวชาญกรมธรรม์ที่ปรับแต่งได้สำหรับลูกค้าองค์กร จากที่ปรึกษาประกันภัยรถยนต์ ปรึกษาฟรี';
+	}
+
+	if ( is_page( 'chubb-insurance' ) ) {
+		return 'รู้จักประกันรถยนต์ Chubb ทั้งชั้น 1, 2, 2+, 3, 3+ และ พ.ร.บ. พร้อมบริการที่เกี่ยวข้อง รวมถึงประกันสุขภาพ โรคมะเร็ง ชดเชยรายได้ และประกันบ้านและคอนโด';
 	}
 
 	if ( is_page( 'truck-insurance' ) ) {
@@ -123,6 +353,9 @@ function kudhai_get_seo_description() {
 	if ( is_page( 'about' ) ) {
 		return 'รู้จักทีมที่ปรึกษาประกันภัยรถยนต์ ผู้เชี่ยวชาญด้านมูลละเมิดประกันภัยรถยนต์และการเรียกร้องค่าสินไหม ช่วยเปรียบเทียบแผนประกันรถยนต์ รถไฟฟ้า มอเตอร์ไซค์ที่เหมาะกับคุณ';
 	}
+	if ( is_page( 'contact-us' ) ) {
+		return 'ติดต่อทีมที่ปรึกษาประกันภัยรถยนต์ ปรึกษาฟรีทางโทรศัพท์ LINE หรือกรอกแบบฟอร์มขอใบเสนอราคา ให้บริการทุกวัน 08:00 - 22:00 น.';
+	}
 	if ( is_page( 'insurance-companies' ) ) {
 		return 'เปรียบเทียบบริษัทประกันภัยรถยนต์ชั้นนำที่เราแนะนำ ไม่ผูกติดกับบริษัทใดบริษัทหนึ่ง ช่วยเลือกแผนความคุ้มครองที่เหมาะกับการใช้งานและงบประมาณของคุณ';
 	}
@@ -144,6 +377,10 @@ function kudhai_get_seo_description() {
 }
 
 function kudhai_get_seo_title() {
+	if ( ! empty( $GLOBALS['kudhai_mun_lamert_meta']['title'] ) ) {
+		return $GLOBALS['kudhai_mun_lamert_meta']['title'];
+	}
+
 	if ( is_page_template( 'template-company.php' ) ) {
 		$companies = kudhai_get_companies();
 		$slug      = get_post_field( 'post_name' );
@@ -172,16 +409,19 @@ function kudhai_get_seo_title() {
 		return 'พ.ร.บ. รถยนต์ ประกันภาคบังคับ เช็กความคุ้มครองและวิธีต่อ พ.ร.บ.';
 	}
 	if ( is_page( 'viriyah-insurance' ) ) {
-		return 'ประกันรถยนต์ วิริยะประกันภัย เปรียบเทียบแผนทุกชั้นกับที่ปรึกษาประกันภัย';
+		return 'วิริยะประกันภัย ประวัติบริษัท ประกันรถยนต์และผลิตภัณฑ์อื่น';
 	}
 	if ( is_page( 'roojai-insurance' ) ) {
-		return 'ประกันรถยนต์ รู้ใจ ประกันภัย เปรียบเทียบแผนทุกชั้นกับที่ปรึกษาประกันภัย';
+		return 'ประกันรถยนต์ Roojai มีแบบไหนบ้าง? เปรียบเทียบความคุ้มครอง | KUDHAI';
 	}
 	if ( is_page( 'muang-thai-insurance' ) ) {
 		return 'ประกันรถยนต์ เมืองไทยประกันภัย เปรียบเทียบแผนทุกชั้นกับที่ปรึกษาประกันภัย';
 	}
 	if ( is_page( 'bangkok-insurance' ) ) {
 		return 'ประกันรถยนต์ กรุงเทพประกันภัย เปรียบเทียบแผนทุกชั้นกับที่ปรึกษาประกันภัย';
+	}
+	if ( is_page( 'chubb-insurance' ) ) {
+		return 'ประกันรถยนต์ Chubb มีแบบไหนบ้าง? ความคุ้มครองและประกันอื่น ๆ | KUDHAI';
 	}
 	if ( is_page( 'truck-insurance' ) ) {
 		return 'ประกันรถบรรทุก 6 ล้อ 10 ล้อ เปรียบเทียบแผนให้เหมาะกับงานขนส่ง';
@@ -199,6 +439,11 @@ function kudhai_get_seo_title() {
 }
 
 add_filter( 'document_title_parts', function ( $parts ) {
+	if ( ! empty( $GLOBALS['kudhai_mun_lamert_meta']['title'] ) ) {
+		$parts['title'] = $GLOBALS['kudhai_mun_lamert_meta']['title'];
+		return $parts;
+	}
+
 	if ( is_page_template( 'template-company.php' ) ) {
 		$companies = kudhai_get_companies();
 		$slug      = get_post_field( 'post_name' );
@@ -226,16 +471,20 @@ add_filter( 'document_title_parts', function ( $parts ) {
 		$parts['title'] = 'พ.ร.บ. รถยนต์ ประกันภาคบังคับ เช็กความคุ้มครองและวิธีต่อ พ.ร.บ.';
 	}
 	if ( is_page( 'viriyah-insurance' ) ) {
-		$parts['title'] = 'ประกันรถยนต์ วิริยะประกันภัย เปรียบเทียบแผนทุกชั้นกับที่ปรึกษาประกันภัย';
+		$parts['title'] = 'วิริยะประกันภัย ประวัติบริษัท ประกันรถยนต์และผลิตภัณฑ์อื่น';
 	}
 	if ( is_page( 'roojai-insurance' ) ) {
-		$parts['title'] = 'ประกันรถยนต์ รู้ใจ ประกันภัย เปรียบเทียบแผนทุกชั้นกับที่ปรึกษาประกันภัย';
+		$parts['title'] = 'ประกันรถยนต์ Roojai มีแบบไหนบ้าง? เปรียบเทียบความคุ้มครอง | KUDHAI';
+		unset( $parts['site'], $parts['tagline'] );
 	}
 	if ( is_page( 'muang-thai-insurance' ) ) {
 		$parts['title'] = 'ประกันรถยนต์ เมืองไทยประกันภัย เปรียบเทียบแผนทุกชั้นกับที่ปรึกษาประกันภัย';
 	}
 	if ( is_page( 'bangkok-insurance' ) ) {
 		$parts['title'] = 'ประกันรถยนต์ กรุงเทพประกันภัย เปรียบเทียบแผนทุกชั้นกับที่ปรึกษาประกันภัย';
+	}
+	if ( is_page( 'chubb-insurance' ) ) {
+		$parts['title'] = 'ประกันรถยนต์ Chubb มีแบบไหนบ้าง? ความคุ้มครองและประกันอื่น ๆ | KUDHAI';
 	}
 	if ( is_page( 'truck-insurance' ) ) {
 		$parts['title'] = 'ประกันรถบรรทุก 6 ล้อ 10 ล้อ เปรียบเทียบแผนให้เหมาะกับงานขนส่ง';
@@ -295,6 +544,7 @@ function kudhai_seo_head() {
 
 	kudhai_output_company_schema();
 	kudhai_output_insurance_type_schema();
+	kudhai_output_mun_lamert_schema();
 
 	echo "<!-- /SEO meta -->\n";
 }
@@ -461,6 +711,65 @@ function kudhai_output_insurance_type_schema() {
 		echo '<script type="application/ld+json">' . wp_json_encode( $faq_schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . "</script>\n";
 	}
 }
+
+function kudhai_output_mun_lamert_schema() {
+	$page = $GLOBALS['kudhai_mun_lamert_meta'] ?? null;
+	if ( ! $page ) {
+		return;
+	}
+
+	$url = get_permalink();
+	$breadcrumbs = array();
+	foreach ( $page['breadcrumbs'] as $i => $item ) {
+		$breadcrumbs[] = array(
+			'@type'    => 'ListItem',
+			'position' => $i + 1,
+			'name'     => $item['name'],
+			'item'     => home_url( $item['path'] ),
+		);
+	}
+
+	$web_page = array(
+		'@context'    => 'https://schema.org',
+		'@type'       => 'WebPage',
+		'@id'         => $url . '#webpage',
+		'url'         => $url,
+		'name'        => $page['title'],
+		'headline'    => $page['h1'],
+		'description' => $page['description'],
+		'inLanguage'  => 'th',
+		'author'      => array( '@type' => 'Organization', 'name' => 'ทีมเรียบเรียง คัดให้' ),
+		'publisher'   => array( '@type' => 'Organization', 'name' => 'คัดให้', 'url' => home_url( '/' ) ),
+	);
+	if ( ! empty( $page['reviewed_at'] ) ) {
+		$web_page['dateModified'] = $page['reviewed_at'];
+	}
+
+	$questions = array();
+	foreach ( $page['faq'] as $faq ) {
+		$questions[] = array(
+			'@type'          => 'Question',
+			'name'           => $faq['q'],
+			'acceptedAnswer' => array( '@type' => 'Answer', 'text' => $faq['a'] ),
+		);
+	}
+
+	$graph = array(
+		$web_page,
+		array( '@context' => 'https://schema.org', '@type' => 'BreadcrumbList', 'itemListElement' => $breadcrumbs ),
+		array( '@context' => 'https://schema.org', '@type' => 'FAQPage', '@id' => $url . '#faq', 'mainEntity' => $questions ),
+	);
+
+	echo '<script type="application/ld+json">' . wp_json_encode( array( '@context' => 'https://schema.org', '@graph' => $graph ), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . "</script>\n";
+}
+
+add_filter( 'wp_robots', function ( $robots ) {
+	if ( ! empty( $GLOBALS['kudhai_mun_lamert_meta'] ) && empty( $GLOBALS['kudhai_mun_lamert_meta']['reviewed_at'] ) ) {
+		unset( $robots['index'] );
+		$robots['noindex'] = true;
+	}
+	return $robots;
+} );
 
 /**
  * Site-wide contact details used in the header top-bar, floating LINE

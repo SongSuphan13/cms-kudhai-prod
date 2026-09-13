@@ -70,20 +70,76 @@
     if (e.key === 'Escape') { navDropdownWraps.forEach(closeNavDropdown); }
   });
 
-  // quote form submit (no backend wired up — shows confirmation only)
+  // quote/contact form submit
   const quoteForm = document.getElementById('quoteForm');
   const formSuccess = document.getElementById('formSuccess');
+  const formError = document.getElementById('formError');
   if (quoteForm) {
-  quoteForm.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    if(!quoteForm.checkValidity()){
-      quoteForm.reportValidity();
-      return;
-    }
-    formSuccess.classList.add('show');
-    quoteForm.reset();
-    formSuccess.scrollIntoView({ behavior:'smooth', block:'center' });
-  });
+    quoteForm.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const phoneInput = quoteForm.querySelector('input[name="phone"]');
+      if (phoneInput) {
+        phoneInput.value = phoneInput.value.replace(/[^\d]/g, '');
+        if (!/^0\d{8,9}$/.test(phoneInput.value)) {
+          phoneInput.setCustomValidity('กรุณากรอกเบอร์โทรศัพท์ไทย 9-10 หลัก เช่น 0812345678');
+        } else {
+          phoneInput.setCustomValidity('');
+        }
+      }
+      if(!quoteForm.checkValidity()){
+        quoteForm.reportValidity();
+        return;
+      }
+
+      formError?.classList.remove('show');
+      formSuccess?.classList.remove('show');
+
+      const submitButton = quoteForm.querySelector('button[type="submit"]');
+      if (submitButton) {
+        submitButton.disabled = true;
+      }
+
+      try {
+        if (quoteForm.hasAttribute('action')) {
+          const formAction = quoteForm.getAttribute('action');
+          const formMethod = quoteForm.getAttribute('method') || 'POST';
+          const response = await fetch(formAction, {
+            method: formMethod,
+            body: new FormData(quoteForm),
+            headers: {
+              Accept: 'application/json',
+              'X-Requested-With': 'XMLHttpRequest'
+            }
+          });
+          const responseText = await response.text();
+          let data = null;
+          try {
+            data = JSON.parse(responseText);
+          } catch (parseError) {
+            throw new Error('ระบบตอบกลับไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง');
+          }
+          if (!response.ok || !data.success) {
+            throw new Error(data?.data?.message || 'Submit failed');
+          }
+        }
+
+        formSuccess?.classList.add('show');
+        quoteForm.reset();
+        formSuccess?.scrollIntoView({ behavior:'smooth', block:'center' });
+      } catch (err) {
+        if (formError) {
+          formError.textContent = err.message || 'บันทึกข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง';
+          formError.classList.add('show');
+          formError.scrollIntoView({ behavior:'smooth', block:'center' });
+        } else {
+          quoteForm.submit();
+        }
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+        }
+      }
+    });
   }
 
   // outside business hours (08:00–22:00 daily), send call buttons to the LINE modal instead of dialing

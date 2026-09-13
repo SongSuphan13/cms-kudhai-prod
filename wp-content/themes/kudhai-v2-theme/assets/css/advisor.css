@@ -1,0 +1,46 @@
+/* One advisor component for every V2 page; match the insurance reference. */
+#advisor{--navy:#072d68;--teal:#00999d;--yellow:#ffce35;font:clamp(14px,1.5vw,19px)/1.45 'Noto Sans Thai',Tahoma,sans-serif;color:var(--navy)}
+#advisor h2{margin:0;font-weight:800;letter-spacing:-.7px;color:var(--navy)}
+#advisor p{margin:0;color:#233f59;line-height:1.5}
+#advisor .button{font-family:inherit}
+#advisor svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round}
+#advisor .script{display:block;font-style:italic;transform:rotate(-7deg);text-align:center}
+/* Advisor layout shared with the insurance page, including its responsive rules. */
+#advisor.insurance-advisor{display:grid;grid-template-columns:52% 48%;padding-inline:max(5.5%,calc((100% - 1180px)/2));background:linear-gradient(100deg,#def6f2,#ecfbfa);overflow:hidden}
+#advisor .advisor-portrait{position:relative;min-width:0;aspect-ratio:2.05;border-radius:0 14px 0 0;overflow:hidden}
+#advisor .advisor-portrait img{display:block;width:100%;height:100%;object-fit:cover;object-position:center}
+#advisor .insurance-advisor-copy{position:relative;align-self:center;padding:20px 7%}
+#advisor .insurance-advisor-copy h2{font-size:clamp(27px,3.2vw,39px);line-height:1.2}
+#advisor .insurance-advisor-copy>p:not(.script){font-size:clamp(14px,1.55vw,18px);margin:12px 0 18px}
+#advisor .insurance-advisor-copy .button{font-size:18px;padding:12px 26px}
+#advisor .insurance-advisor-copy .script{position:absolute;right:6%;bottom:12px;font-size:clamp(14px,1.7vw,21px)}
+@media(min-width:1500px){
+#advisor.insurance-advisor{grid-template-columns:1fr 1fr}
+#advisor .advisor-portrait{max-height:380px}
+#advisor .insurance-advisor-copy{max-width:680px}
+}
+@media(max-width:1100px){
+#advisor .insurance-advisor-copy .button{padding:10px 20px;font-size:16px}
+#advisor .insurance-advisor-copy .script{right:5%;bottom:6px}
+}
+@media(max-width:800px){
+#advisor .insurance-advisor-copy{padding:16px 6%}
+#advisor .insurance-advisor-copy h2{font-size:26px}
+#advisor .insurance-advisor-copy .script{display:none}
+#advisor .advisor-portrait{height:100%;aspect-ratio:auto;min-height:260px}
+#advisor .advisor-portrait img{object-position:50% center}
+}
+@media(max-width:600px){
+#advisor.insurance-advisor{grid-template-columns:1fr;padding-inline:16px}
+#advisor .advisor-portrait{aspect-ratio:1.78;min-height:0;border-radius:0}
+#advisor .advisor-portrait img{object-fit:cover}
+#advisor .insurance-advisor-copy{padding:25px 24px 30px}
+#advisor .insurance-advisor-copy h2{font-size:30px}
+#advisor .insurance-advisor-copy>p:not(.script){font-size:16px}
+#advisor .insurance-advisor-copy .script{display:block;font-size:16px;right:22px;bottom:29px}
+#advisor .insurance-advisor-copy .button{padding:11px 18px;font-size:16px}
+}
+@media(max-width:360px){
+#advisor .insurance-advisor-copy .script{display:none}
+}
+@media(max-width:600px){#advisor h2{letter-spacing:-.4px}}

@@ -1,4 +1,95 @@
-<?php get_header(); ?>
+<?php
+add_action( 'wp_head', function () {
+	$home_url = home_url( '/' );
+	$mun_url  = home_url( '/mun-lamert/' );
+	$schema   = array(
+		'@context' => 'https://schema.org',
+		'@graph'   => array(
+			array(
+				'@type'       => 'Organization',
+				'@id'         => $home_url . '#organization',
+				'name'        => get_bloginfo( 'name' ),
+				'url'         => $home_url,
+				'telephone'   => kudhai_get_phone(),
+				'description' => 'ที่ปรึกษาประกันภัยรถยนต์และการเรียกร้องค่าสินไหมจากอุบัติเหตุ รวมถึงการเตรียมข้อมูลเกี่ยวกับมูลละเมิด',
+				'knowsAbout'  => array(
+					'มูลละเมิดจากอุบัติเหตุรถยนต์',
+					'การเรียกร้องค่าสินไหมทดแทน',
+					'ค่าขาดประโยชน์จากการใช้รถ',
+					'ค่ารักษาพยาบาลจากอุบัติเหตุรถยนต์',
+					'เอกสารเรียกร้องค่าเสียหายจากประกันคู่กรณี',
+				),
+			),
+			array(
+				'@type'      => 'WebSite',
+				'@id'        => $home_url . '#website',
+				'url'        => $home_url,
+				'name'       => get_bloginfo( 'name' ),
+				'publisher'  => array( '@id' => $home_url . '#organization' ),
+				'inLanguage' => 'th',
+			),
+			array(
+				'@type'       => 'WebPage',
+				'@id'         => $home_url . '#webpage',
+				'url'         => $home_url,
+				'name'        => 'ที่ปรึกษาประกันภัยรถยนต์และมูลละเมิด | ' . get_bloginfo( 'name' ),
+				'description' => 'ปรึกษาการเรียกร้องค่าสินไหมทดแทนหลังอุบัติเหตุรถยนต์ ทำความเข้าใจมูลละเมิด สิทธิ์ พ.ร.บ. เอกสาร และการเรียกร้องค่าเสียหายจากคู่กรณี',
+				'isPartOf'    => array( '@id' => $home_url . '#website' ),
+				'about'       => array( '@id' => $mun_url . '#service' ),
+				'mentions'    => array(
+					array( '@type' => 'Thing', 'name' => 'มูลละเมิด', 'url' => $mun_url ),
+					array( '@type' => 'Thing', 'name' => 'การเรียกร้องค่าเสียหายจากคู่กรณี', 'url' => $mun_url ),
+				),
+				'inLanguage'  => 'th',
+			),
+			array(
+				'@type'       => 'Service',
+				'@id'         => $mun_url . '#service',
+				'name'        => 'ปรึกษามูลละเมิดและการเรียกร้องค่าสินไหมรถยนต์',
+				'serviceType' => 'ที่ปรึกษาการเรียกร้องค่าสินไหมทดแทนจากอุบัติเหตุรถยนต์',
+				'description' => 'ช่วยจัดลำดับข้อมูลหลังรถชน แยกความรับผิด รายการความเสียหาย เอกสารประกอบ และแนวทางติดต่อประกันคู่กรณี',
+				'url'         => $mun_url,
+				'provider'    => array( '@id' => $home_url . '#organization' ),
+				'areaServed'  => array( '@type' => 'Country', 'name' => 'Thailand' ),
+			),
+			array(
+				'@type'      => 'FAQPage',
+				'@id'        => $home_url . '#mun-lamert-faq',
+				'mainEntity' => array(
+					array(
+						'@type'          => 'Question',
+						'name'           => 'มูลละเมิดคืออะไรในกรณีรถชน?',
+						'acceptedAnswer' => array(
+							'@type' => 'Answer',
+							'text'  => 'มูลละเมิดคือฐานความรับผิดทางแพ่งเมื่อมีการกระทำที่ทำให้ผู้อื่นเสียหาย ในบริบทรถชนจึงต้องดูเหตุ ความรับผิด ความเสียหายจริง และหลักฐานประกอบกัน',
+						),
+					),
+					array(
+						'@type'          => 'Question',
+						'name'           => 'รถชนเป็นฝ่ายถูกควรเริ่มจากอะไร?',
+						'acceptedAnswer' => array(
+							'@type' => 'Answer',
+							'text'  => 'ควรเริ่มจากเก็บข้อมูลเหตุ คู่กรณี เอกสารการแจ้งเหตุ รายการความเสียหาย ใบเสร็จ ใบรับรองแพทย์ และหลักฐานช่วงเวลาที่เสียประโยชน์จากการใช้รถ',
+						),
+					),
+					array(
+						'@type'          => 'Question',
+						'name'           => 'ประกันคู่กรณีต้องจ่ายทุกอย่างที่เรียกร้องหรือไม่?',
+						'acceptedAnswer' => array(
+							'@type' => 'Answer',
+							'text'  => 'ต้องพิจารณาความรับผิดตามกฎหมาย ความเสียหายจริง หลักฐาน เงื่อนไขกรมธรรม์ และจำนวนเงินจำกัดความรับผิด ไม่ใช่ยอดที่ผู้เสียหายตั้งขึ้นฝ่ายเดียว',
+						),
+					),
+				),
+			),
+		),
+	);
+
+	echo '<script type="application/ld+json">' . wp_json_encode( $schema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT ) . '</script>' . "\n";
+}, 2 );
+
+get_header();
+?>
 
 <!-- ============ HERO ============ -->
 <section class="hero" id="home">
@@ -381,90 +472,6 @@
   </div>
 </section>
 
-<!-- ============ CASE STUDIES ============ -->
-<section class="cases" id="cases">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="tab" style="background:var(--color-secondary-dark)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15z"/></svg>
-        แฟ้ม 04 · ตัวอย่างเคสจริง
-      </span>
-      <h2>เคสตัวอย่างที่เราให้คำปรึกษา</h2>
-      <p>สรุปจากเคสจริง (ปกปิดข้อมูลส่วนตัวลูกค้า) เพื่อให้เห็นภาพว่าเราช่วยอะไรได้บ้าง</p>
-    </div>
-
-    <div class="case-grid">
-      <div class="case-card reveal">
-        <span class="case-tag">เคส 01</span>
-        <h3>ชนท้ายบนทางด่วน คู่กรณีไม่ยอมรับผิด</h3>
-        <div class="case-block">
-          <span class="case-label">สถานการณ์</span>
-          <p>ถูกชนท้ายขณะจอดชะลอบนทางด่วน คู่กรณีอ้างว่าเบรกกะทันหันและไม่ยอมรับผิด</p>
-        </div>
-        <div class="case-block">
-          <span class="case-label">สิ่งที่เราช่วย</span>
-          <p>รวบรวมภาพจากกล้องหน้ารถและคำให้การพยาน เพื่อพิสูจน์ฝ่ายที่ต้องรับผิดชอบกับบริษัทประกันคู่กรณี</p>
-        </div>
-        <div class="case-result">
-          <div class="num">18 วัน</div>
-          <div class="label">ได้รับค่าซ่อมเต็มจำนวน โดยไม่ต้องขึ้นศาล</div>
-        </div>
-      </div>
-
-      <div class="case-card reveal">
-        <span class="case-tag">เคส 02</span>
-        <h3>ค่าสินไหมที่เสนอมาต่ำกว่าราคาตลาด</h3>
-        <div class="case-block">
-          <span class="case-label">สถานการณ์</span>
-          <p>รถชนหนัก บริษัทประกันประเมินค่าซ่อมต่ำกว่าราคาอู่จริงเกือบ 30%</p>
-        </div>
-        <div class="case-block">
-          <span class="case-label">สิ่งที่เราช่วย</span>
-          <p>ตรวจสอบใบประเมินราคา เทียบราคาตลาด และยื่นอุทธรณ์พร้อมหลักฐานประกอบ</p>
-        </div>
-        <div class="case-result">
-          <div class="num">+42%</div>
-          <div class="label">ค่าสินไหมเพิ่มขึ้นจากที่เสนอครั้งแรก</div>
-        </div>
-      </div>
-
-      <div class="case-card reveal">
-        <span class="case-tag">เคส 03</span>
-        <h3>อุบัติเหตุมีผู้บาดเจ็บ ต้องพิสูจน์ฝ่ายที่ต้องรับผิดชอบ</h3>
-        <div class="case-block">
-          <span class="case-label">สถานการณ์</span>
-          <p>อุบัติเหตุที่มีผู้โดยสารบาดเจ็บ ทั้งสองฝ่ายต่างโทษกันว่าอีกฝ่ายเป็นต้นเหตุ</p>
-        </div>
-        <div class="case-block">
-          <span class="case-label">สิ่งที่เราช่วย</span>
-          <p>วิเคราะห์หลักฐานในที่เกิดเหตุตามคู่มือตีความประกันภัยรถยนต์ ประสานงานกับโรงพยาบาลและตำรวจ</p>
-        </div>
-        <div class="case-result">
-          <div class="num">100%</div>
-          <div class="label">ได้รับค่ารักษาพยาบาลและค่าขาดประโยชน์ครบถ้วน</div>
-        </div>
-      </div>
-
-      <div class="case-card reveal">
-        <span class="case-tag">เคส 04</span>
-        <h3>เรียกร้องสินไหมตามมูลละเมิด เมื่อคู่กรณีไม่มีประกันภาคสมัครใจ</h3>
-        <div class="case-block">
-          <span class="case-label">สถานการณ์</span>
-          <p>คู่กรณีมีเพียง พ.ร.บ. ไม่มีประกันภาคสมัครใจ ค่าเสียหายส่วนที่เกินวงเงิน พ.ร.บ. จึงต้องเรียกร้องจากคู่กรณีโดยตรง</p>
-        </div>
-        <div class="case-block">
-          <span class="case-label">สิ่งที่เราช่วย</span>
-          <p>จัดทำสรุปมูลละเมิดพร้อมหลักฐานประกอบตามคู่มือตีความประกันภัยรถยนต์ แล้วช่วยเจรจาเรียกร้องค่าเสียหายส่วนเกินกับคู่กรณีโดยตรง</p>
-        </div>
-        <div class="case-result">
-          <div class="num">25 วัน</div>
-          <div class="label">ได้รับชดใช้ค่าเสียหายส่วนเกินครบถ้วน โดยไม่ต้องฟ้องร้อง</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ ABOUT (excerpt) ============ -->
 <section class="about" id="about">
   <div class="container">
@@ -599,7 +606,15 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>
           ได้รับข้อมูลแล้ว ทีมงานจะติดต่อกลับภายใน 24 ชั่วโมง
         </div>
-        <form id="quoteForm" novalidate>
+        <div class="form-success form-error" id="formError" aria-live="polite">
+          บันทึกข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง
+        </div>
+        <form id="quoteForm" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="post" novalidate>
+          <input type="hidden" name="action" value="kudhai_contact_submit">
+          <input type="hidden" name="kudhai_contact_nonce" value="<?php echo esc_attr( wp_create_nonce( 'kudhai_contact_submit' ) ); ?>">
+          <input type="hidden" name="kudhai_ajax" value="1">
+          <input type="hidden" name="source" value="front-page-quote">
+          <input type="hidden" name="topic" value="quote">
           <div class="form-row">
             <div class="field">
               <label for="qName">ชื่อ-นามสกุล</label>
@@ -607,27 +622,27 @@
             </div>
             <div class="field">
               <label for="qPhone">เบอร์โทรศัพท์</label>
-              <input type="tel" id="qPhone" name="phone" placeholder="08X-XXX-XXXX" required>
+              <input type="tel" id="qPhone" name="phone" placeholder="08X-XXX-XXXX" inputmode="tel" pattern="0[0-9]{8,9}" title="กรุณากรอกเบอร์โทรศัพท์ไทย 9-10 หลัก เช่น 0812345678" required>
             </div>
           </div>
           <div class="form-row">
             <div class="field">
               <label for="qMake">ยี่ห้อรถ</label>
-              <input type="text" id="qMake" name="make" placeholder="เช่น Toyota">
+              <input type="text" id="qMake" name="make" placeholder="เช่น Toyota" required>
             </div>
             <div class="field">
               <label for="qModel">รุ่นรถ</label>
-              <input type="text" id="qModel" name="model" placeholder="เช่น Yaris">
+              <input type="text" id="qModel" name="model" placeholder="เช่น Yaris" required>
             </div>
           </div>
           <div class="form-row">
             <div class="field">
               <label for="qSubmodel">รุ่นย่อย</label>
-              <input type="text" id="qSubmodel" name="submodel" placeholder="เช่น 1.2 Sport">
+              <input type="text" id="qSubmodel" name="submodel" placeholder="เช่น 1.2 Sport" required>
             </div>
             <div class="field">
               <label for="qYear">ปีรถ</label>
-              <input type="text" id="qYear" name="year" placeholder="เช่น 2021">
+              <input type="text" id="qYear" name="year" placeholder="เช่น 2021" required>
             </div>
           </div>
           <div class="form-row">
@@ -637,13 +652,13 @@
             </div>
             <div class="field">
               <label for="qProvince">จังหวัดที่จดทะเบียน</label>
-              <input type="text" id="qProvince" name="province" placeholder="เช่น กรุงเทพมหานคร">
+              <input type="text" id="qProvince" name="province" placeholder="เช่น กรุงเทพมหานคร" required>
             </div>
           </div>
           <div class="form-row">
             <div class="field full">
               <label for="qType">ประเภทประกันที่สนใจ</label>
-              <select id="qType" name="type">
+              <select id="qType" name="type" required>
                 <option value="">เลือกประเภทประกัน</option>
                 <option value="class1">ชั้น 1</option>
                 <option value="class2plus">ชั้น 2+</option>

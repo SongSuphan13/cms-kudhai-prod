@@ -1,0 +1,66 @@
+/* Page-specific styling; shared navigation, hero and advisor use insurance.css. */
+.insurance-3plus{background:#fff;font-size:clamp(14px,1.6vw,19px)}
+.insurance-3plus h2{font-size:clamp(26px,3.4vw,40px)}
+.insurance-3plus .insurance-hero h1{font-size:clamp(37px,4.9vw,60px)}
+.insurance-3plus .insurance-hero h2{font-size:clamp(23px,2.75vw,34px);max-width:75%}
+.insurance-3plus .insurance-hero p{font-weight:600}
+.insurance-3plus .insurance-toc{margin-top:10px;margin-bottom:0}
+.plus-intro{display:grid;grid-template-columns:1.18fr 1fr;gap:40px;padding-block:28px}
+.plus-intro>div>p{margin-top:12px}.plus-intro>div>p+p{margin-top:25px}
+.plus-info{display:grid;gap:16px;align-content:start}
+.plus-info article{display:flex;align-items:flex-start;gap:22px;background:linear-gradient(110deg,#eefaff,#e9f8ff);border-radius:10px;padding:22px}
+.plus-info article:last-child{background:linear-gradient(110deg,#e2f9f8,#edfaff)}
+.plus-info article>svg{width:66px;height:72px;color:#0094e6;stroke-width:1.7}
+.plus-info article:last-child>svg{color:#00a49e}
+.plus-info h3{font-size:22px;margin-bottom:8px}.plus-info p{font-size:17px;line-height:1.5}
+.plus-coverage{background:linear-gradient(110deg,#edfbff,#eaf8ff);padding-block:24px}
+.section-subtitle{font-size:clamp(21px,2.6vw,30px)!important;margin-top:4px;line-height:1.3}
+.coverage-rows{display:grid;gap:16px;margin-top:16px}
+.coverage-row{display:grid;grid-template-columns:minmax(0,2.42fr) minmax(0,1fr);gap:14px;align-items:stretch}
+.coverage-card{padding:20px;border-radius:10px;background:#ffffffde;display:flex;flex-direction:column;justify-content:space-between;gap:16px}
+.coverage-description{display:flex;gap:24px;align-items:flex-start}
+.coverage-description>svg{width:75px;height:75px;color:#0783d1;stroke-width:2;flex-shrink:0}
+.coverage-description h3{font-size:clamp(20px,2.35vw,27px);margin-bottom:8px}
+.coverage-description p{font-size:clamp(15px,1.7vw,20px)}
+.coverage-example{background:#e7faff;display:flex;gap:20px;border-radius:8px;padding:15px 18px;align-items:flex-start}
+.coverage-example strong{color:#00a59e;font-size:22px;white-space:nowrap}
+.coverage-example p{font-size:17px}
+.coverage-row figure{position:relative;isolation:isolate;margin:0;min-height:265px;overflow:hidden;border-radius:10px;background:#def3f2}
+.coverage-row figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.coverage-row figcaption{position:absolute;top:20px;right:16px;z-index:1;color:#06417c;font-size:clamp(17px,2vw,24px);font-style:italic;font-weight:600;transform:rotate(-7deg);text-align:center;line-height:1.45;text-shadow:0 1px 8px #fff}
+.coverage-row figure:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#ffffff7a,transparent 40%);pointer-events:none}
+.coverage-row:last-child figure img{object-position:67% center}
+.coverage-row:last-child figure:after{background:linear-gradient(180deg,#ffffffe0,transparent 48%)}
+.plus-exclusions{background:linear-gradient(115deg,#fff1f2,#ffedef);padding-block:23px}
+.exclusion-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
+.exclusion-grid article{display:flex;gap:24px;padding:22px;background:#ffffffb0;border-radius:10px}
+.exclusion-grid article>svg{width:65px;height:65px;color:#ff5550;stroke-width:1.8}
+.exclusion-grid h3{font-size:22px;margin-bottom:8px}
+.exclusion-grid p{font-size:17px}
+.policy-notice{display:flex;align-items:flex-start;gap:18px;padding:13px 18px;background:#ffe3e5;border-radius:8px;margin-top:12px}
+.policy-notice>span{display:grid;place-items:center;width:36px;height:36px;background:#ff5652;color:#fff;border-radius:50%;font-size:27px;font-weight:700;flex-shrink:0}
+.policy-notice h3{font-size:21px;color:#d82725;margin-bottom:3px}.policy-notice p{font-size:16px}
+.plus-benefits{background:linear-gradient(110deg,#eaf8ff,#fbfefe);padding-block:22px}
+.plus-benefits>.wrap{display:grid;grid-template-columns:1fr 210px;gap:16px;align-items:center}
+.plus-benefits p{margin-top:10px;font-size:18px}
+.plus-benefits figure{position:relative;margin:0;align-self:stretch;min-height:165px;display:flex;align-items:flex-end;justify-content:center}
+.plus-benefits img{width:100%;height:125px;object-fit:contain}
+.plus-benefits figcaption{position:absolute;top:0;right:0;font-size:18px;color:#125089;font-style:italic;transform:rotate(-8deg);text-align:center}
+.plus-faq{padding-block:22px 14px}
+.plus-faq-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.plus-faq-grid article{display:flex;align-items:flex-start;gap:12px;padding:17px 14px;border:1px solid #d4edf3;border-radius:10px}
+.plus-faq-grid .number{width:29px;height:29px;font-size:20px}
+.plus-faq-grid h3{font-size:17px;margin-bottom:10px;line-height:1.4}
+.plus-faq-grid p{font-size:15px;line-height:1.55}
+.plus-related{padding-block:5px 25px}
+.plus-related h2{font-size:clamp(24px,2.8vw,33px)}
+.related-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:14px}
+.related-grid a{display:flex;align-items:flex-start;gap:12px;border:1px solid #d5edf2;border-radius:9px;padding:17px 14px;transition:background .15s}
+.related-grid a:hover{background:#effbfc}
+.related-grid svg{width:45px;height:45px;color:#0ab2aa;stroke-width:1.7}
+.related-grid h3{font-size:17px;line-height:1.4;margin-bottom:7px}
+.related-grid p{font-size:15px}
+@media(max-width:1100px){.plus-intro{gap:28px}.plus-info article{gap:16px;padding:18px}.plus-info article>svg{width:52px;height:58px}.plus-info h3{font-size:20px}.plus-info p{font-size:15px}.coverage-card{padding:17px}.coverage-description{gap:18px}.coverage-description>svg{width:58px;height:58px}.coverage-example{gap:14px;padding:13px}.coverage-example strong{font-size:19px}.coverage-example p{font-size:15px}.coverage-row figure{min-height:245px}.exclusion-grid article{padding:18px;gap:18px}.exclusion-grid article>svg{width:50px;height:50px}.exclusion-grid h3{font-size:19px}.exclusion-grid p{font-size:15px}.policy-notice h3{font-size:19px}.policy-notice p{font-size:14px}.plus-benefits p{font-size:16px}.plus-benefits>.wrap{grid-template-columns:1fr 175px}.plus-faq-grid article{gap:9px;padding:14px 12px}.plus-faq-grid h3{font-size:15px}.plus-faq-grid p{font-size:14px}.related-grid a{gap:10px;padding:14px 12px}.related-grid svg{width:35px;height:35px}.related-grid h3{font-size:15px}.related-grid p{font-size:14px}}
+@media(max-width:800px){.insurance-3plus .insurance-hero h2{max-width:80%;font-size:25px}.plus-intro{gap:20px;padding-block:24px}.plus-intro>div>p{font-size:15px}.plus-info article{gap:12px;padding:15px}.plus-info article>svg{width:42px;height:46px}.plus-info h3{font-size:18px}.plus-info p{font-size:14px}.coverage-row{grid-template-columns:2fr 1fr;gap:12px}.coverage-description{gap:13px}.coverage-description>svg{width:48px;height:48px}.coverage-description h3{font-size:21px}.coverage-description p{font-size:15px}.coverage-example{display:block;padding:12px}.coverage-example strong{display:block;margin-bottom:3px}.coverage-row figcaption{font-size:17px;right:10px;top:18px}.exclusion-grid article{gap:12px;padding:15px}.exclusion-grid article>svg{width:40px;height:40px}.exclusion-grid h3{font-size:18px}.plus-faq-grid{gap:10px}.plus-faq-grid article{display:block}.plus-faq-grid .number{margin-bottom:8px}.related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.related-grid a{padding:16px}.related-grid svg{width:42px;height:42px}.related-grid h3{font-size:18px}.related-grid p{font-size:15px}}
+@media(max-width:600px){.insurance-3plus h2{font-size:27px}.insurance-3plus .insurance-hero h1{font-size:clamp(32px,8vw,45px)}.insurance-3plus .insurance-hero h2{max-width:100%;font-size:24px;line-height:1.4}.insurance-3plus .breadcrumb{flex-wrap:wrap;gap:4px}.insurance-3plus .insurance-hero-copy{padding-bottom:290px}.plus-intro{grid-template-columns:1fr;gap:24px}.plus-intro>div>p{font-size:16px}.plus-info article{padding:18px;gap:16px}.plus-info article>svg{width:48px;height:54px}.plus-info h3{font-size:20px}.plus-info p{font-size:16px}.section-subtitle{font-size:21px!important;margin-top:7px}.coverage-rows{gap:24px}.coverage-row{grid-template-columns:1fr;gap:10px}.coverage-card{padding:18px;gap:16px}.coverage-description{gap:14px}.coverage-description>svg{width:44px;height:44px}.coverage-description h3{font-size:21px}.coverage-description p{font-size:16px}.coverage-example p{font-size:15px}.coverage-row figure{min-height:0;aspect-ratio:1.4}.coverage-row figure img{object-position:center 65%}.coverage-row:last-child figure img{object-position:65% center}.coverage-row figcaption{font-size:21px;right:22px;top:18px}.exclusion-grid{grid-template-columns:1fr}.exclusion-grid article{padding:18px;gap:16px}.exclusion-grid article>svg{width:45px;height:45px}.exclusion-grid h3{font-size:20px}.exclusion-grid p{font-size:16px}.policy-notice{gap:12px;padding:15px}.policy-notice>span{width:30px;height:30px;font-size:23px}.policy-notice h3{font-size:18px}.policy-notice p{font-size:15px}.plus-benefits>.wrap{grid-template-columns:1fr}.plus-benefits p{font-size:16px}.plus-benefits figure{width:220px;justify-self:center;min-height:185px}.plus-benefits img{height:140px}.plus-benefits figcaption{right:10px;font-size:19px}.plus-faq-grid{grid-template-columns:1fr}.plus-faq-grid article{display:flex;padding:18px;gap:12px}.plus-faq-grid h3{font-size:18px;margin-bottom:7px}.plus-faq-grid p{font-size:16px}.plus-faq-grid .number{margin:0}.related-grid{gap:10px}.related-grid a{flex-direction:column;padding:15px;gap:12px}.related-grid h3{font-size:17px}.related-grid p{font-size:15px}.plus-related{padding-block:5px 25px}}
+@media(max-width:360px){.insurance-3plus .insurance-hero h1{font-size:30px}.insurance-3plus .insurance-hero h2{font-size:22px}.coverage-description{display:block}.coverage-description>svg{margin-bottom:10px}.related-grid{grid-template-columns:1fr}.related-grid a{flex-direction:row}}

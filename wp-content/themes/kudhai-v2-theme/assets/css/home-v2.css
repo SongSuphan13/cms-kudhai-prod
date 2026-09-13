@@ -1,0 +1,102 @@
+/* Additional homepage content, using the reference page's visual language. */
+.home-v2-content .home-extra{padding-block:48px}
+.home-v2-content .home-tint{background:#f0f8fb}
+.home-v2-content .home-kicker{display:block;color:#007e82;font-size:12px;font-weight:700;margin-bottom:10px}
+.home-v2-content .home-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.home-v2-content .home-content-card{min-width:0;padding:24px;background:#fff;border:1px solid #dce9ef;border-radius:14px;display:flex;flex-direction:column;align-items:flex-start}
+.home-v2-content .home-content-card h3{font-size:19px;line-height:1.5;margin:12px 0}
+.home-v2-content .home-content-card p{font-size:14px;line-height:1.85;margin:0 0 18px;color:#506488}
+.home-v2-content .home-content-card>a:not(.btn){margin-top:auto;color:#007e82;font-size:13px;font-weight:600;line-height:1.6}
+.home-v2-content .home-step{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;background:#e4f5f0;border-radius:12px;color:#007e82;font-size:16px;font-weight:700}
+.home-v2-content .home-company-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.home-v2-content .home-company-grid a{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:14px;min-height:120px;padding:20px 12px;border:1px solid #dce9ef;border-radius:12px;background:#fff;font-size:18px;font-weight:700;text-align:center}
+.home-v2-content .home-company-grid a:hover{border-color:#80c7c2;background:#f0faf8}
+.home-v2-content .home-company-detail{color:#007e82;font-size:12px;font-weight:500}
+.home-v2-content .home-quick-links{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:22px}
+.home-v2-content .home-quick-links a{border:1px solid #bddfdc;background:#fff;border-radius:24px;padding:10px 18px;font-size:13px;color:#007e82;font-weight:600}
+.home-v2-content .home-about-grid,.home-v2-content .home-quote-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;align-items:center}
+.home-v2-content .home-about-grid h2,.home-v2-content .home-quote-grid h2{font-size:32px;line-height:1.35;margin-bottom:18px}
+.home-v2-content .home-about-grid p,.home-v2-content .home-quote-grid p{font-size:16px;line-height:1.85;color:#506488}
+.home-v2-content .home-about-grid img{display:block;width:100%;height:400px;object-fit:cover;border-radius:16px}
+.home-v2-content .home-about-grid ul,.home-v2-content .home-quote-grid ul{padding-left:22px;margin:20px 0 24px;color:#506488;font-size:15px;line-height:1.85}
+.home-v2-content .home-about-grid li,.home-v2-content .home-quote-grid li{padding-block:5px}
+.home-v2-content .home-process{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;list-style:none;margin:0;padding:0}
+.home-v2-content .home-process li{display:flex;align-items:flex-start;gap:14px;border:1px solid #dce9ef;background:#fff;border-radius:14px;padding:22px;min-width:0}
+.home-v2-content .home-process h3{font-size:18px;line-height:1.5;margin-bottom:10px}
+.home-v2-content .home-process p{font-size:14px;line-height:1.85;color:#506488}
+.home-v2-content .home-inline-link{display:inline-block;color:#007e82;font-size:14px;font-weight:600;margin-top:22px}
+.home-v2-content .home-form-note{font-size:12px;line-height:1.7;color:#506488;margin:12px 0}
+.home-v2-content .home-content-card .home-form-note{font-size:12px;margin-top:18px}
+.home-v2-content .home-compare-result{padding:18px 20px;border:1px solid #99d2c9;background:#e8f7f2;border-radius:12px;color:var(--navy);font-size:14px;line-height:1.8;margin-top:14px}
+.home-v2-content .home-compare-result a{display:inline-block;margin-top:10px;font-weight:700;color:#007e82;text-decoration:underline}
+.home-v2-content [hidden]{display:none!important}
+.home-v2-content .compare-form select:disabled{opacity:.6}
+@media(max-width:1000px){.home-v2-content .home-card-grid,.home-v2-content .home-process{grid-template-columns:repeat(2,minmax(0,1fr))}.home-v2-content .home-company-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.home-v2-content .home-about-grid,.home-v2-content .home-quote-grid{gap:26px}}
+@media(max-width:640px){.home-v2-content .home-extra{padding-block:30px}.home-v2-content .home-card-grid,.home-v2-content .home-process,.home-v2-content .home-about-grid,.home-v2-content .home-quote-grid{grid-template-columns:minmax(0,1fr)}.home-v2-content .home-company-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-v2-content .home-company-grid a{font-size:16px;padding:16px 10px}.home-v2-content .home-about-grid h2,.home-v2-content .home-quote-grid h2{font-size:27px}.home-v2-content .home-quick-links{justify-content:flex-start;gap:8px}.home-v2-content .home-quick-links a{font-size:12px;padding:9px 12px}.home-v2-content .home-content-card{padding:20px}.home-v2-content .home-form-note{font-size:11px}.home-v2-content .home-content-card .btn{white-space:normal;width:100%;text-align:center}}
+
+.home-v2-content .home-company-grid .home-company-logo{display:block;width:100px;height:100px;max-width:100%;object-fit:contain;flex-shrink:0}
+
+.home-v2-content .home-company-grid a{border-radius:20px;overflow:hidden}
+.home-v2-content .home-company-grid .home-company-logo{border-radius:16px}
+
+/* Compact insurer logos without gaps or card padding. */
+.home-v2-content .home-company-grid{gap:0}
+.home-v2-content .home-company-grid a{gap:0;padding:0;min-height:0}
+.home-v2-content .home-company-grid .home-company-logo{width:100%;height:auto;aspect-ratio:1;object-fit:contain}
+
+/* Native-size logos with comfortable spacing and centered wrapping. */
+.home-v2-content .home-company-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.home-v2-content .home-company-grid a{flex:0 0 88px;width:88px;max-width:100%;padding:0;min-height:0}
+.home-v2-content .home-company-grid .home-company-logo{width:100%;height:auto;aspect-ratio:1}
+
+@media(max-width:640px){.home-v2-content .home-company-grid{gap:12px}}
+
+
+
+.home-v2-content .plan.type2{background:#ffe7e1}
+.home-v2-content .plan.ev{background:#daf4ed}
+.home-v2-content .plan.compulsory{background:#e7edff}
+.home-v2-content .plan.type2 h3{color:#aa3f35}
+.home-v2-content .plan.ev h3{color:#007d70}
+.home-v2-content .plan.compulsory h3{color:#31529c}
+.home-v2-content .plan .plan-document{position:absolute;right:20px;bottom:49px;width:70px;height:70px;color:#5275b2;stroke-width:1.4;transform:rotate(8deg)}
+@media(min-width:641px){.home-v2-content .plan-grid{grid-template-columns:repeat(12,minmax(0,1fr))}.home-v2-content .plan-grid>.plan{grid-column:span 3}.home-v2-content .plan-grid>.plan:nth-child(n+5){grid-column:span 4}}
+@media(max-width:640px){.home-v2-content .plan-grid>.plan:last-child{grid-column:1/-1}}
+
+
+/* Restrained neutral cards with the shared CTA background. */
+.home-v2-content #coverage{background:linear-gradient(110deg,#13558d,#094b83);padding:40px 0 32px}
+.home-v2-content #coverage .section-heading{margin-bottom:26px;text-align:center}
+.home-v2-content #coverage .section-heading h2{color:#fff}
+.home-v2-content #coverage .section-heading p{color:#e0edf7;line-height:1.7;margin-top:8px}
+.home-v2-content #coverage .plan-grid{gap:18px}
+.home-v2-content #coverage .plan{display:flex;flex-direction:column;align-items:flex-start;min-width:0;min-height:0;padding:22px 22px 18px;border-radius:12px;border:1px solid #e1e7eb;box-shadow:none}
+.home-v2-content #coverage .plan.blue{background:#f5f7f8}
+.home-v2-content #coverage .plan.teal,.home-v2-content #coverage .plan.ev{background:#f5f7f8}
+.home-v2-content #coverage .plan.yellow-soft,.home-v2-content #coverage .plan.compulsory{background:#f5f7f8}
+.home-v2-content #coverage .plan.coral,.home-v2-content #coverage .plan.type2{background:#f5f7f8}
+.home-v2-content #coverage .plan h3{font-size:36px;line-height:1.2;color:var(--navy);margin-bottom:8px}
+.home-v2-content #coverage .plan p{font-size:15px;line-height:1.6;color:#36536a;min-height:48px}
+.home-v2-content #coverage .plan .car-crop{position:static;align-self:flex-end;flex-shrink:0;width:160px;max-width:100%;height:96px;aspect-ratio:auto;margin:8px 0 4px;background-position:center;background-size:contain}
+.home-v2-content #coverage .plan .plan-document{position:static;align-self:flex-end;flex-shrink:0;width:84px;height:96px;margin:8px 10px 4px;color:#5275a2;transform:rotate(6deg)}
+.home-v2-content #coverage .plan .detail-link{position:static;margin-top:auto;gap:8px;font-size:14px;font-weight:600;color:#075085}
+.home-v2-content #coverage .plan .detail-link svg{width:20px;height:20px}
+.home-v2-content #coverage .plan:hover{transform:translateY(-3px);box-shadow:0 8px 18px #072f4926}
+.home-v2-content #coverage .plan:focus-visible{outline:3px solid #ffcf36;outline-offset:4px}
+.home-v2-content #coverage .home-quick-links{justify-content:center;margin-top:24px}
+.home-v2-content #coverage .home-quick-links a{background:transparent;border-color:#ffffff60;border-radius:8px;color:#fff;padding:11px 20px;font-size:14px;font-weight:600}
+.home-v2-content #coverage .home-quick-links a:hover{background:#ffffff12;border-color:#fff}
+@media(max-width:640px){.home-v2-content #coverage{padding:30px 0}.home-v2-content #coverage .section-heading{margin-bottom:20px}.home-v2-content #coverage .plan-grid{gap:12px}.home-v2-content #coverage .plan{padding:16px 14px;border-radius:10px}.home-v2-content #coverage .plan h3{font-size:31px}.home-v2-content #coverage .plan p{font-size:13px;min-height:42px}.home-v2-content #coverage .plan .car-crop{height:85px}.home-v2-content #coverage .plan .detail-link{font-size:13px}.home-v2-content #coverage .plan.compulsory{display:grid;grid-template-columns:minmax(0,1fr) 84px;column-gap:12px}.home-v2-content #coverage .plan.compulsory .plan-document{grid-column:2;grid-row:1/4;margin:0;width:72px;justify-self:center}.home-v2-content #coverage .plan.compulsory .detail-link{grid-column:1;margin-top:14px}}
+@media(prefers-reduced-motion:reduce){.home-v2-content #coverage .plan{transition:none}.home-v2-content #coverage .plan:hover{transform:none}}
+
+/* Subtle depth and restrained brand accents for coverage cards. */
+.home-v2-content #coverage .plan{background:linear-gradient(145deg,#fff 20%,#edf3f6);border-color:#ffffffb3;box-shadow:0 5px 16px #062d491a;border-top:3px solid #82b9ce}
+.home-v2-content #coverage .plan.teal,.home-v2-content #coverage .plan.ev{border-top-color:#79bdb4}
+.home-v2-content #coverage .plan.blue{border-top-color:#e1be64}
+.home-v2-content #coverage .plan h3{letter-spacing:-.7px}
+.home-v2-content #coverage .plan .car-crop{filter:drop-shadow(0 5px 4px #143b5612)}
+.home-v2-content #coverage .plan .detail-link{align-self:stretch;padding-top:12px;border-top:1px solid #163d5412;justify-content:space-between}
+.home-v2-content #coverage .plan .detail-link svg{color:#168e92}
+.home-v2-content #coverage .plan:hover{border-color:#9ec7cb;box-shadow:0 10px 22px #042e4c26}
+.home-v2-content #coverage .home-quick-links a{background:#ffffff0c;border-color:#ffffff45}
+.home-v2-content #coverage .home-quick-links a:hover{background:#ffffff1c}

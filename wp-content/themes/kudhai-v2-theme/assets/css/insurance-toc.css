@@ -1,0 +1,9 @@
+/* The approved class 1 navigation, shared without changing its layout. */
+.insurance-page .insurance-toc{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 0;margin-block:20px;background:transparent;border:0;border-bottom:1px solid #dbe7ee;border-radius:0;box-shadow:none}
+.insurance-page .insurance-toc a{display:inline-flex;align-items:center;justify-content:center;gap:8px;flex:1;padding:14px 10px;min-height:48px;background:transparent;border:0;border-bottom:2px solid transparent;border-radius:0;color:#36536b;font-size:14px;font-weight:600;line-height:1.5;white-space:nowrap;transition:color .18s,border-color .18s}
+.insurance-page .insurance-toc a svg{width:22px;height:22px;padding:0;background:none;border-radius:0;color:#008d89}
+.insurance-page .insurance-toc a:hover{color:#007f7b;border-bottom-color:#009b95}
+.insurance-page .insurance-toc a:focus-visible{outline:2px solid #009b95;outline-offset:-2px}
+.insurance-page .insurance-toc>strong{display:none}
+@media(max-width:800px){.insurance-page .insurance-toc{justify-content:flex-start;flex-wrap:wrap;gap:0}.insurance-page .insurance-toc a{flex:0 1 50%;min-width:0;justify-content:flex-start;padding:12px 8px;font-size:13px;white-space:normal}.insurance-page .insurance-toc a:last-child{flex-basis:100%;justify-content:center}}
+@media(prefers-reduced-motion:reduce){.insurance-page .insurance-toc a{transition:none}}

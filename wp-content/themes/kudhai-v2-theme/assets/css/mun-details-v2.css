@@ -1,0 +1,103 @@
+/* V2 reading layout for all thirteen mun-lamert guides. */
+.mun-detail-page{background:var(--paper);color:var(--navy)}
+.mun-detail-page #mun-guide{font:16px/1.8 'Noto Sans Thai',Tahoma,sans-serif}
+#mun-guide .container{width:calc(100% - 96px);max-width:1180px;margin-inline:auto;min-width:0}
+#mun-guide .ml-hero{position:relative;padding:30px 0 48px;background:linear-gradient(115deg,#e1f5ff 0%,#edfafa 65%,#def6f2 100%);border-bottom:1px solid #dce9ef}
+#mun-guide .ml-crumb{display:flex;flex-wrap:wrap;justify-content:flex-start;gap:8px;line-height:1.7;margin-bottom:28px;color:var(--muted);font-size:12px}
+#mun-guide .ml-crumb a{font-size:12px;color:var(--muted)}
+#mun-guide .ml-crumb a:hover{color:var(--teal)}
+#mun-guide .ml-crumb .current{color:var(--navy);font-weight:600}
+#mun-guide .mun-hero-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(280px,1fr);align-items:center;gap:44px}
+#mun-guide .eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:16px;font-size:12px;font-weight:700;color:#007e82;letter-spacing:.2px}
+#mun-guide .eyebrow:before{content:'';width:22px;height:3px;border-radius:2px;background:var(--teal)}
+#mun-guide .mun-hero h1{font-size:clamp(30px,3.3vw,44px);font-weight:800;line-height:1.35;letter-spacing:-.7px;text-wrap:pretty;margin:0 0 20px;color:var(--navy)}
+#mun-guide .mun-hero p{font-size:16px;line-height:1.85;color:#506488;margin:0 0 14px}
+#mun-guide .cta-row{display:flex;align-items:stretch;flex-wrap:wrap;gap:12px;margin-top:24px}
+#mun-guide .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:46px;padding:12px 20px;border:1px solid transparent;border-radius:10px;font:700 14px/1.6 'Noto Sans Thai',Tahoma,sans-serif;text-align:center;text-decoration:none;transition:background .15s,transform .15s}
+#mun-guide .btn-primary{background:var(--yellow);border-color:#f1c326;color:var(--navy)}
+#mun-guide .btn-primary:hover{background:#ffdb65;transform:translateY(-1px)}
+#mun-guide .btn-ghost{background:#fff;border-color:#94c9cc;color:#007e82}
+#mun-guide .btn-ghost:hover{background:#edf8f6;transform:translateY(-1px)}
+#mun-guide .mun-start{background:#fff;border:1px solid #d1e8e7;border-top:4px solid var(--teal);border-radius:16px;padding:26px;box-shadow:0 12px 32px #072d6808}
+#mun-guide .mun-small-label{display:block;color:#007e82;font-size:15px;font-weight:700}
+#mun-guide .mun-start ol{list-style:none;padding:0;margin:10px 0 18px}
+#mun-guide .mun-start li{display:flex;align-items:flex-start;gap:14px;padding:17px 0;border-bottom:1px solid #e4eef1}
+#mun-guide .mun-start li>span{display:grid;place-items:center;flex:0 0 36px;height:36px;background:#e8f7f4;border-radius:10px;color:#007e82;font-size:15px;font-weight:700}
+#mun-guide .mun-start strong{color:var(--navy);font-size:16px}
+#mun-guide .mun-start li p{font-size:13px;line-height:1.7;margin:5px 0 0}
+#mun-guide .mun-start>a{display:flex;justify-content:space-between;gap:12px;color:#007e82;font-size:14px;font-weight:600}
+#mun-guide .mun-reading-layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:36px;padding-block:40px 56px;align-items:start}
+#mun-guide .mun-toc{position:sticky;top:calc(var(--insurance-header-height,85px) + 20px);max-height:calc(100dvh - var(--insurance-header-height,85px) - 40px);overflow:auto;overscroll-behavior:contain;padding:22px;background:#fff;border:1px solid #dce9ef;border-radius:14px}
+#mun-guide .mun-toc nav{display:block}
+#mun-guide .mun-toc h2{font-size:17px;line-height:1.5;margin:0 0 14px}
+#mun-guide .mun-toc ol{padding-left:20px;margin:0;color:#007e82}
+#mun-guide .mun-toc li{padding:5px 0;font-size:13px}
+#mun-guide .mun-toc a{font-size:13px;line-height:1.7;color:var(--muted)}
+#mun-guide .mun-toc a:hover{color:#007e82;text-decoration:underline;text-underline-offset:3px}
+#mun-guide .mun-toc .mun-toc-contact{display:block;margin-top:18px;padding-top:18px;border-top:1px solid #e4eef1;color:#007e82;font-weight:700}
+#mun-guide .mun-article{min-width:0;overflow-wrap:break-word}
+#mun-guide .mun-byline{display:flex;flex-wrap:wrap;gap:8px 20px;padding:0 0 22px;margin-bottom:24px;border-bottom:1px solid #dce9ef;font-size:12px;line-height:1.7;color:var(--muted)}
+#mun-guide .mun-article>section{margin:0 0 24px}
+#mun-guide .mun-article>section[id^="section-"]{padding:28px 30px;border:1px solid #e0e9ef;border-radius:14px;background:#fff}
+#mun-guide .mun-article h2{font-size:clamp(22px,2.1vw,28px);line-height:1.45;color:var(--navy);letter-spacing:-.4px;margin:0 0 16px;text-wrap:pretty}
+#mun-guide .mun-article h3{font-size:19px;line-height:1.5;margin:22px 0 12px}
+#mun-guide .mun-article p{font-size:16px;line-height:1.9;color:#506488;margin:0 0 14px}
+#mun-guide .mun-article p:last-child{margin-bottom:0}
+#mun-guide .mun-article ul,#mun-guide .mun-article ol{padding-left:22px;margin:16px 0 0}
+#mun-guide .mun-article li{padding:4px 0 4px 3px;font-size:16px;line-height:1.85;color:#506488}
+#mun-guide .mun-article li::marker{color:var(--teal)}
+#mun-guide .mun-article a{color:#007e82;text-decoration:underline;text-underline-offset:3px}
+#mun-guide .mun-faq{padding-top:12px}
+#mun-guide .mun-faq details{border:1px solid #dce9ef;border-radius:10px;background:#fff;margin:12px 0;overflow:hidden}
+#mun-guide .mun-faq summary{padding:18px 20px;font-size:16px;font-weight:600;line-height:1.6;color:var(--navy);cursor:pointer}
+#mun-guide .mun-faq summary::marker{color:var(--teal)}
+#mun-guide .mun-faq details[open] summary{border-bottom:1px solid #e4eef1;background:#f0faf8}
+#mun-guide .mun-faq details p{padding:18px 20px;margin:0}
+#mun-guide .mun-source-note{padding:24px;border:1px solid #d4eae6;border-left:4px solid var(--teal);border-radius:0 12px 12px 0;background:#eef9f6}
+#mun-guide .mun-source-note h2{font-size:17px}
+#mun-guide .mun-source-note p{font-size:13px;line-height:1.85}
+#mun-guide .mun-related{padding-top:12px}
+#mun-guide .mun-related ul{display:grid;gap:10px;list-style:none;padding:0;margin:0}
+#mun-guide .mun-related li{padding:0}
+#mun-guide .mun-related a{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px 18px;border:1px solid #dce9ef;border-radius:10px;background:#fff;color:var(--navy);font-size:15px;font-weight:600;text-decoration:none}
+#mun-guide .mun-related a:after{content:'→';color:var(--teal);flex-shrink:0}
+#mun-guide .mun-related a:hover{background:#edf8f6;border-color:#9cd4cf}
+#mun-guide .mun-cta{padding:44px 0;background:linear-gradient(100deg,#def6f2,#ecfbfa);border-top:1px solid #d4eae6;text-align:center}
+#mun-guide .mun-cta h2{font-size:clamp(25px,3vw,36px);line-height:1.4;color:var(--navy);margin-bottom:14px}
+#mun-guide .mun-cta p{max-width:640px;margin:auto;font-size:16px;line-height:1.8;color:var(--muted)}
+#mun-guide .mun-cta .cta-row{justify-content:center}
+#mun-guide a:focus-visible,#mun-guide summary:focus-visible{outline:3px solid var(--teal);outline-offset:4px}
+@media(max-width:1000px){
+ #mun-guide .container{width:calc(100% - 48px)}
+ #mun-guide .mun-hero-grid{gap:24px;grid-template-columns:minmax(0,1.4fr) minmax(260px,1fr)}
+ #mun-guide .mun-start{padding:22px}
+ #mun-guide .mun-reading-layout{grid-template-columns:220px minmax(0,1fr);gap:24px}
+ #mun-guide .mun-toc{padding:18px}
+ #mun-guide .mun-article>section[id^="section-"]{padding:24px}
+}
+@media(max-width:760px){
+ #mun-guide .ml-hero{padding-block:24px 32px}
+ #mun-guide .mun-hero-grid,#mun-guide .mun-reading-layout{grid-template-columns:minmax(0,1fr)}
+ #mun-guide .mun-hero h1{font-size:clamp(28px,5vw,36px)}
+ #mun-guide .ml-crumb{margin-bottom:20px}
+ #mun-guide .mun-toc{position:static;max-height:none}
+ #mun-guide .mun-toc ol{columns:2;column-gap:28px}
+ #mun-guide .mun-toc li{break-inside:avoid}
+ #mun-guide .mun-reading-layout{padding-block:28px 36px}
+}
+@media(max-width:480px){
+ #mun-guide .container{width:calc(100% - 32px)}
+ #mun-guide .mun-hero h1{font-size:28px;line-height:1.4}
+ #mun-guide .mun-hero p,#mun-guide .mun-article p,#mun-guide .mun-article li{font-size:15px}
+ #mun-guide .cta-row{flex-direction:column}
+ #mun-guide .btn{width:100%;padding:12px 16px}
+ #mun-guide .mun-start{padding:20px}
+ #mun-guide .mun-toc ol{columns:auto}
+ #mun-guide .mun-article>section[id^="section-"]{padding:20px 18px}
+ #mun-guide .mun-article h2{font-size:22px}
+ #mun-guide .mun-source-note{padding:20px 18px}
+ #mun-guide .mun-faq summary,#mun-guide .mun-faq details p{padding:16px}
+ #mun-guide .mun-byline{flex-direction:column;font-size:11px}
+ #mun-guide .mun-cta{padding-block:32px}
+}
+@media(prefers-reduced-motion:reduce){#mun-guide .btn{transition:none}#mun-guide .btn:hover{transform:none}}

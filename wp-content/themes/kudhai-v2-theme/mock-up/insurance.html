@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="th">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="รู้จักประเภทประกันรถยนต์ และจุดที่ควรเปรียบเทียบให้เหมาะกับรถและงบของคุณ"><title>ประกันภัยรถยนต์ — เข้าใจความคุ้มครอง ก่อนเลือกแผน | KUDHai</title><link rel="stylesheet" href="pages.css"><link rel="stylesheet" href="insurance.css"><link rel="stylesheet" href="navigation.css"><link rel="stylesheet" href="hero-layout.css"><style>
+/* Let the hero image fill the section while keeping the section compact. */
+.insurance-overview .hero-backdrop{background:transparent}
+#insurance-main-hero{display:grid;grid-template-columns:minmax(0,1fr);width:100%;max-width:none;min-height:0;height:auto;aspect-ratio:1920 / 540;margin:0;background:#e1f5ff}
+#insurance-main-hero>.insurance-hero-image{
+ position:absolute;inset:0;display:block;width:100%;height:100%;max-width:none;
+ object-fit:cover;object-position:center;transform:none;
+ -webkit-mask-image:none;mask-image:none;
+}
+#insurance-main-hero:after{display:block;position:absolute;inset:0;background:linear-gradient(90deg,#e5f7ffe6 0%,#e5f7ffa6 32%,transparent 58%);-webkit-mask-image:none;mask-image:none;pointer-events:none}
+#insurance-main-hero>.insurance-hero-copy{grid-area:1 / 1;align-self:center;width:100%;max-width:1180px;margin-inline:auto;padding:20px clamp(20px,3vw,36px);z-index:1}
+@media(max-width:1000px){
+ #insurance-main-hero>.insurance-hero-copy{padding:24px clamp(20px,3vw,36px)}
+ #insurance-main-hero h2,#insurance-main-hero p{max-width:100%}
+}
+/* Mobile: one photographic hero, with a dark reading surface and anchored actions. */
+.hero-label-mobile{display:none}
+@media(max-width:600px){
+ #insurance-main-hero{display:block;width:100%;height:50vh;height:50svh;min-height:320px;max-height:500px;aspect-ratio:auto;isolation:isolate;background:#082d47;border-radius:0 0 26px 26px;box-shadow:0 12px 26px -22px #05274280}
+ #insurance-main-hero>.insurance-hero-image{display:block;position:absolute;inset:0;width:100%;height:100%;max-width:none;min-height:0;margin:0;object-fit:cover;object-position:68% center;transform:none;z-index:0;-webkit-mask-image:none;mask-image:none}
+ #insurance-main-hero:after{display:block;position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,#042639f5 0%,#062d44e8 30%,#092c4094 51%,#071f3020 69%,#041c37d9 100%);-webkit-mask-image:none;mask-image:none}
+ #insurance-main-hero>.insurance-hero-copy{position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;width:100%;height:100%;margin:0;padding:24px 20px 20px;z-index:2}
+ #insurance-main-hero .breadcrumb{gap:6px;margin:0 0 18px;padding:0;font-size:10px;line-height:1.5;letter-spacing:.2px;color:#ffffffb3}
+ #insurance-main-hero .breadcrumb a{color:#fff}
+ #insurance-main-hero h1{font-size:clamp(30px,8.7vw,39px);line-height:1.25;letter-spacing:-.8px;color:#fff;text-wrap:balance}
+ #insurance-main-hero h2{max-width:100%;margin:10px 0 0;padding-left:10px;border-left:3px solid #ffce35;font-size:clamp(16px,4.4vw,20px);line-height:1.5;letter-spacing:-.2px;color:#a5f0e5;text-wrap:pretty}
+ #insurance-main-hero p{max-width:320px;margin:12px 0 0;font-size:12px;line-height:1.7;color:#ffffffcc}
+ #insurance-main-hero .actions{display:grid;grid-template-columns:1.1fr 1fr;align-items:stretch;gap:9px;width:100%;margin-top:auto;padding-top:16px;flex-wrap:nowrap}
+ #insurance-main-hero .actions .button{width:100%;min-width:0;min-height:48px;padding:11px 8px;font-size:13px;font-weight:700;line-height:1.4;gap:7px;border-radius:12px;white-space:nowrap}
+ #insurance-main-hero .actions .button.yellow{background:#ffcf36;border-color:#ffdc67;color:#072d48;box-shadow:0 7px 20px #00152038}
+ #insurance-main-hero .actions .button.outline{background:#ffffffeb;border-color:#fff;color:#073450;box-shadow:0 7px 20px #00152026}
+ #insurance-main-hero .actions .button svg{width:18px;height:18px}
+ #insurance-main-hero .actions .button.yellow>svg:last-child,#insurance-main-hero .hero-label-desktop{display:none}
+ #insurance-main-hero .hero-label-mobile{display:inline}
+ #insurance-main-hero .actions .line{width:23px;height:23px;font-size:7px}
+}
+@media(max-width:600px) and (max-height:720px){
+ #insurance-main-hero>.insurance-hero-copy{padding-top:18px;padding-bottom:16px}
+ #insurance-main-hero .breadcrumb{margin-bottom:12px}
+ #insurance-main-hero h1{font-size:30px}
+ #insurance-main-hero h2{font-size:16px;margin-top:8px}
+ #insurance-main-hero p{font-size:11px;margin-top:8px;line-height:1.6}
+}
+@media(max-width:360px){
+ #insurance-main-hero>.insurance-hero-copy{padding-inline:16px}
+ #insurance-main-hero h1{font-size:29px}
+ #insurance-main-hero h2{font-size:15px;padding-left:8px}
+ #insurance-main-hero .actions{gap:8px}
+ #insurance-main-hero .actions .button{font-size:12px;gap:5px;padding-inline:6px}
+}
+@media(max-width:600px) and (max-height:500px){
+ #insurance-main-hero{height:320px}
+}
+</style>
+<style id="insurance-header-styles">
+/* This header is scoped to insurance.html; shared page styles stay intact. */
+:root{--insurance-header-height:85px}
+html{scroll-padding-top:calc(var(--insurance-header-height) + 16px)}
+#siteHeader{position:sticky;top:0;z-index:100;background:#fff;border-top:3px solid var(--teal);border-bottom:1px solid #dce9ef;transition:box-shadow .2s ease}
+#siteHeader.is-scrolled{box-shadow:0 8px 26px #072d6814}
+#siteHeader .kh-header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;width:calc(100% - 64px);max-width:1240px;min-height:81px;margin-inline:auto;padding-block:12px}
+#siteHeader .kh-brand{display:flex;flex-direction:column;align-items:flex-start;gap:11px;flex-shrink:0;color:var(--navy);text-decoration:none}
+#siteHeader .logo{font-size:32px;line-height:1;white-space:nowrap}
+#siteHeader .kh-brand-caption{font-size:10px;font-weight:500;color:var(--muted);white-space:nowrap}
+#siteHeader .kh-desktop-nav{display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:22px;order:initial;width:auto;margin-left:auto}
+#siteHeader .kh-desktop-nav>a,#siteHeader .kh-products>.kh-products-toggle{display:flex;align-items:center;gap:6px;min-height:44px;padding:10px 0;font-size:14px;font-weight:600;line-height:1.5;color:var(--navy);white-space:nowrap}
+#siteHeader .kh-desktop-nav>a:hover,#siteHeader .kh-products>.kh-products-toggle:hover{color:var(--teal)}
+#siteHeader .kh-products>.kh-products-toggle.kh-current{color:#007e82}
+#siteHeader .kh-products{position:relative;margin:0;border:0;padding:0;background:transparent}
+.kh-products>.kh-products-toggle{cursor:pointer;border:0;background:transparent;font:inherit;text-align:left}
+.kh-products>.kh-products-toggle svg{width:17px;height:17px;transition:transform .2s ease}
+.kh-products>.kh-products-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+#siteHeader .kh-product-links{position:absolute;left:-18px;top:calc(100% + 12px);width:300px;max-height:calc(100dvh - var(--insurance-header-height) - 30px);overflow-y:auto;overscroll-behavior:contain;margin:0;padding:8px;list-style:none;background:#fff;border:1px solid #dce9ef;border-radius:14px;box-shadow:0 16px 40px #072d6824}
+#siteHeader .kh-product-links li{margin:0;padding:0;list-style:none}
+#siteHeader .kh-product-links a{display:flex;align-items:center;min-height:44px;padding:11px 14px;border-radius:8px;font-size:14px;font-weight:500;line-height:1.5;color:var(--navy)}
+#siteHeader .kh-product-links a:hover,#siteHeader .kh-product-links a[aria-current="page"]{background:#e9f7f5;color:#007e82}
+#siteHeader .kh-product-links li:first-child{margin-bottom:5px;padding-bottom:5px;border-bottom:1px solid #e3eef4}
+#siteHeader .kh-header-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.kh-quote{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:11px 17px;border:1px solid #f1c326;border-radius:10px;background:var(--yellow);color:var(--navy);font-size:14px;font-weight:700;line-height:1.5;white-space:nowrap;transition:background .2s ease}
+.kh-quote:hover{background:#ffd95c;color:var(--navy)}
+.kh-quote svg{width:20px;height:20px}
+.kh-quote-short{display:none}
+.kh-menu-button{display:none;align-items:center;justify-content:center;flex-shrink:0;width:46px;height:46px;padding:10px;border:1px solid #dce9ef;border-radius:10px;background:#f5f9fb;color:var(--navy);cursor:pointer}
+.kh-menu-button:hover{background:#e9f7f5}
+.kh-menu-button svg{width:23px;height:23px}
+.kh-skip-link{position:fixed;top:8px;left:16px;z-index:200;padding:12px 18px;border-radius:8px;background:var(--navy);color:#fff;transform:translateY(-180%)}
+.kh-skip-link:focus{transform:translateY(0)}
+#insuranceMobileMenu{position:fixed;inset:0 0 0 auto;width:min(400px,calc(100% - 24px));max-width:none;height:100vh;height:100dvh;max-height:none;margin:0;padding:0;overflow:hidden;border:0;border-left:1px solid #dce9ef;border-radius:20px 0 0 20px;background:#fff;color:var(--navy);box-shadow:-15px 0 60px #072d6826}
+#insuranceMobileMenu:not([open]){display:none}
+#insuranceMobileMenu[open]{display:flex;flex-direction:column}
+#insuranceMobileMenu::backdrop{background:#061d3c80;backdrop-filter:blur(3px)}
+#insuranceMobileMenu .kh-mobile-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:calc(22px + env(safe-area-inset-top,0px)) 22px 20px;border-bottom:1px solid #e3eef4;flex-shrink:0}
+#insuranceMobileMenu .kh-mobile-eyebrow{display:block;color:#007e82;font-size:12px;font-weight:600;margin-bottom:6px}
+#insuranceMobileMenu h2{font-size:23px;line-height:1.4;letter-spacing:0}
+#insuranceMobileMenu .kh-close-button{display:flex}
+#insuranceMobileMenu .kh-mobile-scroll{min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:14px 20px calc(24px + env(safe-area-inset-bottom,0px))}
+#insuranceMobileMenu .kh-mobile-nav{display:block;width:100%}
+#insuranceMobileMenu .kh-mobile-nav>a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:50px;padding:13px 10px;font-size:15px;font-weight:600;line-height:1.5;color:var(--navy)}
+#insuranceMobileMenu .kh-mobile-nav>a{border-bottom:1px solid #edf2f5}
+#insuranceMobileMenu .kh-mobile-nav>a svg{width:17px;height:17px;color:#688098}
+#insuranceMobileMenu .kh-mobile-contact{margin-top:24px;padding:20px 16px;border:1px solid #e3eef4;border-radius:14px;background:#f7fafc}
+#insuranceMobileMenu .kh-mobile-contact strong{font-size:15px;line-height:1.6}
+#insuranceMobileMenu .kh-mobile-contact p{font-size:13px;line-height:1.7;margin:6px 0 16px}
+#insuranceMobileMenu .kh-quote{display:flex;width:100%;padding:12px 8px;font-size:14px}
+#insuranceMobileMenu .kh-contact-link{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;margin-top:8px;font-size:13px;color:#007e82;font-weight:600}
+#insuranceMobileMenu .kh-contact-link svg{width:17px;height:17px}
+body.kh-menu-open{overflow:hidden}
+@media(max-width:1100px){
+ #siteHeader .kh-header-inner{gap:18px;width:calc(100% - 40px)}
+ #siteHeader .kh-desktop-nav{gap:18px}
+ #siteHeader .kh-desktop-nav>a,#siteHeader .kh-products>.kh-products-toggle{font-size:13px}
+ #siteHeader .kh-brand-caption{font-size:9px}
+ #siteHeader .kh-quote{padding-inline:13px;font-size:13px}
+ #siteHeader .kh-quote-arrow{display:none}
+}
+@media(max-width:959px){
+ :root{--insurance-header-height:77px}
+ #siteHeader .kh-header-inner{min-height:73px;gap:14px;flex-wrap:wrap}
+ #siteHeader .kh-desktop-nav{order:3;width:100%;justify-content:flex-start;flex-wrap:wrap;margin:0}
+ #siteHeader[data-menu-ready="true"] .kh-desktop-nav{display:none}
+ #siteHeader[data-menu-ready="true"] .kh-menu-button{display:flex}
+ #siteHeader[data-menu-ready="true"] .kh-header-inner{flex-wrap:nowrap}
+ #siteHeader .kh-brand-caption{font-size:10px}
+ #siteHeader .kh-header-actions{margin-left:auto}
+}
+@media(max-width:600px){
+ :root{--insurance-header-height:69px}
+ #siteHeader .kh-header-inner{width:calc(100% - 32px);min-height:65px;padding-block:9px;gap:10px}
+ #siteHeader .logo{font-size:29px}
+ #siteHeader .kh-brand-caption{display:none}
+ #siteHeader .kh-header-actions{gap:8px}
+ #siteHeader .kh-quote{min-height:44px;padding:10px 12px;font-size:13px;gap:6px}
+ #siteHeader .kh-quote svg{width:18px;height:18px}
+ #siteHeader .kh-quote-long{display:none}
+ #siteHeader .kh-quote-short{display:inline}
+ #siteHeader .kh-menu-button{width:44px;height:44px}
+}
+@media(prefers-reduced-motion:reduce){
+ #siteHeader,.kh-quote,.kh-products>.kh-products-toggle svg{transition:none}
+ html{scroll-behavior:auto}
+}
+
+#siteHeader .kh-product-links[hidden],.kh-faq-item [hidden]{display:none}
+#insuranceMobileMenu .kh-mobile-nav>a:hover,#insuranceMobileMenu .kh-mobile-nav>a[aria-current="page"]{color:#007e82;background:#edf8f6}
+.kh-faq-item{border:1px solid #d9e2ea;background:#fff;border-radius:7px}
+.kh-faq-item h3{margin:0}
+.kh-faq-toggle{display:flex;align-items:center;justify-content:space-between;gap:20px;width:100%;border:0;border-radius:7px;background:transparent;color:var(--navy);font:inherit;font-size:17px;font-weight:600;line-height:1.6;text-align:left;padding:12px 20px;cursor:pointer}
+.kh-faq-toggle svg{width:18px;height:18px;flex-shrink:0}
+.kh-faq-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+.kh-faq-item p{font-size:16px;line-height:1.7;padding:0 20px 16px;max-width:950px}
+@media(max-width:600px){.kh-faq-toggle{font-size:15px;padding:13px}.kh-faq-item p{font-size:15px;padding-inline:13px}}
+
+#insuranceMobileMenu [hidden]{display:none!important}
+#insuranceMobileMenu .kh-next-level{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:50px;padding:13px 10px;border:0;border-bottom:1px solid #edf2f5;background:transparent;color:#007e82;font:inherit;font-size:15px;font-weight:600;text-align:left;cursor:pointer}
+#insuranceMobileMenu .kh-next-level svg{width:18px;height:18px}
+#insuranceMobileMenu .kh-next-level:hover{background:#edf8f6}
+
+#insuranceMobileMenu .kh-next-level[aria-expanded="true"] svg{transform:rotate(90deg)}
+#insuranceMobileMenu .kh-sublevel{padding:4px 0 10px 14px;border-bottom:1px solid #edf2f5}
+#insuranceMobileMenu .kh-sublevel>a{display:flex;align-items:center;min-height:44px;padding:11px 10px;color:var(--navy);font-size:14px;font-weight:500;line-height:1.5}
+#insuranceMobileMenu .kh-sublevel>a:hover,#insuranceMobileMenu .kh-sublevel>a[aria-current="page"]{background:#edf8f6;color:#007e82}
+</style>
+</head>
+<body class="insurance-page insurance-overview">
+<svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+<symbol id="icon-car" viewBox="0 0 24 24"><path d="m5 10 2-6h10l2 6M5 10h14a2 2 0 0 1 2 2v6H3v-6a2 2 0 0 1 2-2ZM5 18v3m14-3v3M6 14h2m8 0h2"/></symbol>
+<symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+<symbol id="icon-file" viewBox="0 0 24 24"><path d="M14 2H4v20h16V8ZM14 2v6h6M8 12h8m-8 4h8"/></symbol>
+<symbol id="icon-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+<symbol id="icon-wrench" viewBox="0 0 24 24"><path d="M14 3a7 7 0 0 0-8 9L2 19a2 2 0 0 0 3 3l7-8a7 7 0 0 0 9-8l-5 5-4-4 2-4Z"/></symbol>
+<symbol id="icon-users" viewBox="0 0 24 24"><circle cx="12" cy="7" r="3"/><path d="M7 21v-4a5 5 0 0 1 10 0v4ZM5 5a3 3 0 0 0 0 6m14-6a3 3 0 0 1 0 6M5 14a4 4 0 0 0-4 4v3h3m15-7a4 4 0 0 1 4 4v3h-3"/></symbol>
+<symbol id="icon-shield" viewBox="0 0 24 24"><path d="m12 2 9 4v6c0 5-5 9-9 11-4-2-9-6-9-11V6ZM7 12l3 3 7-7"/></symbol>
+<symbol id="icon-search" viewBox="0 0 24 24"><circle cx="10" cy="10" r="7"/><path d="m15 15 7 7"/></symbol>
+<symbol id="icon-phone" viewBox="0 0 24 24"><path d="m5 2 4 5-3 3c2 4 4 6 8 8l3-3 5 4c-1 5-7 5-13-1S-1 3 5 2Z"/></symbol>
+<symbol id="icon-coins" viewBox="0 0 24 24"><ellipse cx="15" cy="5" rx="7" ry="3"/><path d="M8 5v5c0 4 14 4 14 0V5m-7 9c4 0 7-1 7-3v5c0 2-3 3-7 3"/><ellipse cx="7" cy="15" rx="6" ry="3"/><path d="M1 15v5c0 4 12 4 12 0v-5"/></symbol>
+<symbol id="icon-folder" viewBox="0 0 24 24"><path d="M2 7V3h7l3 4h10v14H2ZM2 10h20"/></symbol>
+<symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 5v7l5 3"/></symbol>
+<symbol id="icon-bulb" viewBox="0 0 24 24"><path d="M8 18c0-5-5-5-5-10a9 9 0 0 1 18 0c0 5-5 5-5 10ZM8 21h8M10 24h4"/></symbol>
+<symbol id="icon-scale" viewBox="0 0 24 24"><path d="M12 2v20M7 22h10M3 6h18M5 6 1 16h8ZM19 6l-4 10h8Z"/></symbol>
+<symbol id="icon-plus" viewBox="0 0 24 24"><path d="M9 2h6v7h7v6h-7v7H9v-7H2V9h7Z"/></symbol>
+<symbol id="icon-person" viewBox="0 0 24 24"><circle cx="12" cy="6" r="4"/><path d="M3 22v-3a9 9 0 0 1 18 0v3Z"/></symbol>
+<symbol id="icon-picture" viewBox="0 0 24 24"><path d="M2 2h20v20H2ZM2 18l6-6 4 4 4-7 6 9"/><circle cx="7" cy="7" r="2"/></symbol>
+<symbol id="icon-gear" viewBox="0 0 24 24"><path d="m9 2 6 0 1 3 3 1 3 4-2 3v3l-3 4-3-1-3 3-4-2v-3l-4-2V9l3-1 1-3Z"/><circle cx="12" cy="12" r="4"/></symbol>
+<symbol id="icon-chart" viewBox="0 0 24 24"><path d="M3 13h4v9H3ZM10 8h4v14h-4ZM17 2h4v20h-4Z"/></symbol><symbol id="icon-wallet" viewBox="0 0 24 24"><path d="M3 6 18 2v4M2 6h19v16H2ZM16 12h7v6h-7Z"/><path d="M19 15h.1"/></symbol></defs></svg>
+<a class="kh-skip-link" href="#insurance-content">ข้ามไปเนื้อหา</a>
+<header class="site-header" id="siteHeader">
+  <div class="kh-header-inner">
+    <a class="kh-brand" id="siteLogo" href="index.html" aria-label="KUDHai คัดให้ — หน้าแรก">
+      <span class="logo">KUD<span>Hai</span></span>
+      <span class="kh-brand-caption">คัดให้ | เปรียบเทียบประกันรถยนต์</span>
+    </a>
+    <nav class="kh-desktop-nav" aria-label="เมนูหลัก">
+      <div class="kh-products" id="insuranceDesktopProducts">
+        <button type="button" class="kh-products-toggle kh-current" aria-expanded="true" aria-controls="insuranceProductLinks">ประกันรถยนต์<svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button>
+        <ul class="kh-product-links" id="insuranceProductLinks"><li><a href="insurance.html" aria-current="page">ประกันรถยนต์ทั้งหมด</a></li>
+<li><a href="insurance-1.html">ประกันรถยนต์ชั้น 1</a></li>
+<li><a href="insurance-2plus.html">ประกันรถยนต์ชั้น 2+</a></li>
+<li><a href="insurance-3plus.html">ประกันรถยนต์ชั้น 3+</a></li>
+<li><a href="insurance-2.html">ประกันรถยนต์ชั้น 2</a></li>
+<li><a href="insurance-3.html">ประกันรถยนต์ชั้น 3</a></li>
+<li><a href="insurance-ev.html">ประกันรถยนต์ไฟฟ้า (EV)</a></li>
+<li><a href="compulsory.html">พ.ร.บ. รถยนต์</a></li>
+<li><a href="insurance-guide.html">คู่มือเลือกประกันรถยนต์</a></li></ul>
+      </div>
+      <a href="articles.html">บทความ</a>
+      <a href="claims.html#faq">คำถามที่พบบ่อย</a>
+      <a href="contact.html">ติดต่อเรา</a>
+    </nav>
+    <div class="kh-header-actions">
+      <a class="kh-quote" href="index.html#compare"><svg aria-hidden="true"><use href="#icon-car"/></svg><span class="kh-quote-long">เช็กเบี้ยประกันรถยนต์</span><span class="kh-quote-short">เช็กเบี้ย</span><svg class="kh-quote-arrow" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+      <button class="kh-menu-button" id="insuranceMenuToggle" type="button" aria-label="เปิดเมนูหลัก" aria-expanded="false" aria-controls="insuranceMobileMenu" aria-haspopup="dialog"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+    </div>
+  </div>
+</header>
+<dialog class="kh-mobile-menu" id="insuranceMobileMenu" aria-labelledby="insuranceMobileTitle">
+  <div class="kh-mobile-top">
+    <div><span class="kh-mobile-eyebrow">KUDHai คัดให้</span><h2 id="insuranceMobileTitle">เมนูหลัก</h2></div>
+    <button class="kh-menu-button kh-close-button" id="insuranceMenuClose" type="button" aria-label="ปิดเมนูหลัก" autofocus><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></svg></button>
+  </div>
+  <div class="kh-mobile-scroll">
+    <nav class="kh-mobile-nav" id="insuranceMobileRoot" aria-label="เมนูหลักบนมือถือ"><a href="index.html">หน้าแรก</a>
+<button type="button" class="kh-next-level" id="insuranceMobileProductsToggle" aria-expanded="false" aria-controls="insuranceMobileProducts" aria-label="ประกันรถยนต์ เปิดเมนูย่อย"><span>ประกันรถยนต์</span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button>
+<div class="kh-sublevel" id="insuranceMobileProducts" hidden>
+<a href="insurance.html" aria-current="page">ประกันรถยนต์ทั้งหมด</a>
+<a href="insurance-1.html">ประกันรถยนต์ชั้น 1</a>
+<a href="insurance-2plus.html">ประกันรถยนต์ชั้น 2+</a>
+<a href="insurance-3plus.html">ประกันรถยนต์ชั้น 3+</a>
+<a href="insurance-2.html">ประกันรถยนต์ชั้น 2</a>
+<a href="insurance-3.html">ประกันรถยนต์ชั้น 3</a>
+<a href="insurance-ev.html">ประกันรถยนต์ไฟฟ้า (EV)</a>
+<a href="compulsory.html">พ.ร.บ. รถยนต์</a>
+<a href="insurance-guide.html">คู่มือเลือกประกันรถยนต์</a>
+</div>
+<a href="articles.html">บทความ</a>
+<a href="claims.html#faq">คำถามที่พบบ่อย</a>
+<a href="contact.html">ติดต่อเรา</a></nav>
+    
+    <div class="kh-mobile-contact"><strong>ให้เราช่วยคัดแผนที่เหมาะกับคุณ</strong><p>เปรียบเทียบความคุ้มครองและเบี้ยประกัน</p><a class="kh-quote" href="index.html#compare"><svg aria-hidden="true"><use href="#icon-car"/></svg>เช็กเบี้ยประกันรถยนต์<svg aria-hidden="true"><use href="#icon-arrow"/></svg></a><a class="kh-contact-link" href="contact.html#line">คุยกับที่ปรึกษาผ่าน LINE<svg aria-hidden="true"><use href="#icon-arrow"/></svg></a></div>
+  </div>
+</dialog>
+<main id="insurance-content" tabindex="-1">
+<div class="hero-backdrop"><section class="insurance-hero" id="insurance-main-hero">
+<img class="insurance-hero-image" src="hero-v4.png" width="1920" height="540" alt="รถเอสยูวีสีขาวบนถนนโค้ง ท่ามกลางต้นไม้และเส้นขอบฟ้ากรุงเทพฯ" fetchpriority="high" decoding="async">
+<div class="wrap insurance-hero-copy"><nav class="breadcrumb" aria-label="เส้นทางหน้า"><a href="index.html">หน้าแรก</a><span>/ ประกันรถยนต์</span></nav><h1>ประกันภัยรถยนต์</h1><h2>เข้าใจความคุ้มครอง ก่อนเลือกแผน</h2><p>รู้จักประเภทประกัน และจุดที่ควรเปรียบเทียบให้เหมาะกับรถและงบของคุณ</p><div class="actions"><a class="button yellow" href="index.html#compare"><svg aria-hidden="true"><use href="#icon-car"/></svg><span class="hero-label-desktop">เช็กเบี้ยประกันรถยนต์</span><span class="hero-label-mobile">เช็กเบี้ยประกัน</span><svg aria-hidden="true"><use href="#icon-arrow"/></svg></a><a class="button outline" href="contact.html#line"><span class="line">LINE</span><span class="hero-label-desktop">ปรึกษาผ่าน LINE</span><span class="hero-label-mobile">ปรึกษา LINE</span></a></div></div></section></div>
+<section class="wrap insurance-intro" id="intro"><div><h2>ประกันรถยนต์คืออะไร?</h2><p>ช่วยรับภาระค่าใช้จ่ายจากความเสียหาย ตามความคุ้มครองและเงื่อนไขที่ระบุในกรมธรรม์</p></div><div class="insurance-info-cards"><article class="insurance-info sky" id="compulsory"><span class="info-icon"><svg aria-hidden="true"><use href="#icon-file"/></svg></span><div><h3><a href="compulsory.html">พ.ร.บ.</a></h3><p>ความคุ้มครองจากบาดเจ็บหรือเสียชีวิตจากรถ ไม่คุ้มครองค่าซ่อมรถ</p></div></article><article class="insurance-info aqua" id="voluntary"><span class="info-icon"><svg aria-hidden="true"><use href="#icon-shield"/></svg></span><div><h3>ประกันภาคสมัครใจ</h3><p>เลือกความคุ้มครองรถและความรับผิดต่อบุคคลภายนอกเพิ่มเติม</p></div></article></div></section>
+<section class="insurance-types" id="types"><div class="wrap"><h2>ประกันแต่ละประเภท ต่างกันอย่างไร?</h2><div class="insurance-type-grid"><a class="insurance-type-card sky" href="insurance-1.html"><h3>ชั้น 1</h3><p>ดูแลรถเรา รถคู่กรณี รถหาย และไฟไหม้ ตามเงื่อนไข</p><img class="" src="assets/car-1.png" alt="รถยนต์ประกอบประกันชั้น 1" width="1536" height="1024" loading="lazy" decoding="async"><span class="text-link">ดูรายละเอียด <svg aria-hidden="true"><use href="#icon-arrow"/></svg></span></a><a class="insurance-type-card aqua" href="insurance-2plus.html"><h3>2+</h3><p>รถเราเมื่อชนกับยานพาหนะทางบก พร้อมความคุ้มครองรถหาย และไฟไหม้</p><img class="" src="assets/car-2.png" alt="รถยนต์ประกอบประกัน2+" width="1536" height="1024" loading="lazy" decoding="async"><span class="text-link">ดูรายละเอียด <svg aria-hidden="true"><use href="#icon-arrow"/></svg></span></a><a class="insurance-type-card sand" href="insurance-3plus.html"><h3>3+</h3><p>รถเราเมื่อชนกับยานพาหนะทางบก และความรับผิดต่อบุคคลภายนอก</p><img class="" src="assets/car-3.png" alt="รถยนต์ประกอบประกัน3+" width="1536" height="1024" loading="lazy" decoding="async"><span class="text-link">ดูรายละเอียด <svg aria-hidden="true"><use href="#icon-arrow"/></svg></span></a><a class="insurance-type-card rose" href="insurance-2.html"><h3>ชั้น 2</h3><p>รถหาย ไฟไหม้ และความรับผิดต่อบุคคลภายนอก</p><img class="" src="assets/car-4.png" alt="รถยนต์ประกอบประกันชั้น 2" width="1536" height="1024" loading="lazy" decoding="async"><span class="text-link">ดูรายละเอียด <svg aria-hidden="true"><use href="#icon-arrow"/></svg></span></a><a class="insurance-type-card sky" href="insurance-3.html"><h3>ชั้น 3</h3><p>เน้นความรับผิดต่อบุคคลภายนอก ไม่คุ้มครองค่าซ่อมรถเรา</p><img class="" src="assets/car-5.png" alt="รถยนต์ประกอบประกันชั้น 3" width="1536" height="1024" loading="lazy" decoding="async"><span class="text-link">ดูรายละเอียด <svg aria-hidden="true"><use href="#icon-arrow"/></svg></span></a></div><a class="ev-entry" href="insurance-ev.html"><svg aria-hidden="true"><use href="#icon-car"/></svg><span><strong>ใช้รถยนต์ไฟฟ้า?</strong> รู้จักความคุ้มครองตัวรถ แบตเตอรี่ และอุปกรณ์ชาร์จ</span><svg aria-hidden="true"><use href="#icon-arrow"/></svg></a><p class="coverage-note">ความคุ้มครอง วงเงิน และข้อยกเว้นขึ้นอยู่กับกรมธรรม์แต่ละแผน</p></div></section>
+<section class="insurance-checks" id="checklist"><div class="wrap checks-layout"><div><h2>ก่อนเปรียบเทียบราคา ดู 4 เรื่องนี้</h2><ol><li><span class="number">1</span><svg aria-hidden="true"><use href="#icon-coins"/></svg><div><h3>ทุนประกัน</h3><p>วงเงินที่ระบุสำหรับตัวรถ</p></div></li><li><span class="number">2</span><svg aria-hidden="true"><use href="#icon-wrench"/></svg><div><h3>ซ่อมห้างหรือซ่อมอู่</h3><p>ตรวจสถานที่และเงื่อนไขการซ่อม</p></div></li><li><span class="number">3</span><svg aria-hidden="true"><use href="#icon-file"/></svg><div><h3>ค่าเสียหายส่วนแรก</h3><p>เช็กส่วนที่อาจต้องจ่ายเอง</p></div></li><li><span class="number">4</span><svg aria-hidden="true"><use href="#icon-shield"/></svg><div><h3>ข้อยกเว้นและเงื่อนไข</h3><p>อ่านรายละเอียดก่อนตัดสินใจ</p></div></li></ol></div><aside class="policy-photo"><img class="" src="assets/pages/insurance-policy.png" alt="กรมธรรม์ประกันภัยรถยนต์ พร้อมกุญแจรถและปากกา" width="1448" height="1086" loading="lazy" decoding="async"></aside></div></section>
+<section class="insurance-choices" id="choose"><div class="wrap"><h2>เลือกให้เหมาะกับการใช้รถของคุณ</h2><p>พิจารณาจากการใช้งาน มูลค่ารถ และงบประมาณ เพื่อเลือกความคุ้มครองที่เหมาะสมที่สุด</p><div class="choices-grid"><article><span class="choice-icon"><svg aria-hidden="true"><use href="#icon-car"/></svg></span><div><h3>ลักษณะการใช้รถ</h3><p>เช่น ใช้ในเมือง เดินทางไกล ใช้เพื่อทำงาน หรือใช้ในครอบครัว</p></div></article><article><span class="choice-icon"><svg aria-hidden="true"><use href="#icon-chart"/></svg></span><div><h3>มูลค่ารถและความเสี่ยง</h3><p>พิจารณาอายุรถ รุ่นรถ และความเสี่ยงในการใช้งาน</p></div></article><article><span class="choice-icon"><svg aria-hidden="true"><use href="#icon-wallet"/></svg></span><div><h3>งบประมาณที่รับได้</h3><p>เลือกแผนที่ให้ความคุ้มครองเหมาะสม กับค่าใช้จ่ายของคุณ</p></div></article></div></div></section>
+<section class="wrap insurance-faq" id="faq"><h2>คำถามที่พบบ่อย</h2><div class="insurance-faq-list"><div class="kh-faq-item"><h3><button type="button" class="kh-faq-toggle" id="insuranceFaqQuestion1" aria-expanded="true" aria-controls="insuranceFaqAnswer1">พ.ร.บ. ต่างจากประกันภาคสมัครใจอย่างไร?<svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></h3><div id="insuranceFaqAnswer1" role="region" aria-labelledby="insuranceFaqQuestion1"><p>พ.ร.บ. คุ้มครองความเสียหายต่อชีวิต ร่างกาย หรือการบาดเจ็บของบุคคลจากอุบัติเหตุทางรถ ไม่คุ้มครองค่าซ่อมรถของเรา ส่วนประกันภาคสมัครใจเพิ่มความคุ้มครองที่ครอบคลุมรถ ทรัพย์สิน และบุคคลภายนอก ตามเงื่อนไขกรมธรรม์</p></div></div><div class="kh-faq-item"><h3><button type="button" class="kh-faq-toggle" id="insuranceFaqQuestion2" aria-expanded="true" aria-controls="insuranceFaqAnswer2">ประกัน 2+ กับ 3+ ต่างกันตรงไหน?<svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></h3><div id="insuranceFaqAnswer2" role="region" aria-labelledby="insuranceFaqQuestion2"><p>ทั้งสองแบบคุ้มครองรถของเราเมื่อชนกับยานพาหนะทางบก แต่ 2+ มีความคุ้มครองกรณีรถหาย ไฟไหม้ด้วย ส่วน 3+ โดยทั่วไปไม่มีความคุ้มครองรถหาย ไฟไหม้ ควรเช็กขอบเขตความคุ้มครองและเงื่อนไขของแผน</p></div></div><div class="kh-faq-item"><h3><button type="button" class="kh-faq-toggle" id="insuranceFaqQuestion3" aria-expanded="true" aria-controls="insuranceFaqAnswer3">ซ่อมห้างกับซ่อมอู่ เลือกอย่างไร?<svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg></button></h3><div id="insuranceFaqAnswer3" role="region" aria-labelledby="insuranceFaqQuestion3"><p>พิจารณาอายุรถ สถานที่ซ่อมที่สะดวก มาตรฐานการซ่อม และงบประมาณ พร้อมตรวจเงื่อนไขของแต่ละแผนก่อนเลือก</p></div></div></div></section>
+<section class="insurance-advisor" id="advisor"><div class="advisor-portrait"><img class="" src="assets/advisor.png" alt="ที่ปรึกษา KUDHai พร้อมช่วยเปรียบเทียบประกันรถยนต์" width="1672" height="941" loading="lazy" decoding="async"></div><div class="insurance-advisor-copy"><h2>ยังเลือกไม่ถูก?<br>ให้เราช่วยเปรียบเทียบ</h2><p>บอกเล่าความต้องการของคุณ<br>เราช่วยแนะนำแผนที่เหมาะสม ให้คุณตัดสินใจได้อย่างมั่นใจ</p><a class="button teal" href="contact.html#line"><span class="line">LINE</span>คุยผ่าน LINE</a><p class="script">เรื่องประกันรถ<br>ให้เราดูแล<i></i></p></div></section>
+<section class="cta"><div class="wrap"><p class="script">ขับไปได้ไกลกว่า<br>ถ้ามีคนช่วยคัดให้<i></i></p><div><h2>ให้เราช่วยคัดตัวเลือกให้คุณ</h2><p>เปรียบเทียบง่าย ได้แผนที่ใช่ พร้อมคำแนะนำจากที่ปรึกษา</p></div><div class="actions"><a class="button yellow" href="index.html#compare"><svg aria-hidden="true"><use href="#icon-car"/></svg>เช็กเบี้ยประกันรถยนต์<svg aria-hidden="true"><use href="#icon-arrow"/></svg></a></div></div></section>
+
+</main>
+<footer class="site-footer wrap"><div class="footer-row"><div class="brand"><a class="logo" href="index.html" aria-label="KUDHai หน้าแรก">KUD<span>Hai</span></a><span>คัดให้ | เปรียบเทียบประกันรถยนต์</span></div><nav aria-label="เมนูส่วนท้าย"><a href="about.html">เกี่ยวกับเรา</a><a href="articles.html">บทความ</a><a href="claims.html#faq">คำถามที่พบบ่อย</a><a href="contact.html">ติดต่อเรา</a></nav><p class="script">ขับขี่อย่างมั่นใจ<br>ในทุกเส้นทางของชีวิต</p><div class="socials"><a href="contact.html#line" aria-label="LINE">LINE</a><a href="contact.html#channels" aria-label="Facebook">f</a><a href="contact.html#channels" aria-label="YouTube">▶</a></div></div><div class="legal"><span>© 2024 KUDHai. สงวนลิขสิทธิ์ทุกประการ</span><span>ประกันรถยนต์... เรื่องยาก ให้เป็นเรื่องง่าย</span></div></footer>
+
+<script id="insurance-header-script">
+(() => {
+  const header = document.getElementById('siteHeader');
+  const toggle = document.getElementById('insuranceMenuToggle');
+  const menu = document.getElementById('insuranceMobileMenu');
+  const close = document.getElementById('insuranceMenuClose');
+  const products = document.getElementById('insuranceDesktopProducts');
+  const desktop = window.matchMedia('(min-width: 960px)');
+  const productsToggle = products.querySelector('.kh-products-toggle');
+  const productLinks = document.getElementById('insuranceProductLinks');
+  const setProductsOpen = (open) => {
+    productLinks.hidden = !open;
+    productsToggle.setAttribute('aria-expanded', String(open));
+  };
+  setProductsOpen(false);
+  productsToggle.addEventListener('click', () => setProductsOpen(productLinks.hidden));
+  document.querySelectorAll('.kh-faq-toggle').forEach(button => {
+    const answer = document.getElementById(button.getAttribute('aria-controls'));
+    answer.hidden = true;
+    button.setAttribute('aria-expanded', 'false');
+    button.addEventListener('click', () => {
+      answer.hidden = !answer.hidden;
+      button.setAttribute('aria-expanded', String(!answer.hidden));
+    });
+  });
+  const subMenu = document.getElementById('insuranceMobileProducts');
+  const nextLevel = document.getElementById('insuranceMobileProductsToggle');
+  const setMobileLevel = (showProducts, focus = false) => {
+    subMenu.hidden = !showProducts;
+    nextLevel.setAttribute('aria-expanded', String(showProducts));
+    nextLevel.setAttribute('aria-label', showProducts ? 'ประกันรถยนต์ ปิดเมนูย่อย' : 'ประกันรถยนต์ เปิดเมนูย่อย');
+    if (focus) nextLevel.focus({ preventScroll: true });
+  };
+  nextLevel.addEventListener('click', () => setMobileLevel(subMenu.hidden));
+  let restoreMenuFocus = true;
+
+  const syncHeight = () => {
+    document.documentElement.style.setProperty('--insurance-header-height', `${header.getBoundingClientRect().height}px`);
+  };
+  const syncScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 8);
+  const closeProducts = (restoreFocus = false) => {
+    if (productLinks.hidden) return;
+    setProductsOpen(false);
+    if (restoreFocus) productsToggle.focus({ preventScroll: true });
+  };
+  const closeMenu = (restoreFocus = true) => {
+    if (!menu.open) return;
+    restoreMenuFocus = restoreFocus;
+    menu.close();
+    toggle.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('kh-menu-open');
+  };
+
+  if (typeof menu.showModal === 'function') {
+    header.dataset.menuReady = 'true';
+    toggle.addEventListener('click', () => {
+      if (desktop.matches) return;
+      closeProducts();
+      restoreMenuFocus = true;
+      setMobileLevel(false);
+      menu.showModal();
+      document.body.classList.add('kh-menu-open');
+      toggle.setAttribute('aria-expanded', 'true');
+    });
+    close.addEventListener('click', () => closeMenu());
+    menu.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      event.preventDefault();
+      event.stopPropagation();
+      if (!subMenu.hidden) setMobileLevel(false, true);
+      else closeMenu();
+    });
+    menu.addEventListener('cancel', (event) => {
+      event.preventDefault();
+      if (!subMenu.hidden) setMobileLevel(false, true);
+      else closeMenu();
+    });
+    menu.addEventListener('close', () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.classList.remove('kh-menu-open');
+      if (restoreMenuFocus && !desktop.matches) toggle.focus({ preventScroll: true });
+    });
+    menu.addEventListener('click', (event) => {
+      if (event.target.closest('a[href]')) {
+        closeMenu(false);
+        return;
+      }
+      if (event.target !== menu) return;
+      const bounds = menu.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeMenu();
+    });
+  }
+
+  document.addEventListener('click', (event) => {
+    if (!products.contains(event.target)) closeProducts();
+  });
+  products.addEventListener('focusout', () => {
+    requestAnimationFrame(() => {
+      if (!products.contains(document.activeElement)) closeProducts();
+    });
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !productLinks.hidden) {
+      event.preventDefault();
+      closeProducts(true);
+    }
+  });
+  desktop.addEventListener('change', () => {
+    const active = document.activeElement;
+    if (desktop.matches && (menu.open || active === toggle)) {
+      closeMenu(false);
+      document.getElementById('siteLogo').focus({ preventScroll: true });
+    } else if (!desktop.matches && products.contains(active)) {
+      toggle.focus({ preventScroll: true });
+    }
+    closeProducts();
+    syncHeight();
+  });
+  window.addEventListener('scroll', syncScroll, { passive: true });
+  window.addEventListener('resize', syncHeight, { passive: true });
+  window.addEventListener('pageshow', () => { closeMenu(false); syncHeight(); syncScroll(); });
+  window.addEventListener('pagehide', () => closeMenu(false));
+  if ('ResizeObserver' in window) new ResizeObserver(syncHeight).observe(header);
+  if (document.fonts) document.fonts.ready.then(syncHeight);
+  syncHeight();
+  syncScroll();
+})();
+</script>
+</body></html>

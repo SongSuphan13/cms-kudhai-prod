@@ -1,0 +1,41 @@
+/* Mobile: one photographic hero, with a dark reading surface and anchored actions. */
+#compulsory-main-hero .hero-label-mobile{display:none}
+@media(max-width:600px){
+ #compulsory-main-hero{display:block;width:100%;height:50vh;height:50svh;min-height:320px;max-height:500px;aspect-ratio:auto;isolation:isolate;background:#082d47;border-radius:0 0 26px 26px;box-shadow:0 12px 26px -22px #05274280}
+ #compulsory-main-hero>.insurance-hero-image{display:block;position:absolute;inset:0;width:100%;height:100%;max-width:none;min-height:0;margin:0;object-fit:cover;object-position:68% center;transform:none;z-index:0;-webkit-mask-image:none;mask-image:none}
+ #compulsory-main-hero:after{content:'';display:block;position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,#042639f5 0%,#062d44e8 30%,#092c4094 51%,#071f3020 69%,#041c37d9 100%);-webkit-mask-image:none;mask-image:none}
+ #compulsory-main-hero>.insurance-hero-copy{position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;width:100%;height:100%;margin:0;padding:24px 20px 20px;z-index:2}
+ #compulsory-main-hero .breadcrumb{gap:6px;margin:0 0 18px;padding:0;font-size:10px;line-height:1.5;letter-spacing:.2px;color:#ffffffb3}
+ #compulsory-main-hero .breadcrumb a{color:#fff}
+ #compulsory-main-hero h1{font-size:clamp(30px,8.7vw,39px);line-height:1.25;letter-spacing:-.8px;color:#fff;text-wrap:balance}
+ #compulsory-main-hero h2{max-width:100%;margin:10px 0 0;padding-left:10px;border-left:3px solid #ffce35;font-size:clamp(16px,4.4vw,20px);line-height:1.5;letter-spacing:-.2px;color:#a5f0e5;text-wrap:pretty}
+ #compulsory-main-hero p{max-width:320px;margin:12px 0 0;font-size:12px;line-height:1.7;color:#ffffffcc}
+ #compulsory-main-hero .actions{display:grid;grid-template-columns:1.1fr 1fr;align-items:stretch;gap:9px;width:100%;margin-top:auto;padding-top:16px;flex-wrap:nowrap}
+ #compulsory-main-hero .actions .button{width:100%;min-width:0;min-height:48px;padding:11px 8px;font-size:13px;font-weight:700;line-height:1.4;gap:7px;border-radius:12px;white-space:nowrap}
+ #compulsory-main-hero .actions .button.yellow{background:#ffcf36;border-color:#ffdc67;color:#072d48;box-shadow:0 7px 20px #00152038}
+ #compulsory-main-hero .actions .button.outline{background:#ffffffeb;border-color:#fff;color:#073450;box-shadow:0 7px 20px #00152026}
+ #compulsory-main-hero .actions .button svg{width:18px;height:18px}
+ #compulsory-main-hero .actions .button.yellow>svg:last-child,#compulsory-main-hero .hero-label-desktop{display:none}
+ #compulsory-main-hero .hero-label-mobile{display:inline}
+ #compulsory-main-hero .actions .line{width:23px;height:23px;font-size:7px}
+}
+@media(max-width:600px) and (max-height:720px){
+ #compulsory-main-hero>.insurance-hero-copy{padding-top:18px;padding-bottom:16px}
+ #compulsory-main-hero .breadcrumb{margin-bottom:12px}
+ #compulsory-main-hero h1{font-size:30px}
+ #compulsory-main-hero h2{font-size:16px;margin-top:8px}
+ #compulsory-main-hero p{font-size:11px;margin-top:8px;line-height:1.6}
+}
+@media(max-width:360px){
+ #compulsory-main-hero>.insurance-hero-copy{padding-inline:16px}
+ #compulsory-main-hero h1{font-size:29px}
+ #compulsory-main-hero h2{font-size:15px;padding-left:8px}
+ #compulsory-main-hero .actions{gap:8px}
+ #compulsory-main-hero .actions .button{font-size:12px;gap:5px;padding-inline:6px}
+}
+@media(max-width:600px) and (max-height:500px){
+ #compulsory-main-hero{height:320px}
+}
+
+
+

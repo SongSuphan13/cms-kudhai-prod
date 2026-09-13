@@ -248,6 +248,9 @@
   .class-card .coverlist svg{ width:15px;height:15px; flex-shrink:0; margin-top:2px; }
   .class-card .coverlist li.yes svg{ color:#1c9a5b; }
   .class-card .coverlist li.no svg{ color:#c6ccd4; }
+  .class-card .card-link{ margin-top:auto; padding-top:4px; font-family:'Prompt', sans-serif; font-weight:600; font-size:12.8px; color:var(--color-primary); display:inline-flex; align-items:center; gap:5px; }
+  .class-card .card-link:hover{ color:var(--color-secondary-dark); }
+  .class-card .card-link svg{ width:13px;height:13px; }
   .classes-note{
     display:flex; gap:10px; align-items:flex-start; margin-top:24px;
     padding:16px 18px; background:#fff; border:1px dashed var(--color-line);
@@ -487,6 +490,7 @@
           <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>ไฟไหม้ / รถหาย / น้ำท่วม</li>
           <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>ความคุ้มครองส่วนบุคคล + พ.ร.บ.</li>
         </ul>
+        <a href="type1/" class="card-link">อ่านรายละเอียดชั้น 1<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="class-card">
         <div class="badge">2+</div>
@@ -498,6 +502,7 @@
           <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>ไฟไหม้ / รถหาย / น้ำท่วม</li>
           <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>ความคุ้มครองส่วนบุคคล + พ.ร.บ.</li>
         </ul>
+        <a href="type2plus/" class="card-link">อ่านรายละเอียดชั้น 2+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="class-card">
         <div class="badge">3+</div>
@@ -509,6 +514,7 @@
           <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg>ไม่คุ้มครองไฟไหม้ / รถหาย / น้ำท่วม</li>
           <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>ความคุ้มครองส่วนบุคคล + พ.ร.บ.</li>
         </ul>
+        <a href="type3plus/" class="card-link">อ่านรายละเอียดชั้น 3+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="class-card">
         <div class="badge">3</div>
@@ -520,12 +526,13 @@
           <li class="no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M18 6L6 18M6 6l12 12"/></svg>ไม่คุ้มครองไฟไหม้ / รถหาย / น้ำท่วม</li>
           <li class="yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>ความคุ้มครองส่วนบุคคล + พ.ร.บ.</li>
         </ul>
+        <a href="type3/" class="card-link">อ่านรายละเอียดชั้น 3<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
 
     <div class="classes-note">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-      ทุนประกัน วงเงินคุ้มครอง และเงื่อนไขค่าเสียหายส่วนแรก อาจแตกต่างกันไปในแต่ละบริษัทและแต่ละกรมธรรม์ ควรอ่านรายละเอียดกรมธรรม์ก่อนตัดสินใจซื้อทุกครั้ง
+      ทุนประกัน วงเงินคุ้มครอง และเงื่อนไขค่าเสียหายส่วนแรก อาจแตกต่างกันไปในแต่ละบริษัทและแต่ละกรมธรรม์ ควรอ่านรายละเอียดกรมธรรม์ก่อนตัดสินใจซื้อทุกครั้ง บางบริษัทยังมี <a href="type2/" style="color:var(--color-primary);font-weight:600;">ชั้น 2</a> เป็นทางเลือกเพิ่มเติมระหว่างชั้น 2+ และชั้น 3+
     </div>
   </div>
 </section>

@@ -59,7 +59,7 @@
         <a href="<?php echo esc_url( home_url( '/insurance-companies/' ) ); ?>" <?php echo is_page( 'insurance-companies' ) ? 'class="active"' : ''; ?>>บริษัทประกัน</a>
         <!-- <a href="<?php echo esc_url( home_url( '/articles/' ) ); ?>" <?php echo ( is_page( 'articles' ) || is_singular( 'post' ) ) ? 'class="active"' : ''; ?>>บทความ</a> -->
         <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" <?php echo is_page( 'about' ) ? 'class="active"' : ''; ?>>เกี่ยวกับเรา</a>
-        <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>">ติดต่อเรา</a>
+        <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" <?php echo is_page( 'contact-us' ) ? 'class="active"' : ''; ?>>ติดต่อเรา</a>
         <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" class="nav-cta">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.9-.95L3 20l1.05-3.6A8.5 8.5 0 1 1 21 11.5z"/></svg>
         ปรึกษาฟรี
@@ -90,7 +90,7 @@
       <a href="<?php echo esc_url( home_url( '/insurance-companies/' ) ); ?>" <?php echo is_page( 'insurance-companies' ) ? 'class="active"' : ''; ?>>บริษัทประกัน</a>
       <!-- <a href="<?php echo esc_url( home_url( '/articles/' ) ); ?>" <?php echo ( is_page( 'articles' ) || is_singular( 'post' ) ) ? 'class="active"' : ''; ?>>บทความ</a> -->
       <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" <?php echo is_page( 'about' ) ? 'class="active"' : ''; ?>>เกี่ยวกับเรา</a>
-      <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>">ติดต่อเรา</a>
+      <a href="<?php echo esc_url( home_url( '/contact-us/' ) ); ?>" <?php echo is_page( 'contact-us' ) ? 'class="active"' : ''; ?>>ติดต่อเรา</a>
       <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>" class="nav-cta">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.9-.95L3 20l1.05-3.6A8.5 8.5 0 1 1 21 11.5z"/></svg>
         ปรึกษาฟรี

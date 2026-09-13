@@ -1220,6 +1220,10 @@ Text Domain: kudhai-theme
     padding:16px;
     margin-top:6px;
   }
+  .quote-submit:disabled{
+    cursor:not-allowed;
+    opacity:.68;
+  }
   .form-note{
     font-size:12.5px;
     color:var(--color-muted);
@@ -1240,6 +1244,11 @@ Text Domain: kudhai-theme
   }
   .form-success.show{ display:flex; }
   .form-success svg{ width:20px;height:20px; flex-shrink:0; }
+  .form-error{
+    background:#fff5f5;
+    border-color:#f3b7b7;
+    color:#a12b2b;
+  }
 
   @media (max-width:900px){
     .quote-wrap{ grid-template-columns:1fr; }

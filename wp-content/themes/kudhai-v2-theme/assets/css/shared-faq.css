@@ -1,0 +1,39 @@
+/* FAQ overview: editorial introduction and numbered expandable cards. */
+body main .kh-shared-faq{display:grid;grid-template-columns:minmax(0,1fr);gap:28px;align-items:start;padding:36px;margin-block:32px 42px;background:linear-gradient(135deg,#edf8ff,#f0faf6);border:1px solid #dceeee;border-radius:24px}
+body main .kh-shared-faq .kh-faq-eyebrow{display:inline-block;padding:6px 12px;border-radius:30px;background:#d7f2e9;color:#007c77;font-size:12px;font-weight:700;margin-bottom:18px}
+body main .kh-shared-faq h2{text-align:left;font-size:30px;line-height:1.4;margin:0 0 14px}
+body main .kh-shared-faq h2>span{display:inline;color:#009b95;font-size:inherit}
+body main .kh-shared-faq .kh-faq-intro>p{font-size:15px;line-height:1.8;color:#52677a}
+body main .kh-shared-faq .kh-faq-tip{display:flex;gap:12px;align-items:center;margin-top:24px}
+body main .kh-shared-faq .kh-faq-tip>span{display:grid;place-items:center;width:46px;height:46px;flex-shrink:0;border-radius:16px;background:#ffda65;color:#123f59;font-size:28px;font-weight:800;transform:rotate(-8deg)}
+body main .kh-shared-faq .kh-faq-tip p{font-size:13px;line-height:1.8}
+body main .kh-shared-faq .kh-faq-tip a{margin-top:8px;min-height:38px;padding:7px 12px;font-size:12px}
+body main .kh-shared-faq .insurance-faq-list{display:grid;gap:14px;margin:0}
+body main .kh-shared-faq .kh-faq-item{background:#fff;border:1px solid #dce8ee;border-radius:16px;overflow:hidden;box-shadow:0 5px 16px #07314a06;transition:border-color .2s,box-shadow .2s}
+body main .kh-shared-faq .kh-faq-item:has([aria-expanded="true"]){border-color:#6bcabd;box-shadow:0 8px 22px #008e7d0c}
+body main .kh-shared-faq .kh-faq-toggle{padding:20px;gap:14px;font-size:16px;line-height:1.6;border-radius:15px}
+body main .kh-shared-faq .kh-faq-toggle:hover{background:#f5fbfa}
+body main .kh-shared-faq .kh-faq-toggle:focus-visible{outline:3px solid #009b95;outline-offset:-4px}
+body main .kh-shared-faq .kh-faq-number{display:grid;place-items:center;width:34px;height:34px;flex-shrink:0;background:#edf5f8;border-radius:10px;font-size:12px;color:#557489}
+body main .kh-shared-faq [aria-expanded="true"] .kh-faq-number{background:#d9f3ec;color:#00786d}
+body main .kh-shared-faq .kh-faq-question{flex:1}
+body main .kh-shared-faq .kh-faq-toggle svg{width:22px;height:22px;padding:3px;background:#edf5f8;border-radius:50%;transition:transform .2s}
+body main .kh-shared-faq .kh-faq-item [role="region"] p{padding:0 22px 22px 68px;font-size:14px;line-height:1.9;color:#52677a}
+@media(max-width:900px){body main .kh-shared-faq{grid-template-columns:1fr;gap:26px}body main .kh-shared-faq .kh-faq-tip{margin-top:16px}}
+@media(max-width:600px){body main .kh-shared-faq{padding:22px 16px;margin-block:24px 30px;border-radius:20px}body main .kh-shared-faq h2{font-size:27px}body main .kh-shared-faq h2>span{font-size:21px}body main .kh-shared-faq .kh-faq-toggle{padding:16px 12px;gap:10px;font-size:15px}body main .kh-shared-faq .kh-faq-number{width:28px;height:28px}body main .kh-shared-faq .kh-faq-item [role="region"] p{padding:0 16px 18px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){body main .kh-shared-faq .kh-faq-item,body main .kh-shared-faq .kh-faq-toggle svg{transition:none}}
+
+/* A quiet closing signature beneath the FAQ cards. */
+body main .kh-shared-faq .kh-faq-hook{display:flex;align-items:center;justify-content:center;gap:24px;padding:24px 16px 4px;border-top:1px solid #cce3e5;text-align:center}
+body main .kh-shared-faq .kh-faq-hook:before,body main .kh-shared-faq .kh-faq-hook:after{content:'';width:56px;height:1px;background:#89bcb9}
+body main .kh-shared-faq .kh-faq-hook p{position:relative;margin:0;color:var(--navy);font-size:clamp(19px,2vw,24px);font-weight:500;line-height:1.7}
+body main .kh-shared-faq .kh-faq-hook p span:last-child{position:relative;display:inline-block;font-weight:700;margin-left:6px;z-index:0}
+body main .kh-shared-faq .kh-faq-hook p span:last-child:after{content:'';position:absolute;left:0;right:0;bottom:5px;height:7px;background:#ffe180;border-radius:50%;z-index:-1;transform:rotate(-2deg)}
+body main .kh-shared-faq .kh-faq-hook>i{display:none}
+@media(max-width:600px){body main .kh-shared-faq .kh-faq-hook{gap:12px;padding:20px 0 4px}body main .kh-shared-faq .kh-faq-hook:before,body main .kh-shared-faq .kh-faq-hook:after{width:24px;flex-shrink:0}body main .kh-shared-faq .kh-faq-hook p span{display:block}body main .kh-shared-faq .kh-faq-hook p span:last-child{margin-left:0}}
+
+body main .kh-shared-faq{width:100%;max-width:none;margin:0;box-sizing:border-box}body main .kh-shared-faq h3{margin:0;padding:0;border:0}body main .kh-shared-faq [hidden]{display:none!important}body main .kh-shared-faq .kh-faq-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;background:transparent;border:0;text-align:left;font-family:inherit;font-weight:600;color:var(--navy);cursor:pointer}body main .kh-shared-faq .kh-faq-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}body main .kh-shared-faq .kh-faq-item [role="region"]{padding:0;margin:0}body main .kh-shared-faq .kh-faq-item [role="region"] ul{margin:0 22px 22px 68px}body main .kh-faq-host:has(>.kh-shared-faq){background:transparent;border:0;padding-block:28px}body main .kh-shared-faq .kh-faq-intro{display:block}body main .kh-shared-faq h2:after{display:none}
+
+/* Bring expanded questions and answers closer together across all FAQ sections. */
+body main :is(.kh-shared-faq,#faq) .kh-faq-toggle[aria-expanded="true"]{padding-bottom:8px}
+body main :is(.kh-shared-faq,#faq) .kh-faq-item [role="region"]>p:first-child{margin-top:0}

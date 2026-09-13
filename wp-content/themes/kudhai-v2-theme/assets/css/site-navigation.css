@@ -1,0 +1,105 @@
+/* Shared navigation from mock-up/insurance.html. */
+
+:root{--insurance-header-height:85px}
+html{scroll-padding-top:calc(var(--insurance-header-height) + 16px)}
+#siteHeader{position:sticky;top:0;z-index:100;background:#fff;border-top:3px solid var(--teal);border-bottom:1px solid #dce9ef;transition:box-shadow .2s ease}
+#siteHeader.is-scrolled{box-shadow:0 8px 26px #072d6814}
+#siteHeader .kh-header-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;width:calc(100% - 64px);max-width:1240px;min-height:81px;margin-inline:auto;padding-block:12px}
+#siteHeader .kh-brand{display:flex;flex-direction:column;align-items:flex-start;gap:11px;flex-shrink:0;color:var(--navy);text-decoration:none}
+#siteHeader .logo{font-size:32px;line-height:1;white-space:nowrap}
+#siteHeader .kh-brand-caption{font-size:10px;font-weight:500;color:var(--muted);white-space:nowrap}
+#siteHeader .kh-desktop-nav{display:flex;align-items:center;justify-content:center;flex-wrap:nowrap;gap:22px;order:initial;width:auto;margin-left:auto}
+#siteHeader .kh-desktop-nav>a,#siteHeader .kh-products>.kh-products-toggle{display:flex;align-items:center;gap:6px;min-height:44px;padding:10px 0;font-size:14px;font-weight:600;line-height:1.5;color:var(--navy);white-space:nowrap}
+#siteHeader .kh-desktop-nav>a:hover,#siteHeader .kh-desktop-nav>a[aria-current="page"],#siteHeader .kh-products>.kh-products-toggle:hover{color:var(--teal)}
+#siteHeader .kh-products>.kh-products-toggle.kh-current{color:#007e82}
+#siteHeader .kh-products{position:relative;margin:0;border:0;padding:0;background:transparent}
+.kh-products>.kh-products-toggle{cursor:pointer;border:0;background:transparent;font:inherit;text-align:left}
+.kh-products>.kh-products-toggle svg{width:17px;height:17px;transition:transform .2s ease}
+.kh-products>.kh-products-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+#siteHeader .kh-product-links{position:absolute;left:-18px;top:calc(100% + 12px);width:300px;max-height:calc(100dvh - var(--insurance-header-height) - 30px);overflow-y:auto;overscroll-behavior:contain;margin:0;padding:8px;list-style:none;background:#fff;border:1px solid #dce9ef;border-radius:14px;box-shadow:0 16px 40px #072d6824}
+#siteHeader .kh-product-links li{margin:0;padding:0;list-style:none}
+#siteHeader .kh-product-links a{display:flex;align-items:center;min-height:44px;padding:11px 14px;border-radius:8px;font-size:14px;font-weight:500;line-height:1.5;color:var(--navy)}
+#siteHeader .kh-product-links a:hover,#siteHeader .kh-product-links a[aria-current="page"]{background:#e9f7f5;color:#007e82}
+#siteHeader .kh-product-links li:first-child{margin-bottom:5px;padding-bottom:5px;border-bottom:1px solid #e3eef4}
+#siteHeader .kh-header-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.kh-quote{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:46px;padding:11px 17px;border:1px solid #f1c326;border-radius:10px;background:var(--yellow);color:var(--navy);font-size:14px;font-weight:700;line-height:1.5;white-space:nowrap;transition:background .2s ease}
+.kh-quote:hover{background:#ffd95c;color:var(--navy)}
+.kh-quote svg{width:20px;height:20px}
+.kh-quote-short{display:none}
+.kh-menu-button{display:none;align-items:center;justify-content:center;flex-shrink:0;width:46px;height:46px;padding:10px;border:1px solid #dce9ef;border-radius:10px;background:#f5f9fb;color:var(--navy);cursor:pointer}
+.kh-menu-button:hover{background:#e9f7f5}
+.kh-menu-button svg{width:23px;height:23px}
+.kh-skip-link{position:fixed;top:8px;left:16px;z-index:200;padding:12px 18px;border-radius:8px;background:var(--navy);color:#fff;transform:translateY(-180%)}
+.kh-skip-link:focus{transform:translateY(0)}
+#insuranceMobileMenu{position:fixed;inset:0 0 0 auto;width:min(400px,calc(100% - 24px));max-width:none;height:100vh;height:100dvh;max-height:none;margin:0;padding:0;overflow:hidden;border:0;border-left:1px solid #dce9ef;border-radius:20px 0 0 20px;background:#fff;color:var(--navy);box-shadow:-15px 0 60px #072d6826}
+#insuranceMobileMenu:not([open]){display:none}
+#insuranceMobileMenu[open]{display:flex;flex-direction:column}
+#insuranceMobileMenu::backdrop{background:#061d3c80;backdrop-filter:blur(3px)}
+#insuranceMobileMenu .kh-mobile-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:calc(22px + env(safe-area-inset-top,0px)) 22px 20px;border-bottom:1px solid #e3eef4;flex-shrink:0}
+#insuranceMobileMenu .kh-mobile-eyebrow{display:block;color:#007e82;font-size:12px;font-weight:600;margin-bottom:6px}
+#insuranceMobileMenu h2{font-size:23px;line-height:1.4;letter-spacing:0}
+#insuranceMobileMenu .kh-close-button{display:flex}
+#insuranceMobileMenu .kh-mobile-scroll{min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:14px 20px calc(24px + env(safe-area-inset-bottom,0px))}
+#insuranceMobileMenu .kh-mobile-nav{display:block;width:100%}
+#insuranceMobileMenu .kh-mobile-nav>a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:50px;padding:13px 10px;font-size:15px;font-weight:600;line-height:1.5;color:var(--navy)}
+#insuranceMobileMenu .kh-mobile-nav>a{border-bottom:1px solid #edf2f5}
+#insuranceMobileMenu .kh-mobile-nav>a svg{width:17px;height:17px;color:#688098}
+#insuranceMobileMenu .kh-mobile-contact{margin-top:24px;padding:20px 16px;border:1px solid #e3eef4;border-radius:14px;background:#f7fafc}
+#insuranceMobileMenu .kh-mobile-contact strong{font-size:15px;line-height:1.6}
+#insuranceMobileMenu .kh-mobile-contact p{font-size:13px;line-height:1.7;margin:6px 0 16px}
+#insuranceMobileMenu .kh-quote{display:flex;width:100%;padding:12px 8px;font-size:14px}
+#insuranceMobileMenu .kh-contact-link{display:flex;align-items:center;justify-content:center;gap:8px;min-height:44px;margin-top:8px;font-size:13px;color:#007e82;font-weight:600}
+#insuranceMobileMenu .kh-contact-link svg{width:17px;height:17px}
+body.kh-menu-open{overflow:hidden}
+@media(max-width:1100px){
+ #siteHeader .kh-header-inner{gap:18px;width:calc(100% - 40px)}
+ #siteHeader .kh-desktop-nav{gap:18px}
+ #siteHeader .kh-desktop-nav>a,#siteHeader .kh-products>.kh-products-toggle{font-size:13px}
+ #siteHeader .kh-brand-caption{font-size:9px}
+ #siteHeader .kh-quote{padding-inline:13px;font-size:13px}
+ #siteHeader .kh-quote-arrow{display:none}
+}
+@media(max-width:1199px){
+ :root{--insurance-header-height:77px}
+ #siteHeader .kh-header-inner{min-height:73px;gap:14px;flex-wrap:wrap}
+ #siteHeader .kh-desktop-nav{order:3;width:100%;justify-content:flex-start;flex-wrap:wrap;margin:0}
+ #siteHeader[data-menu-ready="true"] .kh-desktop-nav{display:none}
+ #siteHeader[data-menu-ready="true"] .kh-menu-button{display:flex}
+ #siteHeader[data-menu-ready="true"] .kh-header-inner{flex-wrap:nowrap}
+ #siteHeader .kh-brand-caption{font-size:10px}
+ #siteHeader .kh-header-actions{margin-left:auto}
+}
+@media(max-width:600px){
+ :root{--insurance-header-height:69px}
+ #siteHeader .kh-header-inner{width:calc(100% - 32px);min-height:65px;padding-block:9px;gap:10px}
+ #siteHeader .logo{font-size:29px}
+ #siteHeader .kh-brand-caption{display:none}
+ #siteHeader .kh-header-actions{gap:8px}
+ #siteHeader .kh-quote{min-height:44px;padding:10px 12px;font-size:13px;gap:6px}
+ #siteHeader .kh-quote svg{width:18px;height:18px}
+ #siteHeader .kh-quote-long{display:none}
+ #siteHeader .kh-quote-short{display:inline}
+ #siteHeader .kh-menu-button{width:44px;height:44px}
+}
+@media(prefers-reduced-motion:reduce){
+ #siteHeader,.kh-quote,.kh-products>.kh-products-toggle svg{transition:none}
+ html{scroll-behavior:auto}
+}
+
+#siteHeader .kh-product-links[hidden]{display:none}
+#insuranceMobileMenu .kh-mobile-nav>a:hover,#insuranceMobileMenu .kh-mobile-nav>a[aria-current="page"]{color:#007e82;background:#edf8f6}
+
+#insuranceMobileMenu [hidden]{display:none!important}
+#insuranceMobileMenu .kh-next-level{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:50px;padding:13px 10px;border:0;border-bottom:1px solid #edf2f5;background:transparent;color:#007e82;font:inherit;font-size:15px;font-weight:600;text-align:left;cursor:pointer}
+#insuranceMobileMenu .kh-next-level svg{width:18px;height:18px}
+#insuranceMobileMenu .kh-next-level:hover{background:#edf8f6}
+
+#insuranceMobileMenu .kh-next-level[aria-expanded="true"] svg{transform:rotate(90deg)}
+#insuranceMobileMenu .kh-sublevel{padding:4px 0 10px 14px;border-bottom:1px solid #edf2f5}
+#insuranceMobileMenu .kh-sublevel>a{display:flex;align-items:center;min-height:44px;padding:11px 10px;color:var(--navy);font-size:14px;font-weight:500;line-height:1.5}
+#insuranceMobileMenu .kh-sublevel>a:hover,#insuranceMobileMenu .kh-sublevel>a[aria-current="page"]{background:#edf8f6;color:#007e82}
+
+/* Keep the seven top-level items readable before switching to the drawer. */
+@media(min-width:1200px) and (max-width:1350px){#siteHeader .kh-header-inner{gap:14px}#siteHeader .kh-desktop-nav{gap:14px}#siteHeader .kh-brand-caption{display:none}#siteHeader .kh-quote-long{display:none}#siteHeader .kh-quote-short{display:inline}#siteHeader .kh-quote-arrow{display:none}}
+#insuranceMobileMenu .kh-next-level.kh-current{background:#edf8f6;font-weight:700}
+.kh-menu-heading{display:block;padding:14px 12px 6px;color:#007e82;font-size:12px;font-weight:700;border-top:1px solid #e3eef4;margin-top:6px}
